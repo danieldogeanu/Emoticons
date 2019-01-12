@@ -1,0 +1,34 @@
+// Base Styles
+// -----------------------------------------------------------------------------
+
+$selection-bg: color(black);
+$selection-color: color(white);
+
+::-moz-selection {
+    background: $selection-bg;
+    color: $selection-color;
+    text-shadow: none;
+}
+
+::selection {
+    background: $selection-bg;
+    color: $selection-color;
+    text-shadow: none;
+}
+
+* {
+	margin: 0; padding: 0;
+	@include box-sizing(border-box);
+}
+
+html {
+	font-size: 100%;
+	line-height: 1.5;
+}
+
+body {
+	background-color: color(white, seashell);
+	font-family: font(open-sans);
+	font-weight: weight(light);
+	color: color(gray, emperor);
+}
