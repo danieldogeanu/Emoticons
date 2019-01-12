@@ -1,0 +1,123 @@
+//  Variables
+//  ----------------------------------------------------------------------------
+//
+//  Table of Contents:
+//
+//   01. Color Scheme
+//   02. Font Family
+//   03. Font Weights
+//   04. Z-Index Scale
+//	 05. Relative Paths
+
+
+// 01. Color Scheme
+// -----------------------------------------------------------------------------
+
+$colors: (
+	white: (
+		base: #ffffff,
+		seashell: #f1f1f1
+	),
+	gray: (
+		alto: #dedede,
+		nobel: #b7b7b7,
+		silver: #afafaf,
+		dusty: #979797,
+		base: gray,
+		boulder: #777777,
+		emperor: #555555,
+		mine-shaft: #363535,
+		cod: #141414
+	),
+	black: (
+		base: #000000
+	),
+	blue: (
+		curious: #2199e8,
+		base: blue
+	),
+	green: (
+		shamrock: #3adb76,
+		base: green
+	),
+	yellow: (
+		base: yellow,
+		web-safe: #ffcc00
+	),
+	orange: (
+		base: orange,
+		web: #eea200,
+		west-side: #ff900a
+	),
+	red: (
+		flamingo: #ec5840,
+		base: red
+	)
+);
+
+$color-scheme: (
+	primary: color(orange, web),
+	secondary: color(gray, cod),
+	tertiary: color(gray, dusty),
+	info: color(blue, curious),
+	success: color(green, shamrock),
+	alert: color(orange, west-side),
+	error: color(red, flamingo)
+);
+
+// 02. Font Family
+// -----------------------------------------------------------------------------
+
+$fonts: (
+	open-sans: ('Open Sans', sans-serif),
+	montserrat: ('Montserrat', sans-serif),
+	source-code-pro: ('Source Code Pro', monospace)
+);
+
+// 03. Font Weights
+// -----------------------------------------------------------------------------
+
+$weights: (
+	light: 300,
+	regular: 400,
+	medium: 500,
+	semi-bold: 600,
+	bold: 700,
+	extra-bold: 800,
+	black: 900
+);
+
+// 04. Z-Index Scale
+// -----------------------------------------------------------------------------
+
+$levels: (
+	0: 0,
+	1: 100,
+	2: 200,
+	3: 300,
+	4: 400,
+	5: 500,
+	6: 600,
+	7: 700,
+	8: 800,
+	9: 900,
+	10: 1000
+);
+
+// 05. Relative Paths
+// -----------------------------------------------------------------------------
+
+// TODO: Make sure these paths are correct.
+$paths: (
+	img: (
+		base: '../images/'
+	),
+	icons: (
+		base: '../images/icons/',
+		png: '../images/icons/png/',
+		svg: '../images/icons/svg/'
+	),
+	fonts: (
+		base: '../fonts/'
+	)
+);
