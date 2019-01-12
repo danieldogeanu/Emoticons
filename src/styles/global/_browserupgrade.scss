@@ -1,0 +1,20 @@
+// Browser Upgrade
+// -----------------------------------------------------------------------------
+
+// NOTE: Don't replace pixels with em or rem. IE doesn't know about those.
+.browserupgrade {
+    margin: 0;
+    padding: rem(10) 0;
+    background: color(red, flamingo);
+    color: color(white, seashell);
+    font-size: rem(18);
+    text-align: center;
+
+    a {
+    	color: color(yellow, web-safe);
+    	font-weight: weight(regular);
+    	&:hover {
+    		text-decoration: underline;
+    	}
+    }
+}
