@@ -122,8 +122,9 @@
 /// Function that selects and returns the color of an element from the $color-scheme array.
 /// @param $element - The name of the element that you wish to retrieve the color for.
 /// @return Returns the hex code for the selected color.
-@function color-scheme($element) {
-	@return map-get($color-scheme, $element);
+@function color-scheme($element, $sub-element: null) {
+	@if ($sub-element) { @return map-get(map-get($color-scheme, $element), $sub-element); }
+	@else { @return map-get($color-scheme, $element); }
 }
 
 /// Function that returns the selected font family from the $fonts array.

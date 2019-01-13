@@ -2,14 +2,14 @@
 // -----------------------------------------------------------------------------
 
 ::-moz-selection {
-    background: color-scheme(selection-bg);
-    color: color-scheme(selection-text);
+    background: color-scheme(selection, bg);
+    color: color-scheme(selection, text);
     text-shadow: none;
 }
 
 ::selection {
-    background: color-scheme(selection-bg);
-    color: color-scheme(selection-text);
+    background: color-scheme(selection, bg);
+    color: color-scheme(selection, text);
     text-shadow: none;
 }
 
