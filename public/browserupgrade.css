@@ -16,3 +16,14 @@
 	font-weight: bold;
 }
 .browserupgrade strong { font-weight: bold; }
+.no-js .browserupgrade { display: none; }
+.no-js noscript {
+	display: block;
+	width: 730px;
+	margin: 200px auto 0 auto;
+	padding: 40px;
+	color: #f1f1f1;
+	font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
