@@ -1,18 +1,15 @@
 // Base Styles
 // -----------------------------------------------------------------------------
 
-$selection-bg: color(black);
-$selection-color: color(white);
-
 ::-moz-selection {
-    background: $selection-bg;
-    color: $selection-color;
+    background: color-scheme(selection-bg);
+    color: color-scheme(selection-text);
     text-shadow: none;
 }
 
 ::selection {
-    background: $selection-bg;
-    color: $selection-color;
+    background: color-scheme(selection-bg);
+    color: color-scheme(selection-text);
     text-shadow: none;
 }
 
@@ -27,8 +24,8 @@ html {
 }
 
 body {
-	background-color: color(purple, amethyst);
+	background-color: color-scheme(background);
 	font-family: font(open-sans);
 	font-weight: weight(light);
-	color: color(gray, emperor);
+	color: color-scheme(text);
 }

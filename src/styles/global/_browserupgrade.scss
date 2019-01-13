@@ -4,17 +4,15 @@
 // NOTE: Don't replace pixels with em or rem. IE doesn't know about those.
 .browserupgrade {
     margin: 0;
-    padding: rem(10) 0;
-    background: color(red, flamingo);
-    color: color(white, seashell);
-    font-size: rem(18);
+    padding: 20px 0;
+    background: color-scheme(browserupgrade-bg);
+    color: color-scheme(browserupgrade-text);
+    font-size: 18px;
     text-align: center;
-
+    strong { font-weight: bold; }
     a {
-    	color: color(yellow, web-safe);
-    	font-weight: weight(regular);
-    	&:hover {
-    		text-decoration: underline;
-    	}
+    	color: color-scheme(browserupgrade-link);
+    	text-decoration: underline;
+    	font-weight: bold;
     }
 }

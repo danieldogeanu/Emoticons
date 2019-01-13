@@ -16,57 +16,78 @@
 $colors: (
 	white: (
 		base: #ffffff,
-		seashell: #f1f1f1
+		seashell: #f1f1f1,
+		mercury: #e5e5e5,
+		clouds: #ecf0f1
 	),
 	gray: (
-		alto: #dedede,
+		silver: #c4c4c4,
+		silver-alt: #bdc3c7,
 		nobel: #b7b7b7,
-		silver: #afafaf,
-		dusty: #979797,
 		base: gray,
-		boulder: #777777,
-		emperor: #555555,
-		mine-shaft: #363535,
-		cod: #141414
+		dove: #6e6e6e,
+		concrete: #95a5a6,
+		asbestos: #7f8c8d,
+		asphalt: #34495e,
+		midnight: #2c3e50
 	),
 	black: (
 		base: #000000
 	),
 	purple: (
-		base: purple,
-		amethyst: #9b59b6
+		amethyst: #9b59b6,
+		wisteria: #8e44ad,
+		base: purple
 	),
 	blue: (
-		curious: #2199e8,
+		peter: #3498db,
+		belize: #2980b9,
 		base: blue
 	),
+	turquoise: (
+		base: #1abc9c,
+		green-sea: #16a085
+	),
 	green: (
-		shamrock: #3adb76,
+		emerald: #2ecc71,
+		nephritis: #27ae60,
 		base: green
 	),
 	yellow: (
-		base: yellow,
-		web-safe: #ffcc00
+		base: #ffcc00,
+		sunflower: #f1c40f
 	),
 	orange: (
-		base: orange,
-		web: #eea200,
-		west-side: #ff900a
+		base: #f39c12,
+		carrot: #e67e22,
+		pumpkin: #d35400,
 	),
 	red: (
-		flamingo: #ec5840,
+		alizarin: #e74c3c,
+		pomegranate: #c0392b,
 		base: red
 	)
 );
 
 $color-scheme: (
-	primary: color(purple, amethyst),
-	secondary: color(gray, cod),
-	tertiary: color(gray, dusty),
-	info: color(blue, curious),
-	success: color(green, shamrock),
-	alert: color(orange, west-side),
-	error: color(red, flamingo)
+	selection-bg: color(black),
+	selection-text: color(white),
+	browserupgrade-bg: color(red, alizarin),
+	browserupgrade-text: color(white, seashell),
+	browserupgrade-link: color(yellow),
+	background: color(purple, amethyst),
+	title: rgba(color(white), 0.7),
+	text: rgba(color(white), 0.6),
+	border: rgba(color(white), 0.2),
+	input-bg: color(white, mercury),
+	input-bg-focus: color(white, seashell),
+	input-border: color(gray, silver),
+	input-placeholder: color(gray, nobel),
+	input-text: color(gray, dove),
+	info: color(blue, peter),
+	success: color(green, emerald),
+	alert: color(orange, carrot),
+	error: color(red, alizarin)
 );
 
 // 02. Font Family
