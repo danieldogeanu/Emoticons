@@ -1,15 +1,18 @@
 /* NOTE: Don't replace pixels with em or rem. IE doesn't know about those. */
-.ie body { background-color: #e74c3c; }
+body { background-color: #9b59b6; }
 .browserupgrade {
-	display: block;
-	width: 730px;
+	display: none;
+	width: 100%;
+	max-width: 730px;
 	margin: 200px auto 0 auto;
 	padding: 40px;
 	color: #f1f1f1;
 	font-family: sans-serif;
-    font-size: 20px;
-    text-align: center;
+	font-size: 20px;
+	text-align: center;
+	box-sizing: border-box;
 }
+.browserupgrade.show { display: block; }
 .browserupgrade a {
 	color: #f1f1f1;
 	text-decoration: underline;
@@ -24,6 +27,7 @@
 	padding: 40px;
 	color: #f1f1f1;
 	font-family: sans-serif;
-    font-size: 20px;
-    text-align: center;
+	font-size: 20px;
+	text-align: center;
+	box-sizing: border-box;
 }
