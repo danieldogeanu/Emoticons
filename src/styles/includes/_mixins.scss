@@ -16,9 +16,9 @@
 /// @param $point - The viewport width or height in pixels (without 'px' unit) where you wish the breakpoint to take action.
 /// @param $dir - The direction of the breakpoint ('width' or 'height').
 @mixin breakpoint($size, $point, $dir: width) {
-    @if (is-size($size) and is-dir($dir)) {
-        @media (#{$size}-#{$dir}: $point) { @content; }
-    }
+	@if (is-size($size) and is-dir($dir)) {
+		@media (#{$size}-#{$dir}: $point) { @content; }
+	}
 }
 
 /// Generates single media query for a range of viewport widths or heights.
@@ -26,9 +26,9 @@
 /// @param $point-two - The maximum viewport width or height in pixels (without 'px' unit).
 /// @param $dir - The direction of the breakpoint ('width' or 'height').
 @mixin breakbetween($point-one, $point-two, $dir: width) {
-    @if is-dir($dir) {
-        @media (min-#{$dir}: $point-one) and (max-#{$dir}: $point-two) { @content; }
-    }
+	@if is-dir($dir) {
+		@media (min-#{$dir}: $point-one) and (max-#{$dir}: $point-two) { @content; }
+	}
 }
 
 /// Generates single media query for a range of viewport widths or heights and one extra breakpoint (3 conditions).
@@ -47,9 +47,9 @@
 /// Generates single media query for orientation of the viewport.
 /// @param $ori - The orientation of the viewport ('landscape' or 'portrait').
 @mixin orientation($ori) {
-    @if is-ori($ori) {
-        @media (orientation: $ori) { @content; }
-    }
+	@if is-ori($ori) {
+		@media (orientation: $ori) { @content; }
+	}
 }
 
 /// Generates single media query for both size and orientation of the viewport.
@@ -58,9 +58,9 @@
 /// @param $ori - The orientation of the viewport ('landscape' or 'portrait').
 /// @param $dir - The direction of the breakpoint ('width' or 'height').
 @mixin breakpoint-orientation($size, $point, $ori, $dir: width) {
-    @if (is-size($size) and is-ori($ori) and is-dir($dir)) {
-        @media (#{$size}-#{$dir}: $point) and (orientation: $ori) { @content; }
-    }
+	@if (is-size($size) and is-ori($ori) and is-dir($dir)) {
+		@media (#{$size}-#{$dir}: $point) and (orientation: $ori) { @content; }
+	}
 }
 
 /// Generates single media query for a range of viewport sizes and one viewport orientation.
@@ -69,9 +69,9 @@
 /// @param $ori - The orientation of the viewport ('landscape' or 'portrait').
 /// @param $dir - The direction of the breakpoint ('width' or 'height').
 @mixin breakbetween-orientation($point-one, $point-two, $ori, $dir: width) {
-    @if (is-ori($ori) and is-dir($dir)) {
-        @media (min-#{$dir}: $point-one) and (max-#{$dir}: $point-two) and (orientation: $ori) { @content; }
-    }
+	@if (is-ori($ori) and is-dir($dir)) {
+		@media (min-#{$dir}: $point-one) and (max-#{$dir}: $point-two) and (orientation: $ori) { @content; }
+	}
 }
 
 /// Generates single media query with two different conditions for width and height (default is width and height).
