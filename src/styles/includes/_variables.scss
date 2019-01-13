@@ -32,6 +32,10 @@ $colors: (
 	black: (
 		base: #000000
 	),
+	purple: (
+		base: purple,
+		amethyst: #9b59b6
+	),
 	blue: (
 		curious: #2199e8,
 		base: blue
@@ -56,7 +60,7 @@ $colors: (
 );
 
 $color-scheme: (
-	primary: color(orange, web),
+	primary: color(purple, amethyst),
 	secondary: color(gray, cod),
 	tertiary: color(gray, dusty),
 	info: color(blue, curious),
