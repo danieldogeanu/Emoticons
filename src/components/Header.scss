@@ -2,4 +2,37 @@
 
 .Header {
 	display: block;
+	width: 100%;
+	margin: 0 0 rem(50) 0;
+	padding: 0;
+
+	h1, h2 {
+		display: block;
+		width: 100%;
+		margin: 0; padding: 0;
+		text-transform: lowercase;
+		text-align: center;
+	}
+
+	h1 {
+		margin-bottom: rem(10);
+		font-family: font(rubik);
+		font-weight: weight(bold);
+		font-size: rem(30);
+		line-height: 1;
+		color: color-scheme(title);
+		@include breakpoint(min, rem(301)) { font-size: rem(40); }
+		@include breakpoint(min, rem(481)) { font-size: rem(50); }
+		@include breakpoint(min, rem(851)) { font-size: rem(60); }
+	}
+
+	h2 {
+		font-family: font(open-sans);
+		font-weight: weight(regular);
+		font-size: rem(15);
+		line-height: 1.3;
+		@include breakpoint(min, rem(301)) { font-size: rem(16); }
+		@include breakpoint(min, rem(481)) { font-size: rem(17); }
+		@include breakpoint(min, rem(851)) { font-size: rem(18); }
+	}
 }
