@@ -149,6 +149,15 @@
 	@each $placeholder in $placeholders { &#{$placeholder} { @content; } }
 }
 
+/// Generate separate rules for each element in the array.
+/// Each CSS rule is completely separate and not separated by comma.
+/// We do this because browsers sometime have no idea what rule to select if they're separated by commas.
+/// This is especially the case when using browser-specific pseudo-elements.
+/// @param $array - An array with elements or pseudo-elements that have common styles.
+@mixin separate($array: null) {
+	@if ($array) { @each $item in $array { &#{$item} { @content; } } }
+}
+
 /// Formula for fluid font calculation that uses the viewport width to dynamically scale the font.
 /// IMPORTANT: You must pass unitless (pixel) values to this mixin (no px or rem at the end).
 /// This takes the pixel values and converts them automatically to rems.
