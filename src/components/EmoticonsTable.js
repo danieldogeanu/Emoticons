@@ -14,11 +14,29 @@ class EmoticonsTable extends Component {
 				</thead>
 				<tbody>
 					<tr>
-						<td className="emoticon">
+						<td>
 							<span role="img" aria-label="Face Medical Mask">😷</span>
 						</td>
-						<td className="name">Face Medical Mask</td>
-						<td className="copy">
+						<td>Face Medical Mask</td>
+						<td>
+							<button className="CopyBtn">Copy</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span role="img" aria-label="Face Medical Mask">😷</span>
+						</td>
+						<td>Face medical mask</td>
+						<td>
+							<button className="CopyBtn">Copy</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span role="img" aria-label="Face Medical Mask">😷</span>
+						</td>
+						<td>Face Medical Mask</td>
+						<td>
 							<button className="CopyBtn">Copy</button>
 						</td>
 					</tr>

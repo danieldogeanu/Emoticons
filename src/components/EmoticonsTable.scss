@@ -1,5 +1,59 @@
 @import '../styles/includes';
 
 .EmoticonsTable {
-	display: block;
+	width: 100%;
+	margin: 0 0 rem(30) 0;
+	padding: 0;
+	@include breakpoint(min, rem(301)) { margin: 0 0 rem(35) 0; }
+	@include breakpoint(min, rem(481)) { margin: 0 0 rem(40) 0; }
+	@include breakpoint(min, rem(851)) { margin: 0 0 rem(50) 0; }
+
+	thead th {
+		font-weight: weight(extra-bold);
+		font-size: rem(12);
+		text-transform: uppercase;
+		color: color-scheme(text);
+		text-align: left;
+		padding: 0 rem(20);
+		&:first-child,
+		&:last-child {
+			padding: 0;
+			text-align: center;
+		}
+		&:first-child {
+			width: rem(50);
+		}
+		&:last-child {
+			width: rem(55);
+		}
+	}
+
+	tbody {
+		tr:first-child td {
+			padding-top: rem(20);
+		}
+		td {
+			padding: 0 rem(10);
+			font-size: rem(16);
+			font-weight: weight(light);
+			text-transform: capitalize;
+			color: color-scheme(text);
+			@include breakpoint(min, rem(301)) { font-size: rem(18); }
+			@include breakpoint(min, rem(481)) { font-size: rem(19); }
+			@include breakpoint(min, rem(851)) { font-size: rem(20); }
+			&:first-child,
+			&:last-child {
+				color: color(white, seashell);
+				text-align: center;
+			}
+			&:first-child {
+				width: rem(50);
+				font-size: rem(26);
+				user-select: none;
+			}
+			&:last-child {
+				width: rem(55);
+			}
+		}
+	}
 }
