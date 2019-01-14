@@ -3,8 +3,11 @@
 .Header {
 	display: block;
 	width: 100%;
-	margin: 0 0 rem(50) 0;
+	margin: 0 0 rem(30) 0;
 	padding: 0;
+	@include breakpoint(min, rem(301)) { margin: 0 0 rem(35) 0; }
+	@include breakpoint(min, rem(481)) { margin: 0 0 rem(40) 0; }
+	@include breakpoint(min, rem(851)) { margin: 0 0 rem(50) 0; }
 
 	h1, h2 {
 		display: block;

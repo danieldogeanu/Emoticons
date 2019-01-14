@@ -2,4 +2,43 @@
 
 .SearchBar {
 	display: block;
+	width: 100%;
+	margin: 0 0 rem(30) 0;
+	padding: 0;
+	@include breakpoint(min, rem(301)) { margin: 0 0 rem(35) 0; }
+	@include breakpoint(min, rem(481)) { margin: 0 0 rem(40) 0; }
+	@include breakpoint(min, rem(851)) { margin: 0 0 rem(50) 0; }
+
+	input[type="text"] {
+		appearance: none;
+		display: block;
+		width: 100%;
+		height: rem(40);
+		padding: 0 rem(20);
+		font-size: rem(15);
+		border-radius: rem(6);
+		border: rem(1) solid color-scheme(input, border);
+		background-color: color-scheme(input, bg);
+		color: color-scheme(input, text);
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+		@include box-shadow(0, 0, rem(10), 0, black, 0.1);
+		@include breakpoint(min, rem(301)) {
+			height: rem(50); font-size: rem(16);
+		}
+		@include breakpoint(min, rem(481)) {
+			height: rem(55); font-size: rem(17);
+		}
+		@include breakpoint(min, rem(851)) {
+			height: rem(60); font-size: rem(18);
+		}
+		&:focus, &:active {
+			background-color: color-scheme(input, bg-focus);
+			@include box-shadow(0, 0, rem(20), 0, black, 0.1);
+			outline: none;
+		}
+		@include placeholders() {
+			color: color-scheme(input, placeholder);
+			opacity: 1;
+		}
+	}
 }
