@@ -1,14 +1,11 @@
 // Base Styles
 // -----------------------------------------------------------------------------
 
-%selection {
+@include separate(('::-moz-selection', '::selection')) {
 	background: color-scheme(selection, bg);
 	color: color-scheme(selection, text);
 	text-shadow: none;
 }
-
-::-moz-selection { @extend %selection; }
-::selection { @extend %selection; }
 
 * {
 	margin: 0; padding: 0;
