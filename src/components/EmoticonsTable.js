@@ -16,6 +16,7 @@ class EmoticonsTable extends Component {
 					</tr>
 				</thead>
 				<tbody>
+					<tr className="invisible-row"><td colSpan="3"></td></tr>
 					{emojis.map((emoticon) => {
 						return <EmoticonItem key={emoticon.no} emoticon={emoticon} />
 					})}

@@ -32,5 +32,10 @@
 	tbody tr {
 		transition: background-color 0.3s ease;
 		&:hover { background-color: color-scheme(item, bg-hover); }
+		&.invisible-row {
+			user-select: none;
+			&:hover { background-color: transparent !important; }
+			td { height: rem(10); }
+		}
 	}
 }
