@@ -24,11 +24,13 @@ function CopyBtn(props) {
 
 class EmoticonItem extends Component {
 	render() {
+		const char = this.props.emoticon.char;
+		const name = this.props.emoticon.name;
 		return (
 			<tr className="EmoticonItem">
-				<td><Emoticon emoticon="😷" /></td>
-				<td>Face Medical Mask</td>
-				<td><CopyBtn emoticon="😷" /></td>
+				<td><Emoticon emoticon={char} /></td>
+				<td>{name}</td>
+				<td><CopyBtn emoticon={char} /></td>
 			</tr>
 		);
 	}

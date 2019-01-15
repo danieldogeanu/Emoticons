@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import EmoticonItem from './EmoticonItem';
 import './EmoticonsTable.scss';
 
+import { emojis } from '../data';
+
 class EmoticonsTable extends Component {
 	render() {
 		return (
@@ -14,10 +16,9 @@ class EmoticonsTable extends Component {
 					</tr>
 				</thead>
 				<tbody>
-					<EmoticonItem />
-					<EmoticonItem />
-					<EmoticonItem />
-					<EmoticonItem />
+					{emojis.map((emoticon) => {
+						return <EmoticonItem key={emoticon.no} emoticon={emoticon} />
+					})}
 				</tbody>
 			</table>
 		);
