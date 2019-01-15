@@ -85,6 +85,11 @@ $color-scheme: (
 		placeholder: color(gray, nobel),
 		text: color(gray, dove),
 	),
+	item: (
+		bg-hover: rgba(color(white), 0.1),
+		btn: rgba(color(white), 0.6),
+		btn-hover: rgba(color(white), 0.8),
+	),
 	info: color(blue, peter),
 	success: color(green, emerald),
 	alert: color(orange, carrot),
