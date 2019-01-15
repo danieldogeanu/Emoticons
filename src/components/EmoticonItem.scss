@@ -41,6 +41,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	line-height: 1;
+	cursor: pointer;
 	transition: background-color 0.3s ease;
 	&:hover { background-color: color-scheme(item, btn-hover); }
 	&:active, &:focus { outline: none; }
