@@ -13,7 +13,9 @@ function Link(props) {
 		<a href={props.data.url} 
 			target="_blank" 
 			rel="noopener noreferrer">
-			{props.data.name}
+			{props.social ? (
+				<span className="show-for-screen-reader">{props.data.name}</span>
+			) : (props.data.name)}
 		</a>
 	);
 }
@@ -23,7 +25,7 @@ function Footer() {
 		<footer className="Footer">
 			<p className="author">By: <Link data={author} /></p>
 			<p className="mynets">Follow Me: 
-				<span>{social.map((value) => <Link data={value} />)}</span>
+				<span>{social.map((value) => <Link data={value} social={true} />)}</span>
 			</p>
 		</footer>
 	);
