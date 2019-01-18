@@ -4,8 +4,9 @@
 	display: flex;
 	width: 100%;
 	height: rem(120);
+	padding: 0 rem(10);
 	align-items: center;
-
+	
 	p {
 		display: block;
 		width: 50%;
@@ -26,6 +27,31 @@
 	}
 
 	.mynets {
+		display: flex;
+		justify-content: end;
+		align-items: center;
 		text-align: right;
+		.wrapper {
+			display: flex;
+			align-items: center;
+			position: relative;
+			bottom: rem(-2);
+			margin-left: rem(3);
+		}
+		.mynet {
+			margin: 0 0 0 rem(14);
+			padding: 0;
+			.icon {
+				width: rem(20);
+				height: rem(20);
+				&.behance {
+					position: relative;
+					margin-left: rem(2);
+					bottom: rem(-1);
+					width: rem(26);
+					height: rem(26);
+				}
+			}
+		}
 	}
 }

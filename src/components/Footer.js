@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './Icon';
 import './Footer.scss';
 
 const author = { name: 'Daniel Dogeanu', url: 'https://danieldogeanu.com' };
@@ -14,7 +15,10 @@ function Link(props) {
 			target="_blank" 
 			rel="noopener noreferrer">
 			{props.social ? (
-				<span className="show-for-screen-reader">{props.data.name}</span>
+				<span className="mynet">
+					<span className="show-for-screen-reader">{props.data.name}</span>
+					<Icon name={props.data.name.toLowerCase()} />
+				</span>
 			) : (props.data.name)}
 		</a>
 	);
@@ -25,7 +29,9 @@ function Footer() {
 		<footer className="Footer">
 			<p className="author">By: <Link data={author} /></p>
 			<p className="mynets">Follow Me: 
-				<span>{social.map((value) => <Link data={value} social={true} />)}</span>
+				<span className="wrapper">
+					{social.map((value) => <Link data={value} social={true} />)}
+				</span>
 			</p>
 		</footer>
 	);
