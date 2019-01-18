@@ -30,7 +30,9 @@ function Footer() {
 			<p className="author">By: <Link data={author} /></p>
 			<p className="mynets">Follow Me: 
 				<span className="wrapper">
-					{social.map((value) => <Link data={value} social={true} />)}
+					{social.map((value) => {
+						return <Link key={value.name.toLowerCase()} data={value} social={true} />;
+					})}
 				</span>
 			</p>
 		</footer>
