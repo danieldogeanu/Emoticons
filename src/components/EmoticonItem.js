@@ -16,7 +16,7 @@ function CopyBtn(props) {
 	return (
 		<button 
 			className="CopyBtn"
-			dataCopy={props.emoticon}>
+			datacopy={props.emoticon}>
 			Copy
 		</button>
 	);
