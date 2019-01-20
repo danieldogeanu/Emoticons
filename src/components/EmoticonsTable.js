@@ -4,6 +4,18 @@ import './EmoticonsTable.scss';
 
 class EmoticonsTable extends Component {
 	render() {
+		const filterText = this.props.filterText;
+		const rows = [];
+
+		this.props.emoticons.forEach(emoticon => {
+			if (emoticon.name.indexOf(filterText) === -1) return;
+			rows.push(
+				<EmoticonRow 
+					key={emoticon.no}
+					emoticon={emoticon} />
+			);
+		});
+
 		return (
 			<table className="EmoticonsTable">
 				<thead>
@@ -15,9 +27,7 @@ class EmoticonsTable extends Component {
 				</thead>
 				<tbody>
 					<tr className="invisible-row"><td colSpan="3"></td></tr>
-					{this.props.emoticons.map((emoticon) => {
-						return <EmoticonRow key={emoticon.no} emoticon={emoticon} />
-					})}
+					{rows}
 				</tbody>
 			</table>
 		);
