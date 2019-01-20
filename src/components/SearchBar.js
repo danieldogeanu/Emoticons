@@ -19,6 +19,7 @@ class SearchBar extends Component {
 		this.selectSearchInput = this.selectSearchInput.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleClearInput = this.handleClearInput.bind(this);
+		this.handleKeyUp = this.handleKeyUp.bind(this);
 	}
 	
 	componentDidMount() {
@@ -49,6 +50,12 @@ class SearchBar extends Component {
 		this.clearBtn.remove('show');
 	}
 
+	handleKeyUp(e) {
+		if (e.keyCode === 27) {
+			this.handleClearInput(e);
+		}
+	}
+
 	render() {
 		return (
 			<form className="SearchBar" 
@@ -57,6 +64,7 @@ class SearchBar extends Component {
 					placeholder="Search Emoticons..."
 					value={this.props.filterText}
 					onChange={this.handleFilterTextChange}
+					onKeyUp={this.handleKeyUp}
 					ref={this.searchInput} />
 				<ClearButton />
 			</form>
