@@ -10,8 +10,14 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
+			filterText: '',
 			emoticons: [],
 		};
+		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+	}
+
+	handleFilterTextChange(filterText) {
+		this.setState({filterText: filterText});
 	}
 
 	componentWillMount() {
@@ -26,9 +32,12 @@ class App extends Component {
 			<div className="App">
 				<IconsSprite />
 				<Header />
-				<SearchBar />
+				<SearchBar
+					filterText={this.state.filterText}
+					onFilterTextChange={this.handleFilterTextChange} />
 				<EmoticonsTable
-					emoticons={this.state.emoticons} />
+					emoticons={this.state.emoticons}
+					filterText={this.state.filterText} />
 				<Footer />
 			</div>
 		);
