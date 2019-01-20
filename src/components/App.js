@@ -4,6 +4,7 @@ import Header from './Header';
 import SearchBar from './SearchBar';
 import EmoticonsTable from './EmoticonsTable';
 import Footer from './Footer';
+import ScrollUp from './ScrollUp';
 import './App.scss';
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
 					emoticons={this.state.emoticons}
 					filterText={this.state.filterText} />
 				<Footer />
+				<ScrollUp />
 			</div>
 		);
 	}

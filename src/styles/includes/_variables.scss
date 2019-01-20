@@ -91,6 +91,10 @@ $color-scheme: (
 		btn: rgba(color(white), 0.6),
 		btn-hover: rgba(color(white), 0.8),
 	),
+	backup: (
+		normal: rgba(color(white), 0.4),
+		hover: rgba(color(white), 0.9),
+	),
 	info: color(blue, peter),
 	success: color(green, emerald),
 	alert: color(orange, carrot),
