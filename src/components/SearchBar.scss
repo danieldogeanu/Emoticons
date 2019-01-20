@@ -16,13 +16,15 @@
 		width: 100%;
 		height: rem(40);
 		padding: 0 rem(20);
+		font-family: font(open-sans);
+		font-weight: weight(regular);
 		font-size: rem(15);
 		border-radius: rem(6);
-		border: rem(1) solid color-scheme(input, border);
+		border: 0 none;
+		box-shadow: none;
 		background-color: color-scheme(input, bg);
 		color: color-scheme(input, text);
-		transition: background-color 0.3s ease, box-shadow 0.3s ease;
-		@include box-shadow(0, 0, rem(10), 0, black, 0.1);
+		transition: background-color 0.3s ease;
 		@include breakpoint(min, rem(301)) {
 			height: rem(50); font-size: rem(16);
 		}
@@ -34,7 +36,6 @@
 		}
 		&:focus, &:active {
 			background-color: color-scheme(input, bg-focus);
-			@include box-shadow(0, 0, rem(20), 0, black, 0.1);
 			outline: none;
 		}
 		@include placeholders() {

@@ -80,18 +80,18 @@ $color-scheme: (
 	text: rgba(color(white), 0.6),
 	border: rgba(color(white), 0.2),
 	input: (
-		bg: rgba(color(white), 0.8),
+		bg: rgba(color(white), 0.6),
 		bg-focus: color(white, seashell),
-		border: color(gray, silver),
-		placeholder: color(gray, chalice),
-		text: color(gray, dove),
+		border: color(white, seashell),
+		placeholder: rgba(color(purple, amethyst), 0.7),
+		text: color(purple, amethyst),
 	),
 	item: (
 		bg-hover: rgba(color(white), 0.1),
 		btn: rgba(color(white), 0.6),
 		btn-hover: rgba(color(white), 0.8),
 	),
-	backup: (
+	scrollup: (
 		normal: rgba(color(white), 0.4),
 		hover: rgba(color(white), 0.9),
 	),
