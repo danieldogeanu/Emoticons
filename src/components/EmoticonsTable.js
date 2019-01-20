@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import EmoticonRow from './EmoticonRow';
 import './EmoticonsTable.scss';
 
+function InvisibleRow() {
+	return <tr className="invisible-row"><td colSpan="3"></td></tr>;
+}
+
 class EmoticonsTable extends Component {
 	render() {
 		const filterText = this.props.filterText;
@@ -26,7 +30,7 @@ class EmoticonsTable extends Component {
 					</tr>
 				</thead>
 				<tbody>
-					<tr className="invisible-row"><td colSpan="3"></td></tr>
+					<InvisibleRow />
 					{rows}
 				</tbody>
 			</table>
