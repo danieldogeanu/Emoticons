@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EmoticonItem from './EmoticonItem';
+import EmoticonRow from './EmoticonRow';
 import './EmoticonsTable.scss';
 
 class EmoticonsTable extends Component {
@@ -32,7 +32,7 @@ class EmoticonsTable extends Component {
 				<tbody>
 					<tr className="invisible-row"><td colSpan="3"></td></tr>
 					{this.state.emoticons.map((emoticon) => {
-						return <EmoticonItem key={emoticon.no} emoticon={emoticon} />
+						return <EmoticonRow key={emoticon.no} emoticon={emoticon} />
 					})}
 				</tbody>
 			</table>

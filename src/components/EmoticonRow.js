@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './EmoticonItem.scss';
+import './EmoticonRow.scss';
 
 function Emoticon(props) {
 	return (
@@ -22,12 +22,12 @@ function CopyBtn(props) {
 	);
 }
 
-class EmoticonItem extends Component {
+class EmoticonRow extends Component {
 	render() {
 		const char = this.props.emoticon.char;
 		const name = this.props.emoticon.name;
 		return (
-			<tr className="EmoticonItem">
+			<tr className="EmoticonRow">
 				<td><Emoticon emoticon={char} /></td>
 				<td>{name}</td>
 				<td><CopyBtn emoticon={char} /></td>
@@ -36,4 +36,4 @@ class EmoticonItem extends Component {
 	}
 }
 
-export default EmoticonItem;
+export default EmoticonRow;
