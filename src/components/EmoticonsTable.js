@@ -8,7 +8,7 @@ class EmoticonsTable extends Component {
 		const rows = [];
 
 		this.props.emoticons.forEach(emoticon => {
-			if (emoticon.name.indexOf(filterText) === -1) return;
+			if (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) return;
 			rows.push(
 				<EmoticonRow 
 					key={emoticon.no}
