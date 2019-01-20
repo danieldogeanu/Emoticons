@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
+import Icon from './Icon';
 import './SearchBar.scss';
+
+function ClearButton() {
+	const clearText = 'Clear Input';
+	return (
+		<button className="ClearButton" title={clearText}>
+			<span className="show-for-screen-reader">{clearText}</span>
+			<Icon name="close" />
+		</button>
+	);
+}
 
 class SearchBar extends Component {
 	constructor(props) {
@@ -7,10 +18,12 @@ class SearchBar extends Component {
 		this.searchInput = React.createRef();
 		this.selectSearchInput = this.selectSearchInput.bind(this);
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+		this.handleClearInput = this.handleClearInput.bind(this);
 	}
-
+	
 	componentDidMount() {
 		window.addEventListener('keyup', this.selectSearchInput);
+		this.clearBtn = document.querySelector('.ClearButton').classList;
 	}
 
 	componentWillUnmount() {
@@ -25,16 +38,27 @@ class SearchBar extends Component {
 
 	handleFilterTextChange(e) {
 		this.props.onFilterTextChange(e.target.value);
+		(e.target.value) ? this.clearBtn.add('show') : this.clearBtn.remove('show');
+	}
+
+	handleClearInput(e) {
+		e.preventDefault();
+		this.searchInput.current.value = '';
+		this.searchInput.current.blur();
+		this.props.onFilterTextClear();
+		this.clearBtn.remove('show');
 	}
 
 	render() {
 		return (
-			<form className="SearchBar">
+			<form className="SearchBar" 
+				onSubmit={e => this.handleClearInput(e)}>
 				<input type="text" 
 					placeholder="Search Emoticons..."
 					value={this.props.filterText}
 					onChange={this.handleFilterTextChange}
 					ref={this.searchInput} />
+				<ClearButton />
 			</form>
 		);
 	}

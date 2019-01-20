@@ -15,10 +15,15 @@ class App extends Component {
 			emoticons: [],
 		};
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
+		this.handleFilterTextClear = this.handleFilterTextClear.bind(this);
 	}
 
 	handleFilterTextChange(filterText) {
 		this.setState({filterText: filterText});
+	}
+
+	handleFilterTextClear() {
+		this.setState({filterText: ''});
 	}
 
 	componentWillMount() {
@@ -35,7 +40,8 @@ class App extends Component {
 				<Header />
 				<SearchBar
 					filterText={this.state.filterText}
-					onFilterTextChange={this.handleFilterTextChange} />
+					onFilterTextChange={this.handleFilterTextChange}
+					onFilterTextClear={this.handleFilterTextClear} />
 				<EmoticonsTable
 					emoticons={this.state.emoticons}
 					filterText={this.state.filterText} />
