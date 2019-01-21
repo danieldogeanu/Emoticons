@@ -119,6 +119,20 @@
 	}
 }
 
+/// Adds browser prefixes for linear-gradient CSS property.
+/// @param $direction - The direction of the gradient (e.g. left, right, top, bottom).
+/// @param $start-color - The first color stop from which to start the gradient.
+/// @param $start-location - The location from which the first color stop starts.
+/// @param $end-color - The last color stop, with which to end the gradient.
+/// @param $end-location - The location where the last color stop ends.
+@mixin linear-gradient($direction, $start-color, $start-location, $end-color, $end-location) {
+	$properties: add-prefixes(linear-gradient);
+	@each $property in $properties {
+		@if ($property == 'linear-gradient') { $direction: #{'to ' + reverse-direction($direction)}; }
+		background: #{$property + '('}$direction, $start-color $start-location, $end-color $end-location#{')'};
+	}
+}
+
 // 03. Other Mixins
 // -----------------------------------------------------------------------------
 

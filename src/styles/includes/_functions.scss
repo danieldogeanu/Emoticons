@@ -33,6 +33,16 @@
 	@return $properties;
 }
 
+/// Function that returns the oposite direction.
+/// @param $dir - The direction string that you need reversed (e.g. left, right, top, bottom).
+/// @return Returns the direction string reversed.
+@function reverse-direction($dir) {
+	@if ($dir == 'left') { @return 'right'; }
+	@if ($dir == 'right') { @return 'left'; }
+	@if ($dir == 'top') { @return 'bottom'; }
+	@if ($dir == 'bottom') { @return 'top'; }
+}
+
 // 02. Units Calculations
 // -----------------------------------------------------------------------------
 
