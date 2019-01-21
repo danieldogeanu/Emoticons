@@ -8,17 +8,14 @@
 	bottom: rem(40);
 	width: rem(40);
 	height: rem(40);
-	border: rem(1) solid color-scheme(scrollup, normal);
+	border: rem(2) solid color-scheme(scrollup, normal);
 	border-radius: rem(4);
 	background-color: transparent;
-	transition: border 0.3s ease, opacity 0.5s ease;
-	.icon.chevron-up {
-		color: color-scheme(scrollup, normal);
-		transition: color 0.3s ease;
-	}
+	color: color-scheme(scrollup, normal);
+	transition: border 0.3s ease, color 0.3s ease, opacity 0.5s ease;
 	&:hover {
-		border: rem(1) solid color-scheme(scrollup, hover);
-		.icon.chevron-up { color: color-scheme(scrollup, hover); }
+		border: rem(2) solid color-scheme(scrollup, hover);
+		color: color-scheme(scrollup, hover);
 	}
 	&:focus, &:active { outline: none; }
 	&.show { opacity: 1; }

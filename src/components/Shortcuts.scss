@@ -1,0 +1,22 @@
+@import '../styles/includes';
+
+.ShortcutsButton {
+	display: block;
+	position: fixed;
+	left: rem(40);
+	bottom: rem(30);
+	width: auto;
+	height: auto;
+	border: 0 none;
+	border-radius: rem(4);
+	background-color: transparent;
+	transition: color 0.3s ease, opacity 0.5s ease;
+	color: color-scheme(scrollup, normal);
+	cursor: pointer;
+	&:hover { color: color-scheme(scrollup, hover); }
+	&:focus, &:active { outline: none; }
+	.icon.keyboard {
+		width: rem(45);
+		height: rem(45);
+	}
+}
