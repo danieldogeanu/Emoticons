@@ -8,6 +8,7 @@ function InvisibleRow() {
 
 class EmoticonsTable extends Component {
 	render() {
+		const ths = ['Face', 'Emoticon Name', 'Get'];
 		const filterText = this.props.filterText;
 		const rows = [];
 
@@ -21,19 +22,16 @@ class EmoticonsTable extends Component {
 		});
 
 		return (
-			<table className="EmoticonsTable">
-				<thead>
-					<tr>
-						<th>Face</th>
-						<th>Emoticon Name</th>
-						<th>Get</th>
-					</tr>
-				</thead>
-				<tbody>
-					<InvisibleRow />
-					{rows}
-				</tbody>
-			</table>
+			<div className="EmoticonsTable">
+				<table>
+					<thead>
+						<tr>{ths.map((title, i) => <th key={i}>{title}</th>)}</tr>
+					</thead>
+					<tbody>
+						<InvisibleRow />{rows}
+					</tbody>
+				</table>				
+			</div>
 		);
 	}
 }
