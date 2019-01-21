@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
-import './Shortcuts.scss';
+import './ShortcutsButton.scss';
 
-class Shortcuts extends Component {
+class ShortcutsButton extends Component {
 	render() {
 		const shortcutsButtonText = 'Keyboard Shortcuts';
 		return (
@@ -14,4 +14,4 @@ class Shortcuts extends Component {
 	}
 }
 
-export default Shortcuts;
+export default ShortcutsButton;

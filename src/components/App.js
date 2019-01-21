@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import EmoticonsTable from './EmoticonsTable';
 import Footer from './Footer';
 import ScrollUp from './ScrollUp';
-import Shortcuts from './Shortcuts';
+import ShortcutsButton from './ShortcutsButton';
 import './App.scss';
 
 class App extends Component {
@@ -48,7 +48,7 @@ class App extends Component {
 					filterText={this.state.filterText} />
 				<Footer />
 				<ScrollUp />
-				<Shortcuts />
+				<ShortcutsButton />
 			</div>
 		);
 	}
