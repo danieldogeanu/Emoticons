@@ -5,17 +5,19 @@
 	position: fixed;
 	top: 0; right: 0;
 	bottom: 0; left: 0;
-	padding: rem(40);
+	padding: rem(30);
 	@include linear-gradient(left, 
 		color-scheme(shortcuts, gradient-start), rem(200), 
 		color-scheme(shortcuts, gradient-end), 100%
 	);
+	@include breakpoint(min, rem(481)) { padding: rem(40); }
 	&.show { display: block; }
 
 	.shortcutsList {
 		position: absolute;
-		left: rem(40);
+		left: rem(30);
 		bottom: rem(100);
+		@include breakpoint(min, rem(481)) { left: rem(40); }
 	}
 
 	.shortcutsTitle {
@@ -68,8 +70,8 @@
 	justify-content: flex-start;
 	align-items: center;
 	position: fixed;
-	left: rem(40);
-	bottom: rem(41);
+	left: rem(30);
+	bottom: rem(31);
 	width: rem(45);
 	height: rem(30);
 	border: 0 none;
@@ -78,6 +80,7 @@
 	transition: color 0.3s ease, opacity 0.5s ease;
 	color: color-scheme(scrollup, normal);
 	cursor: pointer;
+	@include breakpoint(min, rem(481)) { left: rem(40); bottom: rem(41); }
 	&:hover { color: color-scheme(scrollup, hover); }
 	&:focus, &:active { outline: none; }
 	.icon.close {

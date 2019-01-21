@@ -1,18 +1,19 @@
 @import '../styles/includes';
 
 .ShortcutsButton {
+	cursor: pointer;
 	display: block;
 	position: fixed;
-	left: rem(40);
-	bottom: rem(30);
+	left: rem(30);
+	bottom: rem(20);
 	width: auto;
 	height: auto;
 	border: 0 none;
 	border-radius: rem(4);
 	background-color: transparent;
-	transition: color 0.3s ease, opacity 0.5s ease;
 	color: color-scheme(scrollup, normal);
-	cursor: pointer;
+	transition: color 0.3s ease, opacity 0.5s ease;
+	@include breakpoint(min, rem(481)) { left: rem(40); bottom: rem(30); }
 	&:hover { color: color-scheme(scrollup, hover); }
 	&:focus, &:active { outline: none; }
 	&.hide { display: none; }
