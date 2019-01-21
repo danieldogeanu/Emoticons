@@ -5,22 +5,31 @@ import './ScrollUp.scss';
 class ScrollUp extends Component {
 	constructor() {
 		super();
-		this.elemRef = React.createRef();
+		this.scrollUpBtn = React.createRef();
+		this.handleKeyUp = this.handleKeyUp.bind(this);
 		this.handleScroll = this.handleScroll.bind(this);
 		this.scrollToTop = this.scrollToTop.bind(this);
 	}
 
 	componentDidMount() {
 		window.addEventListener('scroll', this.handleScroll);
+		window.addEventListener('keyup', this.handleKeyUp);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.handleScroll);
+		window.removeEventListener('keyup', this.handleKeyUp);
+	}
+
+	handleKeyUp(e) {
+		if (e.keyCode === 84) { // T
+			this.scrollToTop();
+		}
 	}
 
 	handleScroll() {
 		let currentScroll = window.scrollY;
-		let thisBtn = this.elemRef.current.classList;
+		let thisBtn = this.scrollUpBtn.current.classList;
 		(currentScroll > 200) ? thisBtn.add('show') : thisBtn.remove('show');
 	}
 
@@ -37,7 +46,7 @@ class ScrollUp extends Component {
 		return (
 			<button className="ScrollUp" title={scrollText}
 				onClick={() => this.scrollToTop()}
-				ref={this.elemRef}>
+				ref={this.scrollUpBtn}>
 				<span className="show-for-screen-reader">{scrollText}</span>
 				<Icon name="chevron-up" />
 			</button>
