@@ -26,6 +26,32 @@ class ShortcutsClose extends Component {
 }
 
 class ShortcutsScreen extends Component {
+	constructor() {
+		super();
+		this.handleKeyUp = this.handleKeyUp.bind(this);
+	}
+
+	componentDidMount() {
+		window.addEventListener('keyup', this.handleKeyUp);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('keyup', this.handleKeyUp);
+	}
+
+	handleKeyUp(e) {
+		const shortcutsScreen = document.querySelector('.ShortcutsScreen').classList;
+		const shortcutsButton = document.querySelector('.ShortcutsButton').classList;
+		if (e.keyCode === 27) { // ESC
+			if (shortcutsScreen.contains('show')) shortcutsScreen.remove('show');
+			if (shortcutsButton.contains('hide')) shortcutsButton.remove('hide');
+		}
+		if (e.keyCode === 75) { // K
+			if (!shortcutsScreen.contains('show')) shortcutsScreen.add('show');
+			if (!shortcutsButton.contains('hide')) shortcutsButton.add('hide');
+		}
+	}
+
 	render() {
 		const shortcuts = [
 			{ key: 's', description: 'Selects Search Input' },
