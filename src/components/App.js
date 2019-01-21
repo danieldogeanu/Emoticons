@@ -6,6 +6,7 @@ import EmoticonsTable from './EmoticonsTable';
 import Footer from './Footer';
 import ScrollUp from './ScrollUp';
 import ShortcutsButton from './ShortcutsButton';
+import ShortcutsScreen from './ShortcutsScreen';
 import './App.scss';
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
 				<Footer />
 				<ScrollUp />
 				<ShortcutsButton />
+				<ShortcutsScreen />
 			</div>
 		);
 	}

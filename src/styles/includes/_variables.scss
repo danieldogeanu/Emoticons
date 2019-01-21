@@ -95,6 +95,11 @@ $color-scheme: (
 		normal: rgba(color(white), 0.4),
 		hover: rgba(color(white), 0.9),
 	),
+	shortcuts: (
+		bg: rgba(color(purple, wisteria), 0.6),
+		normal: rgba(color(white), 0.4),
+		hover: rgba(color(white), 0.9),
+	),
 	info: color(blue, peter),
 	success: color(green, emerald),
 	alert: color(orange, carrot),

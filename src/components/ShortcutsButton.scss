@@ -15,6 +15,7 @@
 	cursor: pointer;
 	&:hover { color: color-scheme(scrollup, hover); }
 	&:focus, &:active { outline: none; }
+	&.hide { display: none; }
 	.icon.keyboard {
 		width: rem(45);
 		height: rem(45);

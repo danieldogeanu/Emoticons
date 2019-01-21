@@ -1,0 +1,84 @@
+@import '../styles/includes';
+
+.ShortcutsScreen {
+	display: none;
+	position: fixed;
+	top: 0; right: 0;
+	bottom: 0; left: 0;
+	padding: rem(40);
+	background-color: color-scheme(shortcuts, bg);
+	&.show { display: block; }
+
+	.shortcutsList {
+		position: absolute;
+		left: rem(40);
+		bottom: rem(100);
+	}
+
+	.shortcutsTitle {
+		display: block;
+		width: 100%;
+		margin: 0 0 rem(20) 0;
+		font-weight: weight(extra-bold);
+		font-size: rem(14);
+		text-transform: uppercase;
+	}
+
+	ul {
+		display: block;
+		list-style: none;
+		margin: 0; padding: 0;
+		li {
+			margin: rem(12) 0;
+			font-size: rem(16);
+			&:hover kbd {
+				border: rem(2) solid color-scheme(shortcuts, hover);
+				color: color-scheme(shortcuts, hover);
+			}
+		}
+	}
+
+	kbd {
+		display: inline-block;
+		width: rem(45);
+		margin: 0 rem(10) 0 0;
+		padding: rem(6) rem(10);
+		border-radius: rem(4);
+		border: rem(2) solid color-scheme(shortcuts, normal);
+		background-color: transparent;
+		color: color-scheme(shortcuts, normal);
+		font-family: font(open-sans);
+		font-weight: weight(extra-bold);
+		font-size: rem(12);
+		line-height: 1;
+		text-transform: uppercase;
+		transition: all 0.3s ease;
+		&:hover {
+			border: rem(2) solid color-scheme(shortcuts, hover);
+			color: color-scheme(shortcuts, hover);
+		}
+	}
+}
+
+.ShortcutsClose {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: fixed;
+	left: rem(40);
+	bottom: rem(41);
+	width: rem(45);
+	height: rem(30);
+	border: 0 none;
+	border-radius: rem(4);
+	background-color: transparent;
+	transition: color 0.3s ease, opacity 0.5s ease;
+	color: color-scheme(scrollup, normal);
+	cursor: pointer;
+	&:hover { color: color-scheme(scrollup, hover); }
+	&:focus, &:active { outline: none; }
+	.icon.close {
+		width: rem(26);
+		height: rem(26);
+	}
+}
