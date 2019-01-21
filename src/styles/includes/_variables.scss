@@ -97,6 +97,8 @@ $color-scheme: (
 	),
 	shortcuts: (
 		bg: rgba(color(purple, wisteria), 0.6),
+		gradient-start: rgba(color(purple, wisteria), 1),
+		gradient-end: rgba(color(purple, amethyst), 0.6),
 		normal: rgba(color(white), 0.4),
 		hover: rgba(color(white), 0.9),
 	),
