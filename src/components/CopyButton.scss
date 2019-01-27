@@ -1,0 +1,23 @@
+@import '../styles/includes';
+
+.CopyButton {
+	appearance: none;
+	display: block;
+	width: rem(55);
+	height: auto;
+	margin: 0;
+	padding: rem(11) 0;
+	border: 0 none;
+	border-radius: rem(3);
+	background-color: color-scheme(item, btn);
+	color: color-scheme(background);
+	font-size: rem(13);
+	font-weight: weight(regular);
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	&:hover { background-color: color-scheme(item, btn-hover); }
+	&:active, &:focus { outline: none; }
+}

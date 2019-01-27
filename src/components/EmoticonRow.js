@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Clipboard from 'react-clipboard.js';
+import CopyButton from './CopyButton';
 import './EmoticonRow.scss';
 
 function Emoticon(props) {
@@ -13,16 +13,6 @@ function Emoticon(props) {
 	);
 }
 
-function CopyBtn(props) {
-	return (
-		<Clipboard
-			data-clipboard-text={props.emoticon}
-			className="CopyBtn">
-			Copy
-		</Clipboard>
-	);
-}
-
 class EmoticonRow extends Component {
 	render() {
 		const char = this.props.emoticon.char;
@@ -31,7 +21,7 @@ class EmoticonRow extends Component {
 			<tr className="EmoticonRow">
 				<td><Emoticon emoticon={char} /></td>
 				<td>{name}</td>
-				<td><CopyBtn emoticon={char} /></td>
+				<td><CopyButton emoticon={char} /></td>
 			</tr>
 		);
 	}
