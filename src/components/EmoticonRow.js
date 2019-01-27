@@ -6,7 +6,7 @@ function Emoticon(props) {
 	return (
 		<span role="img" 
 			className="Emoticon" 
-			aria-label="Face Medical Mask">
+			aria-label={props.name}>
 			{props.emoticon}
 		</span>
 	);
@@ -18,7 +18,7 @@ class EmoticonRow extends Component {
 		const name = this.props.emoticon.name;
 		return (
 			<tr className="EmoticonRow">
-				<td><Emoticon emoticon={char} /></td>
+				<td><Emoticon emoticon={char} name={name} /></td>
 				<td>{name}</td>
 				<td><CopyButton emoticon={char} /></td>
 			</tr>
