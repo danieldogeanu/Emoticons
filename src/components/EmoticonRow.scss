@@ -23,4 +23,6 @@
 .Emoticon {
 	font-size: rem(26);
 	user-select: none;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
 }
