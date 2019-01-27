@@ -4,9 +4,8 @@ import './EmoticonRow.scss';
 
 function Emoticon(props) {
 	return (
-		<span 
+		<span role="img" 
 			className="Emoticon" 
-			role="img" 
 			aria-label="Face Medical Mask">
 			{props.emoticon}
 		</span>
