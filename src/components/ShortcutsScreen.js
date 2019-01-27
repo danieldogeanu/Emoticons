@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
 import './ShortcutsScreen.scss';
+import { animateCSS } from '../animate';
 
 class ShortcutsClose extends Component {	
 	handleClick() {
 		const shortcutsScreen = document.querySelector('.ShortcutsScreen');
 		const shortcutsButton = document.querySelector('.ShortcutsButton');
-		shortcutsScreen.classList.remove('show');
-		shortcutsButton.classList.remove('hide');
+		animateCSS(shortcutsScreen, 'fadeOut');
+		setTimeout(() => {
+			shortcutsScreen.classList.remove('show');
+			shortcutsScreen.classList.remove('animated', 'fadeIn', 'fadeOut');
+			shortcutsButton.classList.remove('hide');
+		}, 300);
 	}
 
 	render() {
