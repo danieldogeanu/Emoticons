@@ -1,0 +1,19 @@
+// Custom Animations
+// -----------------------------------------------------------------------------
+
+@-webkit-keyframes fadeInOut {
+  0% { opacity: 0; }
+	25%, 42% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+	25%, 42% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
+.fadeInOut {
+  -webkit-animation-name: fadeInOut;
+  animation-name: fadeInOut;
+}
