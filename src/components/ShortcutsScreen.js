@@ -12,7 +12,7 @@ class ShortcutsClose extends Component {
 		setTimeout(() => {
 			shortcutsScreen.classList.remove('show');
 			shortcutsScreen.classList.remove('animated', 'fadeIn', 'fadeOut');
-		}, 300);
+		}, 290);
 	}
 
 	render() {
