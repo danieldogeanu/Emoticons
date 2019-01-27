@@ -2,20 +2,18 @@
 
 .SelectedScreen {
 	display: none;
-	justify-content: center;
-	align-items: center;
 	position: fixed;
 	z-index: 1000;
-	top: 0; left: 0;
-	bottom: 0; right: 0;
+	top: 50%; left: 50%;
 	margin: 0; padding: 0;
-	font-size: rem(180);
+	transform: translate(-50%, -50%);
+	font-size: rem(120);
 	line-height: 1;
 	opacity: 0;
 	user-select: none;
-	@include breakpoint(min, rem(481)) { @include fluid-type(481, 1200, 180, 400); }
-	@include breakpoint(min, rem(1201)) { font-size: rem(400); }
-	@include breakpoint-orientation(max, rem(600), landscape, height) { font-size: 50vh; }
-	&.show { display: flex; }
+	@include breakpoint(min, rem(481)) { @include fluid-type(481, 1200, 120, 250); }
+	@include breakpoint(min, rem(1201)) { font-size: rem(250); }
+	@include breakpoint-orientation(max, rem(400), landscape, height) { font-size: 40vh; }
+	&.show { display: block; }
 	&.fadeInOut { animation-duration: 1s; }
 }
