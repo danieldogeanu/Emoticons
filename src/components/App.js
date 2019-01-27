@@ -7,7 +7,7 @@ import Footer from './Footer';
 import ScrollUp from './ScrollUp';
 import ShortcutsButton from './ShortcutsButton';
 import ShortcutsScreen from './ShortcutsScreen';
-import Selected from './Selected';
+import SelectedScreen from './SelectedScreen';
 import './App.scss';
 
 class App extends Component {
@@ -52,7 +52,7 @@ class App extends Component {
 				<ScrollUp />
 				<ShortcutsButton />
 				<ShortcutsScreen />
-				<Selected />
+				<SelectedScreen />
 			</div>
 		);
 	}
