@@ -16,5 +16,5 @@
 	@include breakpoint(min, rem(481)) { @include fluid-type(481, 1200, 180, 400); }
 	@include breakpoint(min, rem(1201)) { font-size: rem(400); }
 	@include breakpoint-orientation(max, rem(600), landscape, height) { font-size: 50vh; }
-	.show { display: flex; }
+	&.show { display: flex; }
 }

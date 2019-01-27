@@ -11,12 +11,22 @@ class CopyButton extends Component {
 		this.copyBtn = React.createRef();
 	}
 
+	componentDidMount() {
+		this.selectedScreen = document.querySelector('.SelectedScreen');
+	}
+
 	onSuccess() {
 		this.setState({isCopied: true});
 		this.copyBtn.current.element.classList.add('copied');
 		setTimeout(() => {
 			this.setState({isCopied: false});
 			this.copyBtn.current.element.classList.remove('copied');
+		}, 1500);
+
+		this.selectedScreen.innerHTML = this.props.emoticon;
+		this.selectedScreen.classList.add('show');
+		setTimeout(() => {
+			this.selectedScreen.classList.remove('show');
 		}, 1500);
 	}
 
