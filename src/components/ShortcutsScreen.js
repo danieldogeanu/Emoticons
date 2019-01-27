@@ -8,10 +8,10 @@ class ShortcutsClose extends Component {
 		const shortcutsScreen = document.querySelector('.ShortcutsScreen');
 		const shortcutsButton = document.querySelector('.ShortcutsButton');
 		animateCSS(shortcutsScreen, 'fadeOut');
+		shortcutsButton.classList.remove('hide');
 		setTimeout(() => {
 			shortcutsScreen.classList.remove('show');
 			shortcutsScreen.classList.remove('animated', 'fadeIn', 'fadeOut');
-			shortcutsButton.classList.remove('hide');
 		}, 300);
 	}
 
