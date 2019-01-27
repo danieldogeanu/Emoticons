@@ -1,7 +1,5 @@
 @import '../styles/includes';
 
-// TODO: Add Animation for .ShortcutsScreen on Opening.
-
 .ShortcutsScreen {
 	display: none;
 	position: fixed;
@@ -13,6 +11,7 @@
 		color-scheme(shortcuts, gradient-end), 100%
 	);
 	@include breakpoint(min, rem(481)) { padding: rem(40); }
+	&.fadeIn { animation-duration: 0.3s; }
 	&.show { display: block; }
 
 	.shortcutsList {
