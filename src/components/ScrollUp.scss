@@ -2,7 +2,7 @@
 
 .ScrollUp {
 	opacity: 0;
-	display: block;
+	display: none;
 	position: fixed;
 	right: rem(40);
 	bottom: rem(40);
@@ -13,6 +13,7 @@
 	background-color: transparent;
 	color: color-scheme(scrollup, normal);
 	transition: border 0.3s ease, color 0.3s ease, opacity 0.5s ease;
+	@include breakpoint(min, rem(961)) { display: block; }
 	&:hover {
 		border: rem(2) solid color-scheme(scrollup, hover);
 		color: color-scheme(scrollup, hover);
@@ -20,3 +21,5 @@
 	&:focus, &:active { outline: none; }
 	&.show { opacity: 1; }
 }
+
+// TODO: Maybe include ScrollUp button on a black bar at the bottom of the screen on mobile along with ShortcutsButton.

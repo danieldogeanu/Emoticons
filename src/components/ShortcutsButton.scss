@@ -2,7 +2,7 @@
 
 .ShortcutsButton {
 	cursor: pointer;
-	display: block;
+	display: none;
 	position: fixed;
 	left: rem(30);
 	bottom: rem(20);
@@ -14,6 +14,7 @@
 	color: color-scheme(scrollup, normal);
 	transition: color 0.3s ease, opacity 0.5s ease;
 	@include breakpoint(min, rem(481)) { left: rem(40); bottom: rem(30); }
+	@include breakpoint(min, rem(961)) { display: block; }
 	&:hover { color: color-scheme(scrollup, hover); }
 	&:focus, &:active { outline: none; }
 	&.hide { display: none; }
@@ -22,3 +23,5 @@
 		height: rem(45);
 	}
 }
+
+// TODO: Maybe include ShortcutsButton on a black bar at the bottom of the screen on mobile along with ScrollUp button.
