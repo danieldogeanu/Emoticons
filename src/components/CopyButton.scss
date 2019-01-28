@@ -20,7 +20,11 @@
 	transition: background-color 0.3s ease;
 	&:hover { background-color: color-scheme(item, btn-hover); }
 	&:active, &:focus { outline: none; }
-	&.copied { padding: rem(7.15) 0; }
+	&.copied {
+		padding: rem(7.15) 0;
+		pointer-events: none;
+		user-select: none;
+	}
 
 	.icon.check {
 		width: rem(21);
