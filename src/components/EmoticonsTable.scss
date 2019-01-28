@@ -18,7 +18,7 @@
 		border-bottom: rem(1) solid color-scheme(border);
 		th {
 			font-weight: weight(extra-bold);
-			font-size: rem(12);
+			font-size: rem(10);
 			text-transform: uppercase;
 			color: color-scheme(text);
 			text-align: left;
@@ -29,6 +29,8 @@
 			}
 			&:first-child { width: rem(50); }
 			&:last-child { width: rem(55); }
+			@include breakpoint(min, rem(301)) { font-size: rem(11); }
+			@include breakpoint(min, rem(481)) { font-size: rem(12); }
 		}
 	}
 

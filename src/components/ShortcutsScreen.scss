@@ -19,18 +19,25 @@
 
 	.shortcutsList {
 		position: absolute;
-		left: rem(30);
-		bottom: rem(100);
-		@include breakpoint(min, rem(481)) { left: rem(40); }
+		left: rem(20);
+		bottom: rem(80);
+		@include breakpoint(min, rem(481)) {
+			left: rem(40);
+			bottom: rem(100);
+		}
 	}
 
 	.shortcutsTitle {
 		display: block;
 		width: 100%;
-		margin: 0 0 rem(20) 0;
+		margin: 0 0 rem(15) 0;
 		font-weight: weight(extra-bold);
-		font-size: rem(14);
+		font-size: rem(12);
 		text-transform: uppercase;
+		@include breakpoint(min, rem(481)) {
+			margin: 0 0 rem(20) 0;
+			font-size: rem(14);
+		}
 	}
 
 	ul {
@@ -38,8 +45,12 @@
 		list-style: none;
 		margin: 0; padding: 0;
 		li {
-			margin: rem(12) 0;
-			font-size: rem(16);
+			margin: rem(10) 0;
+			font-size: rem(14);
+			@include breakpoint(min, rem(481)) {
+				margin: rem(12) 0;
+				font-size: rem(16);
+			}
 			&:hover kbd {
 				border: rem(2) solid color-scheme(shortcuts, hover);
 				color: color-scheme(shortcuts, hover);
@@ -49,19 +60,25 @@
 
 	kbd {
 		display: inline-block;
-		width: rem(45);
-		margin: 0 rem(10) 0 0;
-		padding: rem(6) rem(10);
+		width: rem(40);
+		margin: 0 rem(6) 0 0;
+		padding: rem(6) rem(8);
 		border-radius: rem(4);
 		border: rem(2) solid color-scheme(shortcuts, normal);
 		background-color: transparent;
 		color: color-scheme(shortcuts, normal);
 		font-family: font(open-sans);
 		font-weight: weight(extra-bold);
-		font-size: rem(12);
+		font-size: rem(11);
 		line-height: 1;
 		text-transform: uppercase;
 		transition: all 0.3s ease;
+		@include breakpoint(min, rem(481)) {
+			width: rem(45);
+			margin: 0 rem(10) 0 0;
+			padding: rem(6) rem(10);
+			font-size: rem(12);
+		}
 		&:hover {
 			border: rem(2) solid color-scheme(shortcuts, hover);
 			color: color-scheme(shortcuts, hover);
@@ -74,8 +91,8 @@
 	justify-content: flex-start;
 	align-items: center;
 	position: fixed;
-	left: rem(30);
-	bottom: rem(31);
+	left: rem(20);
+	bottom: rem(21);
 	width: rem(45);
 	height: rem(30);
 	border: 0 none;

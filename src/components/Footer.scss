@@ -10,9 +10,12 @@
 	p {
 		display: block;
 		width: 50%;
-		font-size: rem(13);
+		font-size: rem(11);
 		font-weight: weight(light);
 		text-transform: uppercase;
+		@include breakpoint(min, rem(481)) {
+			font-size: rem(13);
+		}
 	}
 
 	a {
@@ -39,17 +42,23 @@
 			margin-left: rem(3);
 		}
 		.mynet {
-			margin: 0 0 0 rem(14);
 			padding: 0;
+			margin: 0 0 0 rem(10);
+			@include breakpoint(min, rem(481)) {
+				margin: 0 0 0 rem(14);
+			}
 			.icon {
-				width: rem(20);
-				height: rem(20);
+				width: rem(18); height: rem(18);
+				@include breakpoint(min, rem(481)) {
+					width: rem(20); height: rem(20);
+				}
 				&.behance {
 					position: relative;
 					margin-left: rem(2);
-					bottom: rem(-1);
-					width: rem(26);
-					height: rem(26);
+					width: rem(24); height: rem(24);
+					@include breakpoint(min, rem(481)) {
+						width: rem(26); height: rem(26);
+					}
 				}
 			}
 		}

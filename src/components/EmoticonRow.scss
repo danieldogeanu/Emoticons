@@ -2,28 +2,39 @@
 
 .EmoticonRow {
 	td {
-		padding: rem(4) rem(10);
-		font-size: rem(16);
+		padding: rem(4) 0;
+		font-size: rem(14);
 		font-weight: weight(light);
 		text-transform: capitalize;
 		color: color-scheme(text);
-		@include breakpoint(min, rem(301)) { font-size: rem(18); }
-		@include breakpoint(min, rem(481)) { font-size: rem(19); }
-		@include breakpoint(min, rem(851)) { font-size: rem(20); }
-		&:first-child,
-		&:last-child {
+		&:first-child, &:last-child {
 			color: color(white, seashell);
 			text-align: center;
 		}
-		&:first-child { width: rem(50); }
-		&:last-child { width: rem(55); }
+		&:first-child { width: rem(40); }
+		&:last-child { width: rem(45); }
+		@include breakpoint(min, rem(301)) {
+			font-size: rem(16);
+		}
+		@include breakpoint(min, rem(481)) {
+			font-size: rem(18);
+			padding: rem(4) rem(10);
+			&:first-child { width: rem(50); }
+			&:last-child { width: rem(55); }
+		}
+		@include breakpoint(min, rem(851)) {
+			font-size: rem(20);
+		}
 	}
 }
 
 .Emoticon {
-	font-size: rem(26);
+	font-size: rem(22);
 	user-select: none;
 	writing-mode: vertical-rl;
 	text-orientation: upright;
 	vertical-align: middle;
+	@include breakpoint(min, rem(481)) {
+		font-size: rem(26);
+	}
 }
