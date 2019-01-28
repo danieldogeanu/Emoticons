@@ -49,8 +49,7 @@
 	display: none;
 	position: absolute;
 	top: 0; right: 0;
-	width: rem(60);
-	height: rem(60);
+	width: rem(40); height: rem(40);
 	background-color: transparent;
 	border: 0 none;
 	color: color-scheme(input, placeholder);
@@ -60,7 +59,19 @@
 	&:active, &:focus { outline: none; }
 	&.show { display: block; }
 	.icon.close {
-		width: rem(26);
-		height: rem(26);
+		position: relative; bottom: rem(-2);
+		width: rem(20); height: rem(20);
+	}
+	@include breakpoint(min, rem(301)) {
+		width: rem(50); height: rem(50);
+		.icon.close { width: rem(22); height: rem(22); }
+	}
+	@include breakpoint(min, rem(481)) {
+		width: rem(55); height: rem(55);
+		.icon.close { width: rem(24); height: rem(24); }
+	}
+	@include breakpoint(min, rem(851)) {
+		width: rem(60); height: rem(60);
+		.icon.close { width: rem(26); height: rem(26); }
 	}
 }
