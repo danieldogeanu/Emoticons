@@ -28,7 +28,8 @@ function Footer() {
 	return (
 		<footer className="Footer">
 			<p className="author">By: <Link data={author} /></p>
-			<p className="mynets">Follow Me: 
+			<p className="mynets">
+				<span className="folw">Follow Me: </span>
 				<span className="wrapper">
 					{social.map((value) => {
 						return <Link key={value.name.toLowerCase()} data={value} social={true} />;

@@ -34,6 +34,12 @@
 		justify-content: flex-end;
 		align-items: center;
 		text-align: right;
+		.folw {
+			display: none;
+			@include breakpoint(min, rem(481)) {
+				display: inline-block;
+			}
+		}
 		.wrapper {
 			display: flex;
 			align-items: center;
