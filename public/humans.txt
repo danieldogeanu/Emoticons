@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The Humans Responsible & Technology Colophon
+
+# TEAM
+
+	Daniel Dogeanu -- Web Developer -- @danieldogeanu
+
+# THANKS
+
+	Amio - https://github.com/amio - For making the JSON file without which this app would not be possible.
+
+# TECHNOLOGY COLOPHON
+
+	HTML5, CSS3, SVG
+	Normalize, Animate
+	JavaScript, ES6, Fetch API, JSON, Modernizr
+	React, Babel, Webpack, SASS
+	Git, GitHub, GitLab, Docker
