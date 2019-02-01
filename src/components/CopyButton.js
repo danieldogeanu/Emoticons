@@ -24,7 +24,7 @@ class CopyButton extends Component {
 			this.copyBtn.current.element.classList.remove('copied');
 		}, 1500);
 
-		this.selectedScreen.innerHTML = this.props.emoticon;
+		this.selectedScreen.innerHTML = this.props.data;
 		animateCSS(this.selectedScreen, 'fadeInOut');
 		this.selectedScreen.classList.add('show');
 		setTimeout(() => {
@@ -38,7 +38,7 @@ class CopyButton extends Component {
 				ref={this.copyBtn}
 				className="CopyButton"
 				onSuccess={this.onSuccess}
-				data-clipboard-text={this.props.emoticon}>
+				data-clipboard-text={this.props.data}>
 				{this.state.isCopied ? (
 					<Icon name="check" />
 				) : 'Copy'}
