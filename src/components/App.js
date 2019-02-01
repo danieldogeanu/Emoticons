@@ -14,10 +14,7 @@ import './App.scss';
 class App extends Component {
 	constructor() {
 		super();
-		this.state = {
-			filterText: '',
-			emoticons: [],
-		};
+		this.state = {filterText: ''};
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleFilterTextClear = this.handleFilterTextClear.bind(this);
 	}
@@ -30,10 +27,6 @@ class App extends Component {
 		this.setState({filterText: ''});
 	}
 
-	componentWillMount() {
-		this.setState({emoticons: emojiJSON});
-	}
-
 	render() {
 		return (
 			<div className="App">
@@ -44,7 +37,7 @@ class App extends Component {
 					onFilterTextChange={this.handleFilterTextChange}
 					onFilterTextClear={this.handleFilterTextClear} />
 				<EmoticonsTable
-					emoticons={this.state.emoticons}
+					emoticons={emojiJSON}
 					filterText={this.state.filterText} />
 				<Footer />
 				<ScrollUp />
