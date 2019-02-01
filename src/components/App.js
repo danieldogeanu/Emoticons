@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import emojiJSON from '../emoji.json';
 import IconsSprite from './IconsSprite';
 import Header from './Header';
 import SearchBar from './SearchBar';
@@ -30,10 +31,7 @@ class App extends Component {
 	}
 
 	componentWillMount() {
-		fetch('https://unpkg.com/emoji.json@11.0.1/emoji.json')
-			.then(result => result.json())
-			.then(data => this.setState({emoticons: data}))
-			.catch(error => console.error('Fetch Error: ', error));
+		this.setState({emoticons: emojiJSON});
 	}
 
 	render() {
