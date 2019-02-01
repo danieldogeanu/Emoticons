@@ -149,17 +149,14 @@ $levels: (
 // 05. Relative Paths
 // -----------------------------------------------------------------------------
 
-// TODO: Make sure these paths are correct.
 $paths: (
-	img: (
-		base: '../images/'
+	images: (
+		base: './images/'
 	),
-	icons: (
-		base: '../images/icons/',
-		png: '../images/icons/png/',
-		svg: '../images/icons/svg/'
+	svg: (
+		base: './images/svg/',
 	),
 	fonts: (
-		base: '../fonts/'
+		base: './fonts/'
 	)
 );
