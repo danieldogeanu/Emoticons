@@ -41,10 +41,10 @@ export function MobileRow(props) {
 			<td className="mobileCell" colSpan="3">
 				<div className="mobileCard">
 					<div className="nameCell"><Name name={name} /></div>
-					<table className="innerTable">
+					<table className="innerTable"><tbody><tr>
 						<td className="faceCell"><Emoticon char={char} name={name} /></td>
 						<td className="copyCell"><CopyButton data={char} /></td>
-					</table>				
+					</tr></tbody></table>
 				</div>
 			</td>
 		</tr>
