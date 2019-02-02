@@ -20,6 +20,14 @@ function Name(props) {
 	);
 }
 
+function CopyHint(props) {
+	return (
+		<span className="CopyHint">
+			{props.text}
+		</span>
+	);
+}
+
 export function DesktopRow(props) {
 	const char = props.emoticon.char;
 	const name = props.emoticon.name;
@@ -32,20 +40,19 @@ export function DesktopRow(props) {
 	);
 }
 
-// TODO: Refactor this so that the CopyButton includes all elements instead of mobileCard.
 export function MobileRow(props) {
 	const char = props.emoticon.char;
 	const name = props.emoticon.name;
 	return (
 		<tr className="EmoticonRow mobileRow">
 			<td className="mobileCell" colSpan="3">
-				<div className="mobileCard">
+				<CopyButton data={char} className="mobileCard">
 					<div className="nameCell"><Name name={name} /></div>
 					<table className="innerTable"><tbody><tr>
 						<td className="faceCell"><Emoticon char={char} name={name} /></td>
-						<td className="copyCell"><CopyButton data={char} /></td>
+						<td className="copyCell"><CopyHint text="Tap to Copy" /></td>
 					</tr></tbody></table>
-				</div>
+				</CopyButton>
 			</td>
 		</tr>
 	);

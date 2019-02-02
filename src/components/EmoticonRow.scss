@@ -33,7 +33,9 @@
 			vertical-align: middle;
 			padding: rem(4) 0;
 
-			.mobileCard {
+			.CopyButton.mobileCard {
+				width: 100%;
+				text-align: left;
 				padding: rem(6) rem(10);
 				border-radius: rem(6);
 				background-color: color-scheme(item, bg-hover);
@@ -44,7 +46,7 @@
 				font-size: rem(14);
 				font-weight: weight(light);
 				text-transform: capitalize;
-				color: color-scheme(text);
+				color: color-scheme(item, title);
 				@include breakpoint(min, rem(301)) {
 					font-size: rem(16);
 				}
@@ -54,13 +56,22 @@
 		table.innerTable {
 			width: 100%;
 			td {
-				padding: 0;
 				vertical-align: middle;
+				padding: rem(8) 0 rem(8) 0;
+				&.faceCell {
+					color: color(white, seashell);
+				}
 				&.copyCell {
-					width: rem(45);
-					.CopyButton {
-						background-color: transparent;
-						color: color-scheme(text);
+					width: rem(80);
+					vertical-align: bottom;
+					.CopyHint {
+						width: 100%;
+						display: block;
+						font-size: rem(12);
+						font-weight: weight(light);
+						text-align: right;
+						text-transform: uppercase;
+						color: color-scheme(item, hint);
 					}
 				}
 			}

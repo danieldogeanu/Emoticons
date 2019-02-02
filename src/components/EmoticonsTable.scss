@@ -56,8 +56,8 @@
 
 	tbody tr {
 		transition: background-color 0.3s ease;
-		&:hover { background-color: color-scheme(item, bg-hover); }
-		&:hover.mobileRow { background-color: transparent; }
+		&.desktopRow:hover { background-color: color-scheme(item, bg-hover); }
+		&.mobileRow:hover { background-color: transparent; }
 		&.InvisibleRow {
 			user-select: none;
 			&:hover { background-color: transparent !important; }

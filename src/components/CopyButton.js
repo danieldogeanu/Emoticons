@@ -36,12 +36,12 @@ class CopyButton extends Component {
 		return (
 			<Clipboard
 				ref={this.copyBtn}
-				className="CopyButton"
 				onSuccess={this.onSuccess}
+				className={'CopyButton ' + this.props.className}
 				data-clipboard-text={this.props.data}>
-				{this.state.isCopied ? (
-					<Icon name="check" />
-				) : 'Copy'}
+				{this.props.children ? this.props.children : (
+					this.state.isCopied ? (<Icon name="check" />) : 'Copy'
+				)}
 			</Clipboard>
 		);
 	}
