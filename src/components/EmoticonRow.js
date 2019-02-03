@@ -46,7 +46,7 @@ export function MobileRow(props) {
 	return (
 		<tr className="EmoticonRow mobileRow">
 			<td className="mobileCell" colSpan="3">
-				<CopyButton data={char} className="mobileCard">
+				<CopyButton data={char} className="mobileCard ripple">
 					<div className="nameCell"><Name name={name} /></div>
 					<table className="innerTable"><tbody><tr>
 						<td className="faceCell"><Emoticon char={char} name={name} /></td>

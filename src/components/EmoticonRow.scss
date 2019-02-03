@@ -38,7 +38,9 @@
 				text-align: left;
 				padding: rem(6) rem(10);
 				border-radius: rem(6);
-				background-color: color-scheme(item, bg-hover);
+				background-color: color-scheme(item, mobile-bg);
+				transition: background-color 0.3s ease;
+				&:hover { background-color: color-scheme(item, mobile-bg-hover); }
 			}
 
 			.nameCell {

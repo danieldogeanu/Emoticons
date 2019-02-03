@@ -88,6 +88,8 @@ $color-scheme: (
 	),
 	item: (
 		bg-hover: rgba(color(white), 0.1),
+		mobile-bg: rgba(color(white), 0.1),
+		mobile-bg-hover: rgba(color(white), 0.2),
 		btn: rgba(color(white), 0.6),
 		btn-hover: rgba(color(white), 0.8),
 		title: rgba(color(white), 0.8),
