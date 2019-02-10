@@ -6,6 +6,29 @@ import Footer from './Footer';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
+function Label(props) {
+	return (
+		<span className={'Label ' + props.label.class}>
+			{props.label.name}
+		</span>
+	);
+}
+
+function Labels() {
+	const labels = [
+		{ class: 'face', name: 'Face' },
+		{ class: 'name', name: 'Emoticon Name' },
+		{ class: 'copy', name: 'Get' },
+	];
+	return (
+		<div className="Labels">
+			{labels.map(label => {
+				return <Label key={label.class} label={label} />
+			})}
+		</div>
+	);
+}
+
 class ListContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -77,6 +100,7 @@ class ListContainer extends Component {
 					onScroll={this.handleScroll}
 					ref={list => this.list = list}>
 					<div className="innerWrapper">
+						<Labels />
 						<ul style={{
 							paddingTop: (startIndex * rowHeight),
 							height: totalHeight,
