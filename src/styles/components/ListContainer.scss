@@ -3,15 +3,25 @@
 .ListContainer {
 	display: block;
 	width: 100%;
-	max-width: rem(730);
 	height: 100%;
-	margin: 0 auto;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	ul {
+	padding: 0 rem(10);
+	@include breakpoint(min, rem(301)) { padding: 0 rem(20); }
+	@include breakpoint(min, rem(481)) { padding: 0 rem(40); }
+	@include breakpoint(min, rem(601)) { padding: 0 rem(60); }
+
+	.List {
 		display: block;
 		width: 100%;
-		margin: 0;
-		padding: 0;
+		max-width: rem(730);
+		height: 100%;
+		margin: 0 auto;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		ul {
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
 	}
 }

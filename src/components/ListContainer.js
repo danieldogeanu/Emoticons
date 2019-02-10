@@ -43,15 +43,17 @@ class ListContainer extends Component {
 		}		
 
 		return (
-			<div className="ListContainer"
-				onScroll={this.handleScroll}
-				ref={list => this.list = list}>
-				<ul style={{
-					paddingTop: (startIndex * rowHeight),
-					height: totalHeight,
-				}}>
-					{items}
-				</ul>
+			<div className="ListContainer">
+				<div className="List"
+					onScroll={this.handleScroll}
+					ref={list => this.list = list}>
+					<ul style={{
+						paddingTop: (startIndex * rowHeight),
+						height: totalHeight,
+					}}>
+						{items}
+					</ul>
+				</div>
 			</div>
 		);
 	}
