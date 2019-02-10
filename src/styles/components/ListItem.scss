@@ -1,6 +1,49 @@
 @import '../includes';
 
-.ListItem {
-	height: rem(40);
+.DesktopListItem {
+	display: flex;
+	height: rem(50);
+	padding: rem(6) 0;
+	transition: background-color 0.3s ease;
+	&:hover { background-color: color-scheme(item, bg-hover); }
+
+	.Emoticon {
+		width: rem(80);
+	}
+
+	.Name {
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+	}
+
+	.Copy {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		width: rem(80);
+	}
+}
+
+.Emoticon {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	font-size: rem(22);
+	user-select: none;
+	color: color-scheme(emoticon);
+	@include breakpoint(min, rem(481)) {
+		font-size: rem(26);
+	}
+}
+
+.Name {
+	font-size: rem(14);
+	font-weight: weight(light);
+	font-family: font(open-sans);
 	text-transform: capitalize;
+	color: color-scheme(text);
+	@include breakpoint(min, rem(301)) { font-size: rem(16); }
+	@include breakpoint(min, rem(641)) { font-size: rem(18); }
+	@include breakpoint(min, rem(851)) { font-size: rem(20); }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListItem } from './ListItem';
+import { DesktopListItem } from './ListItem';
 import '../styles/components/ListContainer.scss';
 
 class ListContainer extends Component {
@@ -25,7 +25,7 @@ class ListContainer extends Component {
 		const data = this.props.data;
 
 		const numRows = data.length;
-		const rowHeight = 40; // TODO: Find a way to calculate rowHeight dynamically.
+		const rowHeight = 50; // TODO: Find a way to calculate rowHeight dynamically.
 		const totalHeight = rowHeight * numRows;
 
 		const {availableHeight, scrollTop} = this.state;
@@ -38,7 +38,7 @@ class ListContainer extends Component {
 
 		let index = startIndex;
 		while (index < endIndex) {
-			items.push(<ListItem key={index} data={data[index].name} />);
+			items.push(<DesktopListItem key={index} data={data[index]} />);
 			index++;
 		}		
 
@@ -48,7 +48,6 @@ class ListContainer extends Component {
 				ref={list => this.list = list}>
 				<ul style={{
 					paddingTop: (startIndex * rowHeight),
-					pointerEvents: 'none',
 					height: totalHeight,
 				}}>
 					{items}
