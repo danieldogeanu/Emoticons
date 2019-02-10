@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import SimpleBar from 'simplebar';
 import { DesktopListItem } from './ListItem';
 import '../styles/components/ListContainer.scss';
+import 'simplebar/dist/simplebar.min.css';
 
 class ListContainer extends Component {
 	constructor(props) {
@@ -15,6 +17,7 @@ class ListContainer extends Component {
 
 	componentDidMount() {
 		this.setState({availableHeight: this.list.clientHeight});
+		new SimpleBar(this.list);
 	}
 
 	handleScroll(event) {
