@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import SimpleBar from 'simplebar';
 import { MobileListItem, DesktopListItem } from './ListItem';
+import SimpleBar from 'simplebar';
+import Footer from './Footer';
+
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
@@ -81,6 +83,7 @@ class ListContainer extends Component {
 						}}>
 							{isMobile ? mobileItems : desktopItems}
 						</ul>
+						<Footer />
 					</div>
 				</div>
 			</div>
