@@ -2,11 +2,9 @@
 
 .App {
 	display: block;
-	width: 100%;
-	height: 100%;
-	max-width: rem(730);
-	margin: rem(40) auto;
-	@include breakpoint(min, rem(301)) { margin: rem(60) auto; }
-	@include breakpoint(min, rem(481)) { margin: rem(80) auto; }
-	@include breakpoint(min, rem(851)) { margin: rem(100) auto; }
+	width: 100%; height: 100%;
+	margin: rem(70) 0 0 0;
+	@include breakpoint(min, rem(301)) { margin: rem(70) 0 0 0; }
+	@include breakpoint(min, rem(481)) { margin: rem(90) 0 0 0; }
+	@include breakpoint(min, rem(601)) { margin: rem(100) 0 0 0; }
 }

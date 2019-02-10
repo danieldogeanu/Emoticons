@@ -1,0 +1,24 @@
+@import '../styles/includes';
+
+.TopBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0; left: 0; right: 0;
+	z-index: 200;
+	width: 100%;
+	height: rem(70);
+	padding: 0 rem(10);
+	background-color: color-scheme(background);
+	@include box-shadow(0, 0, rem(100), 0, color(black), 0.15);
+	@include breakpoint(min, rem(301)) { height: rem(70); padding: 0 rem(20); }
+	@include breakpoint(min, rem(481)) { height: rem(90); padding: 0 rem(40); }
+	@include breakpoint(min, rem(601)) { height: rem(100); padding: 0 rem(60); }
+
+	.wrapper {
+		display: block;
+		width: 100%;
+		max-width: rem(730);
+	}
+}

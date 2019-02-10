@@ -6,6 +6,7 @@
 	top: 0; right: 0;
 	bottom: 0; left: 0;
 	padding: rem(30);
+	z-index: 1000;
 	background-color: color-scheme(shortcuts, gradient-start);
 	@include breakpoint(min, rem(481)) { padding: rem(40); }
 	@include breakpoint(min, rem(601)) {

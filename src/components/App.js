@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import emojiJSON from '../emoji.json';
 import IconsSprite from './IconsSprite';
-import Header from './Header';
+import TopBar from './TopBar.js';
 import SearchBar from './SearchBar';
 import EmoticonsTable from './EmoticonsTable';
 import Footer from './Footer';
@@ -31,11 +31,12 @@ class App extends Component {
 		return (
 			<div className="App">
 				<IconsSprite />
-				<Header />
-				<SearchBar
-					filterText={this.state.filterText}
-					onFilterTextChange={this.handleFilterTextChange}
-					onFilterTextClear={this.handleFilterTextClear} />
+				<TopBar>
+					<SearchBar
+						filterText={this.state.filterText}
+						onFilterTextChange={this.handleFilterTextChange}
+						onFilterTextClear={this.handleFilterTextClear} />
+				</TopBar>
 				<EmoticonsTable
 					emoticons={emojiJSON}
 					filterText={this.state.filterText} />
