@@ -50,12 +50,14 @@ class ListContainer extends Component {
 				<div className="List"
 					onScroll={this.handleScroll}
 					ref={list => this.list = list}>
-					<ul style={{
-						paddingTop: (startIndex * rowHeight),
-						height: totalHeight,
-					}}>
-						{items}
-					</ul>
+					<div className="innerWrapper">
+						<ul style={{
+							paddingTop: (startIndex * rowHeight),
+							height: totalHeight,
+						}}>
+							{items}
+						</ul>
+					</div>
 				</div>
 			</div>
 		);
