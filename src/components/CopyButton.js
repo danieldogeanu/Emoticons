@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Clipboard from 'react-clipboard.js';
 import Icon from './Icon';
 import { animateCSS } from '../animate';
-import './CopyButton.scss';
+import '../styles/components/CopyButton.scss';
 
 class CopyButton extends Component {
 	constructor(props) {

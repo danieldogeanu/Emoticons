@@ -1,5 +1,5 @@
 import React from 'react';
-import './SelectedScreen.scss';
+import '../styles/components/SelectedScreen.scss';
 
 function SelectedScreen() {
 	return (

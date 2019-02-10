@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
-import './ScrollUp.scss';
+import '../styles/components/ScrollUp.scss';
 
 class ScrollUp extends Component {
 	constructor() {

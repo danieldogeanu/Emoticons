@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
-import './ShortcutsScreen.scss';
 import { animateCSS } from '../animate';
+import '../styles/components/ShortcutsScreen.scss';
 
 class ShortcutsClose extends Component {	
 	handleClick() {

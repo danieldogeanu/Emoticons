@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MobileRow, DesktopRow } from './EmoticonRow';
-import './EmoticonsTable.scss';
+import '../styles/components/EmoticonsTable.scss';
 
 function Label(props) {
 	return (

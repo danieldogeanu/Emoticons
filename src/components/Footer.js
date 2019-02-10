@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from './Icon';
-import './Footer.scss';
+import '../styles/components/Footer.scss';
 
 const author = { name: 'Daniel Dogeanu', url: 'https://danieldogeanu.com' };
 const social = [

@@ -1,6 +1,6 @@
 import React from 'react';
 import CopyButton from './CopyButton';
-import './EmoticonRow.scss';
+import '../styles/components/EmoticonRow.scss';
 
 function Emoticon(props) {
 	return (

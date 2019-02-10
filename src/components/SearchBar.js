@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Icon from './Icon';
-import './SearchBar.scss';
+import '../styles/components/SearchBar.scss';
 
 function ClearButton() {
 	const clearText = 'Clear Input';

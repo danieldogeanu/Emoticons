@@ -9,7 +9,7 @@ import ScrollUp from './ScrollUp';
 import ShortcutsButton from './ShortcutsButton';
 import ShortcutsScreen from './ShortcutsScreen';
 import SelectedScreen from './SelectedScreen';
-import './App.scss';
+import '../styles/components/App.scss';
 
 class App extends Component {
 	constructor() {
