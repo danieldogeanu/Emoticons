@@ -44,6 +44,7 @@ class ShortcutsScreen extends Component {
 		window.removeEventListener('keyup', this.handleKeyUp);
 	}
 
+	// FIXME: Fix capturing keyCode when search input is focused.
 	handleKeyUp(e) {
 		const shortcutsScreen = document.querySelector('.ShortcutsScreen').classList;
 		const shortcutsButton = document.querySelector('.ShortcutsButton').classList;
