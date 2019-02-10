@@ -1,0 +1,24 @@
+@import '../includes';
+
+.List {
+	@include outline(red);
+	display: block;
+	width: 100%;
+	max-width: rem(730);
+	height: 100%;
+	margin: 0 auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
+	ul {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+
+		li {
+			height: rem(40);
+			text-transform: capitalize;
+		}
+	}
+}
