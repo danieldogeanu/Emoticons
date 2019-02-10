@@ -21,8 +21,9 @@ function Name(props) {
 }
 
 function Copy(props) {
+	const hint = 'Copy the emoticon and paste it where you need it.';
 	return (
-		<span className="Copy">
+		<span className="Copy" title={hint}>
 			<CopyButton data={props.data} />
 		</span>
 	);
