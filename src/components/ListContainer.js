@@ -26,9 +26,16 @@ class ListContainer extends Component {
 
 	render() {
 		const data = this.props.data;
+		const filterText = this.props.filterText;
+		const filteredData = [];
 
-		const numRows = data.length;
-		const rowHeight = 90; // TODO: Find a way to calculate rowHeight dynamically.
+		data.forEach(emoticon => {
+			if (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) return;
+			filteredData.push(emoticon);
+		});
+
+		const numRows = filteredData.length;
+		const rowHeight = 50; // TODO: Find a way to calculate rowHeight dynamically.
 		const totalHeight = rowHeight * numRows;
 
 		const {availableHeight, scrollTop} = this.state;
@@ -38,12 +45,15 @@ class ListContainer extends Component {
 		const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 40);
 
 		const items = [];
+		const mobileItems = [];
+		const desktopItems = [];
 
 		let index = startIndex;
 		while (index < endIndex) {
-			items.push(<MobileListItem key={index} data={data[index]} />);
+			mobileItems.push(<MobileListItem key={index} data={filteredData[index]} />);
+			desktopItems.push(<DesktopListItem key={index} data={filteredData[index]} />);
 			index++;
-		}		
+		}
 
 		return (
 			<div className="ListContainer">
@@ -55,7 +65,7 @@ class ListContainer extends Component {
 							paddingTop: (startIndex * rowHeight),
 							height: totalHeight,
 						}}>
-							{items}
+							{desktopItems}
 						</ul>
 					</div>
 				</div>
