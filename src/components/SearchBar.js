@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Icon from './Icon';
 import '../styles/components/SearchBar.scss';
 
+// FIXME: Remove double X in the search input, on Edge.
 function ClearButton() {
 	const clearText = 'Clear Input';
 	return (
