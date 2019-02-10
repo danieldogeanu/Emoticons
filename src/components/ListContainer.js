@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { ListItem } from './ListItem';
 import '../styles/components/ListContainer.scss';
 
-class List extends Component {
+class ListContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -37,12 +38,12 @@ class List extends Component {
 
 		let index = startIndex;
 		while (index < endIndex) {
-			items.push(<li key={index}>{data[index].name}</li>);
+			items.push(<ListItem key={index} data={data[index].name} />);
 			index++;
 		}		
 
 		return (
-			<div className="List"
+			<div className="ListContainer"
 				onScroll={this.handleScroll}
 				ref={list => this.list = list}>
 				<ul style={{
@@ -57,4 +58,4 @@ class List extends Component {
 	}
 }
 
-export default List;
+export default ListContainer;
