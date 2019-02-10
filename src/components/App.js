@@ -3,7 +3,7 @@ import emojiJSON from '../emoji.json';
 import IconsSprite from './IconsSprite';
 import TopBar from './TopBar.js';
 import SearchBar from './SearchBar';
-import List from './List.js';
+import ListContainer from './ListContainer.js';
 import ScrollUp from './ScrollUp';
 import ShortcutsButton from './ShortcutsButton';
 import ShortcutsScreen from './ShortcutsScreen';
@@ -36,7 +36,7 @@ class App extends Component {
 						onFilterTextChange={this.handleFilterTextChange}
 						onFilterTextClear={this.handleFilterTextClear} />
 				</TopBar>
-				<List data={emojiJSON}
+				<ListContainer data={emojiJSON}
 					filterText={this.state.filterText} />
 				<ScrollUp />
 				<ShortcutsButton />

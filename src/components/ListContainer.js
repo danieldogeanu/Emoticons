@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../styles/components/List.scss';
+import '../styles/components/ListContainer.scss';
 
 class List extends Component {
 	constructor(props) {
