@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SimpleBar from 'simplebar';
-import { DesktopListItem } from './ListItem';
+import { MobileListItem, DesktopListItem } from './ListItem';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
@@ -28,7 +28,7 @@ class ListContainer extends Component {
 		const data = this.props.data;
 
 		const numRows = data.length;
-		const rowHeight = 50; // TODO: Find a way to calculate rowHeight dynamically.
+		const rowHeight = 90; // TODO: Find a way to calculate rowHeight dynamically.
 		const totalHeight = rowHeight * numRows;
 
 		const {availableHeight, scrollTop} = this.state;
@@ -41,7 +41,7 @@ class ListContainer extends Component {
 
 		let index = startIndex;
 		while (index < endIndex) {
-			items.push(<DesktopListItem key={index} data={data[index]} />);
+			items.push(<MobileListItem key={index} data={data[index]} />);
 			index++;
 		}		
 

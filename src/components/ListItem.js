@@ -46,3 +46,18 @@ export function DesktopListItem(props) {
 		</li>
 	);
 }
+
+export function MobileListItem(props) {
+	const {char, name} = props.data;
+	return (
+		<li className="MobileListItem">
+			<CopyButton data={char} className="mobileCard ripple">
+				<Name name={name} />
+				<div className="bottomBar">
+					<Emoticon char={char} name={name} />
+					<CopyHint text="Tap to Copy" />
+				</div>
+			</CopyButton>
+		</li>
+	);
+}
