@@ -39,6 +39,9 @@
 			color: color-scheme(input, placeholder);
 			opacity: 1;
 		}
+		&::-ms-clear {
+			display: none;
+		}
 	}
 }
 
