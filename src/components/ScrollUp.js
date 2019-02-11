@@ -23,7 +23,8 @@ class ScrollUp extends Component {
 	}
 
 	handleKeyUp(e) {
-		if (e.keyCode === 84) { // T
+		const searchBarInput = document.querySelector('.SearchBar input[type="text"]').classList;
+		if (e.keyCode === 84 && !searchBarInput.contains('focused')) { // T
 			this.scrollToTop();
 		}
 	}
