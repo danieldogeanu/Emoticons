@@ -44,17 +44,17 @@ class ShortcutsScreen extends Component {
 		window.removeEventListener('keyup', this.handleKeyUp);
 	}
 
-	// FIXME: Fix capturing keyCode when search input is focused.
 	handleKeyUp(e) {
 		const shortcutsScreen = document.querySelector('.ShortcutsScreen').classList;
 		const shortcutsButton = document.querySelector('.ShortcutsButton').classList;
+		const searchBarInput = document.querySelector('.SearchBar input[type="text"]').classList;
 		if (e.keyCode === 27) { // ESC
 			if (shortcutsScreen.contains('show')) shortcutsScreen.remove('show');
 			if (shortcutsButton.contains('hide')) shortcutsButton.remove('hide');
 		}
-		if (e.keyCode === 75) { // K
-			if (!shortcutsScreen.contains('show')) shortcutsScreen.add('show');
-			if (!shortcutsButton.contains('hide')) shortcutsButton.add('hide');
+		if (e.keyCode === 75 && !searchBarInput.contains('focused')) { // K
+			(!shortcutsScreen.contains('show')) ? shortcutsScreen.add('show') : shortcutsScreen.remove('show');
+			(!shortcutsButton.contains('hide')) ? shortcutsButton.add('hide') : shortcutsButton.remove('hide');
 		}
 	}
 

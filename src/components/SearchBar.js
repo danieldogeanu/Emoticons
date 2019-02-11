@@ -20,6 +20,8 @@ class SearchBar extends Component {
 		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
 		this.handleClearInput = this.handleClearInput.bind(this);
 		this.handleKeyUp = this.handleKeyUp.bind(this);
+		this.handleFocus = this.handleFocus.bind(this);
+		this.handleBlur = this.handleBlur.bind(this);
 	}
 	
 	componentDidMount() {
@@ -56,6 +58,16 @@ class SearchBar extends Component {
 		}
 	}
 
+	handleFocus() {
+		const thisSearchInput = this.searchInput.current.classList;
+		if (!thisSearchInput.contains('focused')) thisSearchInput.add('focused');
+	}
+
+	handleBlur() {
+		const thisSearchInput = this.searchInput.current.classList;
+		if (thisSearchInput.contains('focused')) thisSearchInput.remove('focused');
+	}
+
 	render() {
 		return (
 			<form className="SearchBar" 
@@ -65,6 +77,8 @@ class SearchBar extends Component {
 					value={this.props.filterText}
 					onChange={this.handleFilterTextChange}
 					onKeyUp={this.handleKeyUp}
+					onFocus={this.handleFocus}
+					onBlur={this.handleBlur}
 					ref={this.searchInput} />
 				<ClearButton />
 			</form>
