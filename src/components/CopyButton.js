@@ -13,7 +13,7 @@ class CopyButton extends Component {
 	}
 
 	componentDidMount() {
-		this.selectedScreen = document.querySelector('.SelectedScreen');
+		this.SelectedScreen = document.querySelector('.SelectedScreen');
 	}
 
 	onSuccess() {
@@ -24,11 +24,11 @@ class CopyButton extends Component {
 			this.copyBtn.current.element.classList.remove('copied');
 		}, 1500);
 
-		this.selectedScreen.innerHTML = this.props.data;
-		animateCSS(this.selectedScreen, 'fadeInOut');
-		this.selectedScreen.classList.add('show');
+		this.SelectedScreen.innerHTML = this.props.data;
+		animateCSS(this.SelectedScreen, 'fadeInOut');
+		this.SelectedScreen.classList.add('show');
 		setTimeout(() => {
-			this.selectedScreen.classList.remove('show');
+			this.SelectedScreen.classList.remove('show');
 		}, 1000);
 	}
 

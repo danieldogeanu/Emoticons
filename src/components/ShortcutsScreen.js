@@ -4,14 +4,17 @@ import { animateCSS } from '../animate';
 import '../styles/components/ShortcutsScreen.scss';
 
 class ShortcutsClose extends Component {	
+	componentDidMount() {
+		this.ShortcutsScreen = document.querySelector('.ShortcutsScreen');
+		this.ShortcutsButton = document.querySelector('.ShortcutsButton');
+	}
+
 	handleClick() {
-		const shortcutsScreen = document.querySelector('.ShortcutsScreen');
-		const shortcutsButton = document.querySelector('.ShortcutsButton');
-		animateCSS(shortcutsScreen, 'fadeOut');
-		shortcutsButton.classList.remove('hide');
+		animateCSS(this.ShortcutsScreen, 'fadeOut');
+		this.ShortcutsButton.classList.remove('hide');
 		setTimeout(() => {
-			shortcutsScreen.classList.remove('show');
-			shortcutsScreen.classList.remove('animated', 'fadeIn', 'fadeOut');
+			this.ShortcutsScreen.classList.remove('show');
+			this.ShortcutsScreen.classList.remove('animated', 'fadeIn', 'fadeOut');
 		}, 290);
 	}
 
@@ -37,6 +40,9 @@ class ShortcutsScreen extends Component {
 	}
 
 	componentDidMount() {
+		this.ShortcutsScreenCL = document.querySelector('.ShortcutsScreen').classList;
+		this.ShortcutsButtonCL = document.querySelector('.ShortcutsButton').classList;
+		this.SearchBarInputCL = document.querySelector('.SearchBar input[type="text"]').classList;
 		window.addEventListener('keyup', this.handleKeyUp);
 	}
 
@@ -45,16 +51,13 @@ class ShortcutsScreen extends Component {
 	}
 
 	handleKeyUp(e) {
-		const shortcutsScreen = document.querySelector('.ShortcutsScreen').classList;
-		const shortcutsButton = document.querySelector('.ShortcutsButton').classList;
-		const searchBarInput = document.querySelector('.SearchBar input[type="text"]').classList;
 		if (e.keyCode === 27) { // ESC
-			if (shortcutsScreen.contains('show')) shortcutsScreen.remove('show');
-			if (shortcutsButton.contains('hide')) shortcutsButton.remove('hide');
+			if (this.ShortcutsScreenCL.contains('show')) this.ShortcutsScreenCL.remove('show');
+			if (this.ShortcutsButtonCL.contains('hide')) this.ShortcutsButtonCL.remove('hide');
 		}
-		if (e.keyCode === 75 && !searchBarInput.contains('focused')) { // K
-			(!shortcutsScreen.contains('show')) ? shortcutsScreen.add('show') : shortcutsScreen.remove('show');
-			(!shortcutsButton.contains('hide')) ? shortcutsButton.add('hide') : shortcutsButton.remove('hide');
+		if (e.keyCode === 75 && !this.SearchBarInputCL.contains('focused')) { // K
+			(!this.ShortcutsScreenCL.contains('show')) ? this.ShortcutsScreenCL.add('show') : this.ShortcutsScreenCL.remove('show');
+			(!this.ShortcutsButtonCL.contains('hide')) ? this.ShortcutsButtonCL.add('hide') : this.ShortcutsButtonCL.remove('hide');
 		}
 	}
 

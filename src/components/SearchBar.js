@@ -26,7 +26,8 @@ class SearchBar extends Component {
 	
 	componentDidMount() {
 		window.addEventListener('keyup', this.selectSearchInput);
-		this.clearBtn = document.querySelector('.ClearButton').classList;
+		this.ClearBtnCL = document.querySelector('.ClearButton').classList;
+		this.SearchInputCL = this.searchInput.current.classList;
 	}
 
 	componentWillUnmount() {
@@ -41,7 +42,7 @@ class SearchBar extends Component {
 
 	handleFilterTextChange(e) {
 		this.props.onFilterTextChange(e.target.value);
-		(e.target.value) ? this.clearBtn.add('show') : this.clearBtn.remove('show');
+		(e.target.value) ? this.ClearBtnCL.add('show') : this.ClearBtnCL.remove('show');
 	}
 
 	handleClearInput(e) {
@@ -49,7 +50,7 @@ class SearchBar extends Component {
 		this.searchInput.current.value = '';
 		this.searchInput.current.blur();
 		this.props.onFilterTextClear();
-		this.clearBtn.remove('show');
+		this.ClearBtnCL.remove('show');
 	}
 
 	handleKeyUp(e) {
@@ -59,13 +60,11 @@ class SearchBar extends Component {
 	}
 
 	handleFocus() {
-		const thisSearchInput = this.searchInput.current.classList;
-		if (!thisSearchInput.contains('focused')) thisSearchInput.add('focused');
+		if (!this.SearchInputCL.contains('focused')) this.SearchInputCL.add('focused');
 	}
 
 	handleBlur() {
-		const thisSearchInput = this.searchInput.current.classList;
-		if (thisSearchInput.contains('focused')) thisSearchInput.remove('focused');
+		if (this.SearchInputCL.contains('focused')) this.SearchInputCL.remove('focused');
 	}
 
 	render() {

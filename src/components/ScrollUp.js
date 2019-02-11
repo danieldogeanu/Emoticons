@@ -13,6 +13,7 @@ class ScrollUp extends Component {
 
 	componentDidMount() {
 		this.SimpleBarContent = document.querySelector('.simplebar-content');
+		this.SearchBarInputCL = document.querySelector('.SearchBar input[type="text"]').classList;
 		this.SimpleBarContent.addEventListener('scroll', this.handleScroll);
 		window.addEventListener('keyup', this.handleKeyUp);
 	}
@@ -23,8 +24,7 @@ class ScrollUp extends Component {
 	}
 
 	handleKeyUp(e) {
-		const searchBarInput = document.querySelector('.SearchBar input[type="text"]').classList;
-		if (e.keyCode === 84 && !searchBarInput.contains('focused')) { // T
+		if (e.keyCode === 84 && !this.SearchBarInputCL.contains('focused')) { // T
 			this.scrollToTop();
 		}
 	}

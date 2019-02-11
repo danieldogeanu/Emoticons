@@ -3,13 +3,16 @@ import { animateCSS } from '../animate';
 import Icon from './Icon';
 import '../styles/components/ShortcutsButton.scss';
 
-class ShortcutsButton extends Component {	
+class ShortcutsButton extends Component {
+	componentDidMount() {
+		this.ShortcutsScreen = document.querySelector('.ShortcutsScreen');
+		this.ShortcutsButton = document.querySelector('.ShortcutsButton');
+	}
+
 	handleClick() {
-		const shortcutsScreen = document.querySelector('.ShortcutsScreen');
-		const shortcutsButton = document.querySelector('.ShortcutsButton');
-		animateCSS(shortcutsScreen, 'fadeIn');
-		shortcutsScreen.classList.add('show');
-		shortcutsButton.classList.add('hide');
+		animateCSS(this.ShortcutsScreen, 'fadeIn');
+		this.ShortcutsScreen.classList.add('show');
+		this.ShortcutsButton.classList.add('hide');
 	}
 
 	render() {
