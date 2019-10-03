@@ -89,8 +89,9 @@ class ListContainer extends Component {
 		let index = startIndex;
 		while (index < endIndex) {
 			let emoticon = filteredData[index];
-			mobileItems.push(<MobileListItem key={emoticon.no} data={emoticon} />);
-			desktopItems.push(<DesktopListItem key={emoticon.no} data={emoticon} />);
+			let key = emoticon.codes.split(' ').join('');
+			mobileItems.push(<MobileListItem key={key} data={emoticon} />);
+			desktopItems.push(<DesktopListItem key={key} data={emoticon} />);
 			index++;
 		}
 
