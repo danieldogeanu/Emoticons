@@ -15,3 +15,5 @@ In the project directory, you can run:
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+The emoji list was imported from [emoji.json](https://github.com/amio/emoji.json) repository.
