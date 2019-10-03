@@ -1,6 +1,6 @@
 {
   "name": "emoticons",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "homepage": "https://emoticons.ddev.ro/",
   "dependencies": {
@@ -67,7 +67,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+		"test": "node scripts/test.js",
+		"deploy": "npm run build && node scripts/deploy.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -130,5 +131,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "ftp-deploy": "^2.3.3"
   }
 }
