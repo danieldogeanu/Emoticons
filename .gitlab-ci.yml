@@ -5,15 +5,16 @@ stages:
   - build
   - deploy
 
+cache:
+  key: ${CI_BUILD_REF_NAME}
+  paths:
+    - node_modules
+
 install:
   stage: install
   script:
     - npm prune
     - npm install --progress=false
-  cache:
-    key: ${CI_BUILD_REF_NAME}
-    paths:
-      - node_modules
   artifacts:
     paths:
       - node_modules
