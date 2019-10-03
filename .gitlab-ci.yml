@@ -18,10 +18,7 @@ install:
     paths:
       - node_modules
   only:
-    refs:
-      - master
-    changes:
-      - package.json
+    - master
 
 build:
   stage: build
