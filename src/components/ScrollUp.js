@@ -12,14 +12,14 @@ class ScrollUp extends Component {
 	}
 
 	componentDidMount() {
-		this.SimpleBarContent = document.querySelector('.simplebar-content');
+		this.SimpleBarContentWrapper = document.querySelector('.simplebar-content-wrapper');
 		this.SearchBarInputCL = document.querySelector('.SearchBar input[type="text"]').classList;
-		this.SimpleBarContent.addEventListener('scroll', this.handleScroll);
+		this.SimpleBarContentWrapper.addEventListener('scroll', this.handleScroll);
 		window.addEventListener('keyup', this.handleKeyUp);
 	}
 
 	componentWillUnmount() {
-		this.SimpleBarContent.removeEventListener('scroll', this.handleScroll);
+		this.SimpleBarContentWrapper.removeEventListener('scroll', this.handleScroll);
 		window.removeEventListener('keyup', this.handleKeyUp);
 	}
 
@@ -30,16 +30,16 @@ class ScrollUp extends Component {
 	}
 
 	handleScroll() {
-		let currentScroll = this.SimpleBarContent.scrollTop;
+		let currentScroll = this.SimpleBarContentWrapper.scrollTop;
 		let thisBtn = this.scrollUpBtn.current.classList;
 		(currentScroll > 200) ? thisBtn.add('show') : thisBtn.remove('show');
 	}
 
 	scrollToTop() {
-		let currentScroll = this.SimpleBarContent.scrollTop;
+		let currentScroll = this.SimpleBarContentWrapper.scrollTop;
 		if (currentScroll > 0) {
 			window.requestAnimationFrame(this.scrollToTop);
-			this.SimpleBarContent.scrollTo(0, currentScroll - (currentScroll/5));
+			this.SimpleBarContentWrapper.scrollTo(0, currentScroll - (currentScroll/5));
 		}
 	}
 
