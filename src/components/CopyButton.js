@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Clipboard from 'react-clipboard.js';
-import Icon from './Icon';
+import Icon from '../elements/Icon';
 import { animateCSS } from '../animate';
 import '../styles/components/CopyButton.scss';
 

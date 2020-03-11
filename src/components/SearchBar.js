@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon from './Icon';
+import Icon from '../elements/Icon';
 import '../styles/components/SearchBar.scss';
 
 function ClearButton() {

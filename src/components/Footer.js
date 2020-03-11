@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './Icon';
+import Icon from '../elements/Icon';
 import '../styles/components/Footer.scss';
 
 const author = { name: 'Daniel Dogeanu', url: 'https://danieldogeanu.com' };
@@ -11,8 +11,8 @@ const social = [
 
 function Link(props) {
 	return (
-		<a href={props.data.url} 
-			target="_blank" 
+		<a href={props.data.url}
+			target="_blank"
 			rel="noopener noreferrer">
 			{props.social ? (
 				<span className="mynet">

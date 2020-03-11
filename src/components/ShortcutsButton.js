@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { animateCSS } from '../animate';
-import Icon from './Icon';
+import Icon from '../elements/Icon';
 import '../styles/components/ShortcutsButton.scss';
 
 class ShortcutsButton extends Component {
@@ -18,7 +18,7 @@ class ShortcutsButton extends Component {
 	render() {
 		const shortcutsButtonText = 'Keyboard Shortcuts';
 		return (
-			<button className="ShortcutsButton" 
+			<button className="ShortcutsButton"
 				title={shortcutsButtonText}
 				onClick={() => this.handleClick()}>
 				<span className="show-for-screen-reader">
