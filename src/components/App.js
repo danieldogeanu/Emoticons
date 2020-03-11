@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import emojiJSON from '../emoji.json'; // NOTE: Emoji List Source: https://github.com/amio/emoji.json
 import IconsSprite from './IconsSprite';
-import TopBar from './TopBar.js';
+import TopBar from '../elements/TopBar.js';
 import SearchBar from './SearchBar';
 import ListContainer from './ListContainer.js';
 import ScrollUp from './ScrollUp';
