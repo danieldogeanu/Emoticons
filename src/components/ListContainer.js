@@ -1,26 +1,10 @@
 import React, { Component } from 'react';
 import SimpleBar from 'simplebar';
 import Footer from './Footer';
+import Labels from './Labels';
 import { MobileListItem, DesktopListItem } from './ListItem';
-import Label from '../elements/Label';
-
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
-
-function Labels() {
-	const labels = [
-		{ class: 'face', name: 'Face' },
-		{ class: 'name', name: 'Emoticon Name' },
-		{ class: 'copy', name: 'Get' },
-	];
-	return (
-		<div className="Labels">
-			{labels.map(label => {
-				return <Label key={label.class} label={label} />
-			})}
-		</div>
-	);
-}
 
 class ListContainer extends Component {
 	constructor(props) {
