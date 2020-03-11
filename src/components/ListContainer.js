@@ -38,8 +38,16 @@ class ListContainer extends Component {
 			scrollTop: 0,
 		}
 		this.list = React.createRef();
-		this.handleScroll = this.handleScroll.bind(this);
-		this.handleResize = this.handleResize.bind(this);
+	}
+
+	handleScroll = (event) => {
+		this.setState({scrollTop: event.target.scrollTop});
+	}
+
+	handleResize = () => {
+		setTimeout(() => {
+			this.setState({isMobile: (window.innerWidth < 481)});
+		}, 200);
 	}
 
 	componentDidMount() {
@@ -50,16 +58,6 @@ class ListContainer extends Component {
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.handleResize);
-	}
-
-	handleScroll(event) {
-		this.setState({scrollTop: event.target.scrollTop});
-	}
-
-	handleResize() {
-		setTimeout(() => {
-			this.setState({isMobile: (window.innerWidth < 481)});
-		}, 200);
 	}
 
 	render() {
