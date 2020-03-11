@@ -6,30 +6,36 @@ import Copy from '../elements/Copy';
 import CopyHint from '../elements/CopyHint';
 import '../styles/components/ListItem.scss';
 
-export function DesktopListItem(props) {
-	const {char, name} = props.data;
-	return (
-		<li className="DesktopListItem">
-			<Emoticon char={char} name={name} />
-			<Name name={name} />
-			<Copy>
-				<CopyButton data={char} />
-			</Copy>
-		</li>
-	);
+function ListItem(props) {
+	const {data, type} = props;
+	const {char, name} = data;
+
+	switch (type) {
+		case 'desktop':
+			return (
+				<li className="DesktopListItem">
+					<Emoticon char={char} name={name} />
+					<Name name={name} />
+					<Copy>
+						<CopyButton data={char} />
+					</Copy>
+				</li>
+			);
+		case 'mobile':
+			return (
+				<li className="MobileListItem">
+					<CopyButton data={char} className="mobileCard ripple">
+						<Name name={name} />
+						<div className="bottomBar">
+							<Emoticon char={char} name={name} />
+							<CopyHint text="Tap to Copy" />
+						</div>
+					</CopyButton>
+				</li>
+			);
+		default:
+			return false;
+	}
 }
 
-export function MobileListItem(props) {
-	const {char, name} = props.data;
-	return (
-		<li className="MobileListItem">
-			<CopyButton data={char} className="mobileCard ripple">
-				<Name name={name} />
-				<div className="bottomBar">
-					<Emoticon char={char} name={name} />
-					<CopyHint text="Tap to Copy" />
-				</div>
-			</CopyButton>
-		</li>
-	);
-}
+export default ListItem;

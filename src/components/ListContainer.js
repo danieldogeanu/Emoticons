@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SimpleBar from 'simplebar';
 import Footer from './Footer';
 import Labels from './Labels';
-import { MobileListItem, DesktopListItem } from './ListItem';
+import ListItem from './ListItem';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
@@ -63,8 +63,8 @@ class ListContainer extends Component {
 		while (index < endIndex) {
 			let emoticon = filteredData[index];
 			let key = emoticon.codes.split(' ').join('');
-			mobileItems.push(<MobileListItem key={key} data={emoticon} />);
-			desktopItems.push(<DesktopListItem key={key} data={emoticon} />);
+			mobileItems.push(<ListItem type="mobile" key={key} data={emoticon} />);
+			desktopItems.push(<ListItem type="desktop" key={key} data={emoticon} />);
 			index++;
 		}
 
