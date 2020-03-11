@@ -3,15 +3,8 @@ import CopyButton from './CopyButton';
 import Emoticon from '../elements/Emoticon';
 import Name from '../elements/Name';
 import Copy from '../elements/Copy';
+import CopyHint from '../elements/CopyHint';
 import '../styles/components/ListItem.scss';
-
-function CopyHint(props) {
-	return (
-		<span className="CopyHint">
-			{props.text}
-		</span>
-	);
-}
 
 export function DesktopListItem(props) {
 	const {char, name} = props.data;
