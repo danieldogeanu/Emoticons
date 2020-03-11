@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import SimpleBar from 'simplebar';
 import Footer from './Footer';
 import { MobileListItem, DesktopListItem } from './ListItem';
+import Label from '../elements/Label';
 
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
-
-function Label(props) {
-	return (
-		<span className={'Label ' + props.label.class}>
-			{props.label.name}
-		</span>
-	);
-}
 
 function Labels() {
 	const labels = [
