@@ -8,15 +8,10 @@ class CopyButton extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {isCopied: false};
-		this.onSuccess = this.onSuccess.bind(this);
 		this.copyBtn = React.createRef();
 	}
 
-	componentDidMount() {
-		this.SelectedScreen = document.querySelector('.SelectedScreen');
-	}
-
-	onSuccess() {
+	onSuccess = () => {
 		this.setState({isCopied: true});
 		this.copyBtn.current.element.classList.add('copied');
 		setTimeout(() => {
@@ -30,6 +25,10 @@ class CopyButton extends Component {
 		setTimeout(() => {
 			this.SelectedScreen.classList.remove('show');
 		}, 1000);
+	}
+
+	componentDidMount() {
+		this.SelectedScreen = document.querySelector('.SelectedScreen');
 	}
 
 	render() {
