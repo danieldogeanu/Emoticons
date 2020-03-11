@@ -4,15 +4,15 @@ import Icon from '../elements/Icon';
 import '../styles/components/ShortcutsButton.scss';
 
 class ShortcutsButton extends Component {
-	componentDidMount() {
-		this.ShortcutsScreen = document.querySelector('.ShortcutsScreen');
-		this.ShortcutsButton = document.querySelector('.ShortcutsButton');
-	}
-
-	handleClick() {
+	handleClick = () => {
 		animateCSS(this.ShortcutsScreen, 'fadeIn');
 		this.ShortcutsScreen.classList.add('show');
 		this.ShortcutsButton.classList.add('hide');
+	}
+
+	componentDidMount() {
+		this.ShortcutsScreen = document.querySelector('.ShortcutsScreen');
+		this.ShortcutsButton = document.querySelector('.ShortcutsButton');
 	}
 
 	render() {
@@ -20,7 +20,7 @@ class ShortcutsButton extends Component {
 		return (
 			<button className="ShortcutsButton"
 				title={shortcutsButtonText}
-				onClick={() => this.handleClick()}>
+				onClick={this.handleClick}>
 				<span className="show-for-screen-reader">
 					{shortcutsButtonText}
 				</span>
