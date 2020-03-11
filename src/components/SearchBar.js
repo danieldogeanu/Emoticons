@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import Icon from '../elements/Icon';
+import ClearButton from '../elements/ClearButton';
 import '../styles/components/SearchBar.scss';
-
-function ClearButton() {
-	const clearText = 'Clear Input';
-	return (
-		<button className="ClearButton" title={clearText}>
-			<span className="show-for-screen-reader">{clearText}</span>
-			<Icon name="close" />
-		</button>
-	);
-}
 
 class SearchBar extends Component {
 	constructor(props) {
