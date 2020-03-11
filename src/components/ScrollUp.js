@@ -6,9 +6,26 @@ class ScrollUp extends Component {
 	constructor() {
 		super();
 		this.scrollUpBtn = React.createRef();
-		this.handleKeyUp = this.handleKeyUp.bind(this);
-		this.handleScroll = this.handleScroll.bind(this);
-		this.scrollToTop = this.scrollToTop.bind(this);
+	}
+
+	handleKeyUp = (e) => {
+		if (e.keyCode === 84 && !this.SearchBarInputCL.contains('focused')) { // T
+			this.scrollToTop();
+		}
+	}
+
+	handleScroll = () => {
+		let currentScroll = this.SimpleBarContentWrapper.scrollTop;
+		let thisBtn = this.scrollUpBtn.current.classList;
+		(currentScroll > 200) ? thisBtn.add('show') : thisBtn.remove('show');
+	}
+
+	scrollToTop = () => {
+		let currentScroll = this.SimpleBarContentWrapper.scrollTop;
+		if (currentScroll > 0) {
+			window.requestAnimationFrame(this.scrollToTop);
+			this.SimpleBarContentWrapper.scrollTo(0, currentScroll - (currentScroll/5));
+		}
 	}
 
 	componentDidMount() {
@@ -21,26 +38,6 @@ class ScrollUp extends Component {
 	componentWillUnmount() {
 		this.SimpleBarContentWrapper.removeEventListener('scroll', this.handleScroll);
 		window.removeEventListener('keyup', this.handleKeyUp);
-	}
-
-	handleKeyUp(e) {
-		if (e.keyCode === 84 && !this.SearchBarInputCL.contains('focused')) { // T
-			this.scrollToTop();
-		}
-	}
-
-	handleScroll() {
-		let currentScroll = this.SimpleBarContentWrapper.scrollTop;
-		let thisBtn = this.scrollUpBtn.current.classList;
-		(currentScroll > 200) ? thisBtn.add('show') : thisBtn.remove('show');
-	}
-
-	scrollToTop() {
-		let currentScroll = this.SimpleBarContentWrapper.scrollTop;
-		if (currentScroll > 0) {
-			window.requestAnimationFrame(this.scrollToTop);
-			this.SimpleBarContentWrapper.scrollTo(0, currentScroll - (currentScroll/5));
-		}
 	}
 
 	render() {
