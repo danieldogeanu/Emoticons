@@ -1,15 +1,8 @@
 import React from 'react';
 import CopyButton from './CopyButton';
 import Emoticon from '../elements/Emoticon';
+import Name from '../elements/Name';
 import '../styles/components/ListItem.scss';
-
-function Name(props) {
-	return (
-		<span className="Name">
-			{props.name}
-		</span>
-	);
-}
 
 function Copy(props) {
 	const hint = 'Copy the emoticon and paste it where you need it.';
