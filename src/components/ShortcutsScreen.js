@@ -3,13 +3,8 @@ import Icon from './Icon';
 import { animateCSS } from '../animate';
 import '../styles/components/ShortcutsScreen.scss';
 
-class ShortcutsClose extends Component {	
-	componentDidMount() {
-		this.ShortcutsScreen = document.querySelector('.ShortcutsScreen');
-		this.ShortcutsButton = document.querySelector('.ShortcutsButton');
-	}
-
-	handleClick() {
+class ShortcutsClose extends Component {
+	handleClick = () => {
 		animateCSS(this.ShortcutsScreen, 'fadeOut');
 		this.ShortcutsButton.classList.remove('hide');
 		setTimeout(() => {
@@ -18,10 +13,15 @@ class ShortcutsClose extends Component {
 		}, 290);
 	}
 
+	componentDidMount() {
+		this.ShortcutsScreen = document.querySelector('.ShortcutsScreen');
+		this.ShortcutsButton = document.querySelector('.ShortcutsButton');
+	}
+
 	render() {
 		const shortcutsCloseText = 'Close Shortcuts Screen';
 		return (
-			<button className="ShortcutsClose" 
+			<button className="ShortcutsClose"
 				title={shortcutsCloseText}
 				onClick={() => this.handleClick()}>
 				<span className="show-for-screen-reader">
@@ -34,9 +34,15 @@ class ShortcutsClose extends Component {
 }
 
 class ShortcutsScreen extends Component {
-	constructor() {
-		super();
-		this.handleKeyUp = this.handleKeyUp.bind(this);
+	handleKeyUp = (e) => {
+		if (e.keyCode === 27) { // ESC
+			if (this.ShortcutsScreenCL.contains('show')) this.ShortcutsScreenCL.remove('show');
+			if (this.ShortcutsButtonCL.contains('hide')) this.ShortcutsButtonCL.remove('hide');
+		}
+		if (e.keyCode === 75 && !this.SearchBarInputCL.contains('focused')) { // K
+			(!this.ShortcutsScreenCL.contains('show')) ? this.ShortcutsScreenCL.add('show') : this.ShortcutsScreenCL.remove('show');
+			(!this.ShortcutsButtonCL.contains('hide')) ? this.ShortcutsButtonCL.add('hide') : this.ShortcutsButtonCL.remove('hide');
+		}
 	}
 
 	componentDidMount() {
@@ -50,17 +56,6 @@ class ShortcutsScreen extends Component {
 		window.removeEventListener('keyup', this.handleKeyUp);
 	}
 
-	handleKeyUp(e) {
-		if (e.keyCode === 27) { // ESC
-			if (this.ShortcutsScreenCL.contains('show')) this.ShortcutsScreenCL.remove('show');
-			if (this.ShortcutsButtonCL.contains('hide')) this.ShortcutsButtonCL.remove('hide');
-		}
-		if (e.keyCode === 75 && !this.SearchBarInputCL.contains('focused')) { // K
-			(!this.ShortcutsScreenCL.contains('show')) ? this.ShortcutsScreenCL.add('show') : this.ShortcutsScreenCL.remove('show');
-			(!this.ShortcutsButtonCL.contains('hide')) ? this.ShortcutsButtonCL.add('hide') : this.ShortcutsButtonCL.remove('hide');
-		}
-	}
-
 	render() {
 		const shortcuts = [
 			{ key: 's', description: 'Selects Search Input' },
@@ -68,6 +63,7 @@ class ShortcutsScreen extends Component {
 			{ key: 'k', description: 'Opens Keyboard Shortcuts Screen' },
 			{ key: 't', description: 'Scrolls Back Up' },
 		];
+
 		return (
 			<div className="ShortcutsScreen">
 				<div className="shortcutsList">
