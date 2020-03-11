@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { MobileListItem, DesktopListItem } from './ListItem';
 import SimpleBar from 'simplebar';
 import Footer from './Footer';
+import { MobileListItem, DesktopListItem } from './ListItem';
 
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
@@ -61,9 +61,8 @@ class ListContainer extends Component {
 	}
 
 	render() {
-		const data = this.props.data;
-		const isMobile = this.state.isMobile;
-		const filterText = this.props.filterText;
+		const {data, filterText} = this.props;
+		const {isMobile, availableHeight, scrollTop} = this.state;
 		const filteredData = [];
 
 		data.forEach(emoticon => {
@@ -75,7 +74,6 @@ class ListContainer extends Component {
 		const rowHeight = isMobile ? 90 : 50;
 		const totalHeight = rowHeight * numRows;
 
-		const {availableHeight, scrollTop} = this.state;
 		const scrollBottom = scrollTop + availableHeight;
 
 		const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 40);

@@ -64,7 +64,7 @@ class SearchBar extends Component {
 	render() {
 		return (
 			<form className="SearchBar"
-				onSubmit={e => this.handleClearInput(e)}>
+				onSubmit={this.handleClearInput}>
 				<input type="text"
 					placeholder="Search Emoticons..."
 					value={this.props.filterText}

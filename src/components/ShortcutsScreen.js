@@ -23,7 +23,7 @@ class ShortcutsClose extends Component {
 		return (
 			<button className="ShortcutsClose"
 				title={shortcutsCloseText}
-				onClick={() => this.handleClick()}>
+				onClick={this.handleClick}>
 				<span className="show-for-screen-reader">
 					{shortcutsCloseText}
 				</span>
@@ -70,7 +70,10 @@ class ShortcutsScreen extends Component {
 					<span className="shortcutsTitle">Keyboard Shortcuts</span>
 					<ul>
 						{shortcuts.map(shortcut => {
-							return <li key={shortcut.key}><kbd>{shortcut.key}</kbd> {shortcut.description}</li>;
+							return (<li key={shortcut.key}>
+												<kbd>{shortcut.key}</kbd>
+												{shortcut.description}
+											</li>);
 						})}
 					</ul>
 					<ShortcutsClose />

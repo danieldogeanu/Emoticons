@@ -12,11 +12,14 @@ class CopyButton extends Component {
 	}
 
 	onSuccess = () => {
+		const currCopyBtn = this.copyBtn.current.element;
 		this.setState({isCopied: true});
-		this.copyBtn.current.element.classList.add('copied');
+		currCopyBtn.classList.add('copied');
 		setTimeout(() => {
 			this.setState({isCopied: false});
-			this.copyBtn.current.element.classList.remove('copied');
+			if (currCopyBtn.classList.contains('copied')) {
+				currCopyBtn.classList.remove('copied');
+			}
 		}, 1500);
 
 		this.SelectedScreen.innerHTML = this.props.data;

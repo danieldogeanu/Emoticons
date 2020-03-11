@@ -43,8 +43,9 @@ class ScrollUp extends Component {
 	render() {
 		const scrollText = 'Scroll Back Up';
 		return (
-			<button className="ScrollUp" title={scrollText}
-				onClick={() => this.scrollToTop()}
+			<button className="ScrollUp"
+				title={scrollText}
+				onClick={this.scrollToTop}
 				ref={this.scrollUpBtn}>
 				<span className="show-for-screen-reader">{scrollText}</span>
 				<Icon name="chevron-up" />
