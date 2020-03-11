@@ -29,8 +29,8 @@ class ListContainer extends Component {
 
 	componentDidMount() {
 		window.addEventListener('resize', this.handleResize);
-		this.setState({availableHeight: this.list.clientHeight});
-		new SimpleBar(this.list);
+		this.setState({availableHeight: this.list.current.clientHeight});
+		new SimpleBar(this.list.current);
 	}
 
 	componentWillUnmount() {
@@ -40,19 +40,15 @@ class ListContainer extends Component {
 	render() {
 		const {data, filterText} = this.props;
 		const {isMobile, availableHeight, scrollTop} = this.state;
-		const filteredData = [];
 
-		data.forEach(emoticon => {
-			if (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) return;
-			filteredData.push(emoticon);
+		const filteredData = data.filter(emoticon => {
+			return (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
 		});
 
 		const numRows = filteredData.length;
 		const rowHeight = isMobile ? 90 : 50;
 		const totalHeight = rowHeight * numRows;
-
 		const scrollBottom = scrollTop + availableHeight;
-
 		const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 40);
 		const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 40);
 
@@ -72,7 +68,7 @@ class ListContainer extends Component {
 			<div className="ListContainer">
 				<div className="List"
 					onScroll={this.handleScroll}
-					ref={list => this.list = list}>
+					ref={this.list}>
 					<div className="innerWrapper">
 						<Labels />
 						<ul style={{
