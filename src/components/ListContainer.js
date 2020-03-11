@@ -13,6 +13,7 @@ class ListContainer extends Component {
 			isMobile: (window.innerWidth < 481),
 			availableHeight: 0,
 			scrollTop: 0,
+			emoticonsNumber: 0,
 		}
 		this.list = React.createRef();
 	}
@@ -29,7 +30,10 @@ class ListContainer extends Component {
 
 	componentDidMount() {
 		window.addEventListener('resize', this.handleResize);
-		this.setState({availableHeight: this.list.current.clientHeight});
+		this.setState({
+			availableHeight: this.list.current.clientHeight,
+			emoticonsNumber: this.props.data.length,
+		});
 		new SimpleBar(this.list.current);
 	}
 
