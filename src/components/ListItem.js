@@ -2,16 +2,8 @@ import React from 'react';
 import CopyButton from './CopyButton';
 import Emoticon from '../elements/Emoticon';
 import Name from '../elements/Name';
+import Copy from '../elements/Copy';
 import '../styles/components/ListItem.scss';
-
-function Copy(props) {
-	const hint = 'Copy the emoticon and paste it where you need it.';
-	return (
-		<span className="Copy" title={hint}>
-			<CopyButton data={props.data} />
-		</span>
-	);
-}
 
 function CopyHint(props) {
 	return (
@@ -27,7 +19,9 @@ export function DesktopListItem(props) {
 		<li className="DesktopListItem">
 			<Emoticon char={char} name={name} />
 			<Name name={name} />
-			<Copy data={char} />
+			<Copy>
+				<CopyButton data={char} />
+			</Copy>
 		</li>
 	);
 }
