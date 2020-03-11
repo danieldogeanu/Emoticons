@@ -14,15 +14,13 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {filterText: ''};
-		this.handleFilterTextChange = this.handleFilterTextChange.bind(this);
-		this.handleFilterTextClear = this.handleFilterTextClear.bind(this);
 	}
 
-	handleFilterTextChange(filterText) {
+	handleFilterTextChange = (filterText) => {
 		this.setState({filterText: filterText});
 	}
 
-	handleFilterTextClear() {
+	handleFilterTextClear = () => {
 		this.setState({filterText: ''});
 	}
 
