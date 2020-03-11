@@ -1,16 +1,7 @@
 import React from 'react';
 import CopyButton from './CopyButton';
+import Emoticon from '../elements/Emoticon';
 import '../styles/components/ListItem.scss';
-
-function Emoticon(props) {
-	return (
-		<span role="img" 
-			className="Emoticon" 
-			aria-label={props.name}>
-			{props.char}
-		</span>
-	);
-}
 
 function Name(props) {
 	return (
