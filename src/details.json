@@ -30,5 +30,23 @@
 			"name": "Behance",
 			"url": "https://behance.net/danieldogeanu"
 		}
+	],
+	"shortcuts": [
+		{
+			"key": "s",
+			"description": "Selects Search Input"
+		},
+		{
+			"key": "esc",
+			"description": "Clears Search Input / Exits Menu"
+		},
+		{
+			"key": "k",
+			"description": "Opens Keyboard Shortcuts Screen"
+		},
+		{
+			"key": "t",
+			"description": "Scrolls Back Up"
+		}
 	]
 }

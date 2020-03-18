@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShortcutsClose from './ShortcutsClose';
+import { shortcuts } from '../details.json';
 import '../styles/components/ShortcutsScreen.scss';
 
 class ShortcutsScreen extends Component {
@@ -26,24 +27,17 @@ class ShortcutsScreen extends Component {
 	}
 
 	render() {
-		const shortcuts = [
-			{ key: 's', description: 'Selects Search Input' },
-			{ key: 'esc', description: 'Clears Search Input / Exits Menu' },
-			{ key: 'k', description: 'Opens Keyboard Shortcuts Screen' },
-			{ key: 't', description: 'Scrolls Back Up' },
-		];
-
 		return (
 			<div className="ShortcutsScreen">
 				<div className="shortcutsList">
 					<span className="shortcutsTitle">Keyboard Shortcuts</span>
 					<ul>
-						{shortcuts.map(shortcut => {
-							return (<li key={shortcut.key}>
-												<kbd>{shortcut.key}</kbd>
-												{shortcut.description}
-											</li>);
-						})}
+						{shortcuts.map((shortcut) => (
+							<li key={shortcut.key}>
+								<kbd>{shortcut.key}</kbd>
+								{shortcut.description}
+							</li>
+						))}
 					</ul>
 					<ShortcutsClose />
 				</div>
