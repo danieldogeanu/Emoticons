@@ -1,4 +1,18 @@
 {
+	"labels": [
+		{
+			"class": "face",
+			"name": "Face"
+		},
+		{
+			"class": "name",
+			"name": "Emoticon Name"
+		},
+		{
+			"class": "copy",
+			"name": "Get"
+		}
+	],
 	"author": {
 		"name": "Daniel Dogeanu",
 		"url": "https://danieldogeanu.com"
