@@ -1,5 +1,5 @@
 import React from 'react';
-import Label from '../elements/Label';
+import Label from './Label';
 import details from '../details.json';
 
 const Labels = () => (

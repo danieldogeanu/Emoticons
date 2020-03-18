@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SimpleBar from 'simplebar';
-import Footer from './Footer';
-import Labels from './Labels';
 import ListItem from './ListItem';
+import Footer from '../elements/Footer';
+import Labels from '../elements/Labels';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 

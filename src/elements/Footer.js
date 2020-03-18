@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '../elements/Link';
+import Link from './Link';
 import {author, social} from '../details.json';
 import '../styles/components/Footer.scss';
 
