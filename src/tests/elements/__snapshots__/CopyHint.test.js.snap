@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyHint Element renders copy hint element properly 1`] = `
+<span
+  class="CopyHint"
+>
+  Test Hint
+</span>
+`;
