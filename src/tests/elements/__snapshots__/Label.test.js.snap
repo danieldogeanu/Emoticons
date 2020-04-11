@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label Element renders list column label properly 1`] = `
+<span
+  class="Label test"
+>
+  Test
+</span>
+`;
