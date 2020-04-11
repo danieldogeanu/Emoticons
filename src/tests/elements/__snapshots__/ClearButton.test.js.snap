@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClearButton Element clear button renders properly 1`] = `
+<button
+  class="ClearButton"
+  title="Clear Input"
+>
+  <span
+    class="show-for-screen-reader"
+  >
+    Clear Input
+  </span>
+  <svg
+    class="icon close"
+  >
+    <use
+      xlink:href="#close"
+    />
+  </svg>
+</button>
+`;
