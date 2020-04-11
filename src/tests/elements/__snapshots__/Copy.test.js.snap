@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copy Element renders copy element properly 1`] = `
+<span
+  class="Copy"
+  title="Copy the emoticon and paste it where you need it."
+>
+  <button>
+    Copy Me
+  </button>
+</span>
+`;
