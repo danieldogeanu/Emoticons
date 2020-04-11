@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ClearButton Element clear button renders properly 1`] = `
+exports[`ClearButton Element renders clear button properly 1`] = `
 <button
   class="ClearButton"
   title="Clear Input"
