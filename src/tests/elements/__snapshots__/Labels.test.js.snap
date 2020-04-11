@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Labels Element renders labels element properly 1`] = `
+<div
+  class="Labels"
+  data-testid="Labels"
+>
+  <span
+    class="Label face"
+  >
+    Face
+  </span>
+  <span
+    class="Label name"
+  >
+    Emoticon Name
+  </span>
+  <span
+    class="Label copy"
+  >
+    Get
+  </span>
+</div>
+`;
