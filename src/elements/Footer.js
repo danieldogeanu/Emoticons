@@ -5,10 +5,12 @@ import '../styles/components/Footer.scss';
 
 const Footer = () => (
 	<footer className="Footer">
-		<p className="author">By: <Link data={author} /></p>
-		<p className="mynets">
+		<p className="author" data-testid="author">
+			By: <Link data={author} />
+		</p>
+		<p className="mynets" data-testid="mynets">
 			<span className="folw">Follow Me: </span>
-			<span className="wrapper">
+			<span className="wrapper" data-testid="wrapper">
 				{social.map((value) => (
 					<Link key={value.name.toLowerCase()}
 								data={value} social={true} />

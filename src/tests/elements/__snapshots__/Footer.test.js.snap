@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Element renders footer element properly 1`] = `
+<footer
+  class="Footer"
+>
+  <p
+    class="author"
+    data-testid="author"
+  >
+    By: 
+    <a
+      data-testid="Link"
+      href="https://danieldogeanu.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Daniel Dogeanu
+    </a>
+  </p>
+  <p
+    class="mynets"
+    data-testid="mynets"
+  >
+    <span
+      class="folw"
+    >
+      Follow Me: 
+    </span>
+    <span
+      class="wrapper"
+      data-testid="wrapper"
+    >
+      <a
+        data-testid="Link"
+        href="https://twitter.com/danieldogeanu"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span
+          class="mynet"
+          data-testid="container"
+        >
+          <span
+            class="show-for-screen-reader"
+          >
+            Twitter
+          </span>
+          <svg
+            class="icon twitter"
+          >
+            <use
+              xlink:href="#twitter"
+            />
+          </svg>
+        </span>
+      </a>
+      <a
+        data-testid="Link"
+        href="https://github.com/danieldogeanu"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span
+          class="mynet"
+          data-testid="container"
+        >
+          <span
+            class="show-for-screen-reader"
+          >
+            GitHub
+          </span>
+          <svg
+            class="icon github"
+          >
+            <use
+              xlink:href="#github"
+            />
+          </svg>
+        </span>
+      </a>
+      <a
+        data-testid="Link"
+        href="https://www.linkedin.com/in/danieldogeanu/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span
+          class="mynet"
+          data-testid="container"
+        >
+          <span
+            class="show-for-screen-reader"
+          >
+            LinkedIn
+          </span>
+          <svg
+            class="icon linkedin"
+          >
+            <use
+              xlink:href="#linkedin"
+            />
+          </svg>
+        </span>
+      </a>
+      <a
+        data-testid="Link"
+        href="https://behance.net/danieldogeanu"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span
+          class="mynet"
+          data-testid="container"
+        >
+          <span
+            class="show-for-screen-reader"
+          >
+            Behance
+          </span>
+          <svg
+            class="icon behance"
+          >
+            <use
+              xlink:href="#behance"
+            />
+          </svg>
+        </span>
+      </a>
+    </span>
+  </p>
+</footer>
+`;
