@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Emoticon Element renders emoticon element properly 1`] = `
+<span
+  aria-label="grinning face with smiling eyes"
+  class="Emoticon"
+  role="img"
+>
+  😄
+</span>
+`;
