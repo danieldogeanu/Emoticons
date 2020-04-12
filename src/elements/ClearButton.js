@@ -1,11 +1,12 @@
 import React from 'react';
 import Icon from '../elements/Icon';
+import ScreenReaderText from './ScreenReaderText';
 
 const ClearButton = () => {
 	const clearText = 'Clear Input';
 	return (
 		<button className="ClearButton" title={clearText}>
-			<span className="show-for-screen-reader">{clearText}</span>
+			<ScreenReaderText text={clearText} />
 			<Icon name="close" />
 		</button>
 	);

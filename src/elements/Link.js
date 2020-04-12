@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from './Icon';
+import ScreenReaderText from './ScreenReaderText';
 
 const Link = (props) => (
 	<a href={props.data.url}
@@ -8,9 +9,7 @@ const Link = (props) => (
 		rel="noopener noreferrer">
 		{props.social ? (
 			<span className="mynet" data-testid="container">
-				<span className="show-for-screen-reader">
-					{props.data.name}
-				</span>
+				<ScreenReaderText text={props.data.name} />
 				<Icon name={props.data.name.toLowerCase()} />
 			</span>
 		) : (props.data.name)}
