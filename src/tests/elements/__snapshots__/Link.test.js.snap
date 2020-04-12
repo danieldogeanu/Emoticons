@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link Element renders author link element properly 1`] = `
+<a
+  data-testid="Link"
+  href="https://danieldogeanu.com"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Daniel Dogeanu
+</a>
+`;
+
+exports[`Link Element renders social link element properly 1`] = `
+<a
+  data-testid="Link"
+  href="https://twitter.com/danieldogeanu"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  <span
+    class="mynet"
+    data-testid="Wrapper"
+  >
+    <span
+      class="show-for-screen-reader"
+    >
+      Twitter
+    </span>
+    <svg
+      class="icon twitter"
+    >
+      <use
+        xlink:href="#twitter"
+      />
+    </svg>
+  </span>
+</a>
+`;
