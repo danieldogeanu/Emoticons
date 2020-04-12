@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconsSprite Element renders icons sprite properly 1`] = `
+<div
+  class="IconsSprite"
+  data-testid="IconsSprite"
+  style="display: none;"
+>
+  <svg>
+    icons.svg
+  </svg>
+</div>
+`;
