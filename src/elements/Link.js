@@ -8,7 +8,7 @@ const Link = (props) => (
 		data-testid="Link"
 		rel="noopener noreferrer">
 		{props.social ? (
-			<span className="mynet" data-testid="container">
+			<span className="mynet" data-testid="mynet">
 				<ScreenReaderText text={props.data.name} />
 				<Icon name={props.data.name.toLowerCase()} />
 			</span>

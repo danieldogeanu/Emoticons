@@ -39,7 +39,7 @@ exports[`Footer Element renders footer element properly 1`] = `
       >
         <span
           class="mynet"
-          data-testid="container"
+          data-testid="mynet"
         >
           <span
             class="show-for-screen-reader"
@@ -64,7 +64,7 @@ exports[`Footer Element renders footer element properly 1`] = `
       >
         <span
           class="mynet"
-          data-testid="container"
+          data-testid="mynet"
         >
           <span
             class="show-for-screen-reader"
@@ -89,7 +89,7 @@ exports[`Footer Element renders footer element properly 1`] = `
       >
         <span
           class="mynet"
-          data-testid="container"
+          data-testid="mynet"
         >
           <span
             class="show-for-screen-reader"
@@ -114,7 +114,7 @@ exports[`Footer Element renders footer element properly 1`] = `
       >
         <span
           class="mynet"
-          data-testid="container"
+          data-testid="mynet"
         >
           <span
             class="show-for-screen-reader"

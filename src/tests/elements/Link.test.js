@@ -23,7 +23,7 @@ describe('Link Element', () => {
 		const {name, url} = social[0];
 		const {getByTestId, getByText, container} = render(<Link data={social[0]} social="true" />);
 		const renderedLink = getByTestId(linkId);
-		const renderedContainer = getByTestId('container');
+		const renderedContainer = getByTestId('mynet');
 		const renderedSRText = getByText(name);
 		const renderedIcon = container.querySelector('svg');
 

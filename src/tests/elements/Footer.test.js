@@ -32,7 +32,7 @@ describe('Footer Element', () => {
 		const renderedNets = getByTestId(netsClass);
 		const renderedFollow = getByText(/follow me/i);
 		const renderedWrapper = getByTestId('wrapper');
-		const renderedLinks = getAllByTestId('container');
+		const renderedLinks = getAllByTestId('mynet');
 
 		expect(renderedNets).toBeInTheDocument();
 		expect(renderedNets).toHaveClass(netsClass);
@@ -48,7 +48,7 @@ describe('Footer Element', () => {
 
 	it('contains all social networks', () => {
 		const {getAllByTestId} = render(<Footer />);
-		const renderedNets = getAllByTestId('container');
+		const renderedNets = getAllByTestId('mynet');
 
 		renderedNets.forEach((net, i) => {
 			expect(net).toHaveTextContent(social[i].name);
