@@ -20,7 +20,7 @@ exports[`Link Element renders social link element properly 1`] = `
 >
   <span
     class="mynet"
-    data-testid="Wrapper"
+    data-testid="container"
   >
     <span
       class="show-for-screen-reader"

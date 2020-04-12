@@ -7,7 +7,7 @@ const Link = (props) => (
 		data-testid="Link"
 		rel="noopener noreferrer">
 		{props.social ? (
-			<span className="mynet" data-testid="Wrapper">
+			<span className="mynet" data-testid="container">
 				<span className="show-for-screen-reader">
 					{props.data.name}
 				</span>

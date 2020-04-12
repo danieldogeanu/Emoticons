@@ -23,7 +23,7 @@ describe('Link Element', () => {
 		const {name, url} = social[0];
 		const {getByTestId, getByText, container} = render(<Link data={social[0]} social="true" />);
 		const renderedLink = getByTestId(linkId);
-		const renderedWrapper = getByTestId('Wrapper');
+		const renderedContainer = getByTestId('container');
 		const renderedSRText = getByText(name);
 		const renderedIcon = container.querySelector('svg');
 
@@ -31,12 +31,12 @@ describe('Link Element', () => {
 		expect(renderedLink).toHaveAttribute('href', url);
 		expect(renderedLink).toHaveAttribute('rel', 'noopener noreferrer');
 		expect(renderedLink).toHaveAttribute('target', '_blank');
-		expect(renderedLink).toContainElement(renderedWrapper);
+		expect(renderedLink).toContainElement(renderedContainer);
 		expect(renderedLink).toMatchSnapshot();
 
-		expect(renderedWrapper).toHaveClass('mynet');
-		expect(renderedWrapper).toContainElement(renderedSRText);
-		expect(renderedWrapper).toContainElement(renderedIcon);
+		expect(renderedContainer).toHaveClass('mynet');
+		expect(renderedContainer).toContainElement(renderedSRText);
+		expect(renderedContainer).toContainElement(renderedIcon);
 
 		expect(renderedSRText).toHaveTextContent(name);
 		expect(renderedSRText).toHaveClass('show-for-screen-reader');
