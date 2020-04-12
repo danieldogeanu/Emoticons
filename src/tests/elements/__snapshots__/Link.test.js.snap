@@ -24,6 +24,7 @@ exports[`Link Element renders social link element properly 1`] = `
   >
     <span
       class="show-for-screen-reader"
+      data-testid="ScreenReaderText"
     >
       Twitter
     </span>

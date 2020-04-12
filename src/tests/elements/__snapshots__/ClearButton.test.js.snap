@@ -7,6 +7,7 @@ exports[`ClearButton Element renders clear button properly 1`] = `
 >
   <span
     class="show-for-screen-reader"
+    data-testid="ScreenReaderText"
   >
     Clear Input
   </span>

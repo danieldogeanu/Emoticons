@@ -43,6 +43,7 @@ exports[`Footer Element renders footer element properly 1`] = `
         >
           <span
             class="show-for-screen-reader"
+            data-testid="ScreenReaderText"
           >
             Twitter
           </span>
@@ -67,6 +68,7 @@ exports[`Footer Element renders footer element properly 1`] = `
         >
           <span
             class="show-for-screen-reader"
+            data-testid="ScreenReaderText"
           >
             GitHub
           </span>
@@ -91,6 +93,7 @@ exports[`Footer Element renders footer element properly 1`] = `
         >
           <span
             class="show-for-screen-reader"
+            data-testid="ScreenReaderText"
           >
             LinkedIn
           </span>
@@ -115,6 +118,7 @@ exports[`Footer Element renders footer element properly 1`] = `
         >
           <span
             class="show-for-screen-reader"
+            data-testid="ScreenReaderText"
           >
             Behance
           </span>
