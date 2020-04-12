@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenReaderText Element renders screen reader text properly 1`] = `
+<span
+  class="show-for-screen-reader"
+  data-testid="ScreenReaderText"
+>
+  Some Test Text
+</span>
+`;
