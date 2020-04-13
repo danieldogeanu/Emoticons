@@ -1,13 +1,12 @@
 import React from 'react';
 import {render, fireEvent, cleanup} from '@testing-library/react';
 import ShortcutsButton from '../../components/ShortcutsButton';
-import ShortcutsScreen from '../../components/ShortcutsScreen';
-
-jest.mock('../../components/ShortcutsScreen', () => () => (
-	<div className="ShortcutsScreen" data-testid="ShortcutsScreen"></div>
-));
 
 const btnTitle = 'Keyboard Shortcuts';
+const compNames = {
+	button: 'ShortcutsButton',
+	screen: 'ShortcutsScreen',
+};
 
 describe('ShortcutsButton Component', () => {
 
@@ -20,7 +19,7 @@ describe('ShortcutsButton Component', () => {
 		const renderedIcon = container.querySelector('svg');
 
 		expect(renderedBtn).toBeInTheDocument();
-		expect(renderedBtn).toHaveClass('ShortcutsButton');
+		expect(renderedBtn).toHaveClass(compNames.button);
 		expect(renderedBtn).toHaveAttribute('title', btnTitle);
 		expect(renderedBtn).toContainElement(renderedSRText);
 		expect(renderedBtn).toContainElement(renderedIcon);
@@ -34,16 +33,17 @@ describe('ShortcutsButton Component', () => {
 		const {getByTitle, getByTestId} = render(
 			<div data-testid="test-parent">
 				<ShortcutsButton />
-				<ShortcutsScreen />
+				<div className={compNames.screen}
+					data-testid={compNames.screen} />
 			</div>
 		);
 		const renderedBtn = getByTitle(btnTitle);
-		const renderedScreen = getByTestId('ShortcutsScreen');
+		const renderedScreen = getByTestId(compNames.screen);
 
 		fireEvent.click(renderedBtn);
 
-		expect(renderedBtn).toHaveClass('ShortcutsButton', 'hide');
-		expect(renderedScreen).toHaveClass('ShortcutsScreen', 'animated', 'fadeIn', 'show');
+		expect(renderedBtn).toHaveClass(compNames.button, 'hide');
+		expect(renderedScreen).toHaveClass(compNames.screen, 'animated', 'fadeIn', 'show');
 	});
 
 });
