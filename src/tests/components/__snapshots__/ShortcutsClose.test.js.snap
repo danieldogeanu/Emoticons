@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShortcutsClose Component renders shortcuts close button properly 1`] = `
+<button
+  class="ShortcutsClose"
+  title="Close Shortcuts Screen"
+>
+  <span
+    class="show-for-screen-reader"
+    data-testid="ScreenReaderText"
+  >
+    Close Shortcuts Screen
+  </span>
+  <svg
+    class="icon close"
+  >
+    <use
+      xlink:href="#close"
+    />
+  </svg>
+</button>
+`;
