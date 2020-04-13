@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { animateCSS } from '../animate';
 import Icon from '../elements/Icon';
+import ScreenReaderText from '../elements/ScreenReaderText';
 import '../styles/components/ShortcutsButton.scss';
 
 class ShortcutsButton extends Component {
@@ -21,9 +22,7 @@ class ShortcutsButton extends Component {
 			<button className="ShortcutsButton"
 				title={shortcutsButtonText}
 				onClick={this.handleClick}>
-				<span className="show-for-screen-reader">
-					{shortcutsButtonText}
-				</span>
+				<ScreenReaderText text={shortcutsButtonText} />
 				<Icon name="keyboard" />
 			</button>
 		);

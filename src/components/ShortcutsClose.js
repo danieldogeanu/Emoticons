@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Icon from '../elements/Icon';
+import ScreenReaderText from '../elements/ScreenReaderText';
 import { animateCSS } from '../animate';
 
 class ShortcutsClose extends Component {
@@ -23,9 +24,7 @@ class ShortcutsClose extends Component {
 			<button className="ShortcutsClose"
 				title={shortcutsCloseText}
 				onClick={this.handleClick}>
-				<span className="show-for-screen-reader">
-					{shortcutsCloseText}
-				</span>
+				<ScreenReaderText text={shortcutsCloseText} />
 				<Icon name="close" />
 			</button>
 		);

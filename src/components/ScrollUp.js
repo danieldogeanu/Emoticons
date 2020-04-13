@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Icon from '../elements/Icon';
+import ScreenReaderText from '../elements/ScreenReaderText';
 import '../styles/components/ScrollUp.scss';
 
 class ScrollUp extends Component {
@@ -47,7 +48,7 @@ class ScrollUp extends Component {
 				title={scrollText}
 				onClick={this.scrollToTop}
 				ref={this.scrollUpBtn}>
-				<span className="show-for-screen-reader">{scrollText}</span>
+				<ScreenReaderText text={scrollText} />
 				<Icon name="chevron-up" />
 			</button>
 		);
