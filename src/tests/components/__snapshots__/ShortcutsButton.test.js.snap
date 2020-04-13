@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShortcutsButton Component renders shortcuts button properly 1`] = `
+<button
+  class="ShortcutsButton"
+  title="Keyboard Shortcuts"
+>
+  <span
+    class="show-for-screen-reader"
+    data-testid="ScreenReaderText"
+  >
+    Keyboard Shortcuts
+  </span>
+  <svg
+    class="icon keyboard"
+  >
+    <use
+      xlink:href="#keyboard"
+    />
+  </svg>
+</button>
+`;
