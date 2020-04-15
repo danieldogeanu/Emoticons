@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShortcutsScreen Component renders shortcuts screen properly 1`] = `
+<div
+  class="ShortcutsScreen"
+  data-testid="ShortcutsScreen"
+>
+  <div
+    class="shortcutsContainer"
+    data-testid="shortcutsContainer"
+  >
+    <span
+      class="shortcutsTitle"
+      data-testid="shortcutsTitle"
+    >
+      Keyboard Shortcuts
+    </span>
+    <ul
+      class="shortcutsList"
+      data-testid="shortcutsList"
+    >
+      <li
+        data-testid="shortcutsKey"
+      >
+        <kbd>
+          s
+        </kbd>
+        Selects Search Input
+      </li>
+      <li
+        data-testid="shortcutsKey"
+      >
+        <kbd>
+          esc
+        </kbd>
+        Clears Search Input / Exits Menu
+      </li>
+      <li
+        data-testid="shortcutsKey"
+      >
+        <kbd>
+          k
+        </kbd>
+        Opens Keyboard Shortcuts Screen
+      </li>
+      <li
+        data-testid="shortcutsKey"
+      >
+        <kbd>
+          t
+        </kbd>
+        Scrolls Back Up
+      </li>
+    </ul>
+    <button
+      class="ShortcutsClose"
+      title="Close Shortcuts Screen"
+    >
+      <span
+        class="show-for-screen-reader"
+        data-testid="ScreenReaderText"
+      >
+        Close Shortcuts Screen
+      </span>
+      <svg
+        class="icon close"
+      >
+        <use
+          xlink:href="#close"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

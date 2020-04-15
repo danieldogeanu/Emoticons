@@ -10,15 +10,15 @@
 	background-color: color-scheme(shortcuts, gradient-start);
 	@include breakpoint(min, rem(481)) { padding: rem(40); }
 	@include breakpoint(min, rem(601)) {
-		@include linear-gradient(left, 
-			color-scheme(shortcuts, gradient-start), rem(200), 
+		@include linear-gradient(left,
+			color-scheme(shortcuts, gradient-start), rem(200),
 			color-scheme(shortcuts, gradient-end), 100%
 		);
 	}
 	&.fadeIn, &.fadeOut { animation-duration: 0.3s; }
 	&.show { display: block; }
 
-	.shortcutsList {
+	.shortcutsContainer {
 		position: absolute;
 		left: rem(20);
 		bottom: rem(80);
@@ -41,7 +41,7 @@
 		}
 	}
 
-	ul {
+	ul.shortcutsList {
 		display: block;
 		list-style: none;
 		margin: 0; padding: 0;

@@ -28,12 +28,14 @@ class ShortcutsScreen extends Component {
 
 	render() {
 		return (
-			<div className="ShortcutsScreen">
-				<div className="shortcutsList">
-					<span className="shortcutsTitle">Keyboard Shortcuts</span>
-					<ul>
+			<div className="ShortcutsScreen" data-testid="ShortcutsScreen">
+				<div className="shortcutsContainer" data-testid="shortcutsContainer">
+					<span className="shortcutsTitle" data-testid="shortcutsTitle">
+						Keyboard Shortcuts
+					</span>
+					<ul className="shortcutsList" data-testid="shortcutsList">
 						{shortcuts.map((shortcut) => (
-							<li key={shortcut.key}>
+							<li key={shortcut.key} data-testid="shortcutsKey">
 								<kbd>{shortcut.key}</kbd>
 								{shortcut.description}
 							</li>
