@@ -13,7 +13,7 @@ function ListItem(props) {
 	switch (type) {
 		case 'desktop':
 			return (
-				<li className="DesktopListItem">
+				<li className="DesktopListItem" data-testid="DesktopListItem">
 					<Emoticon char={char} name={name} />
 					<Name name={name} />
 					<Copy>
@@ -23,7 +23,7 @@ function ListItem(props) {
 			);
 		case 'mobile':
 			return (
-				<li className="MobileListItem">
+				<li className="MobileListItem" data-testid="MobileListItem">
 					<CopyButton data={char} className="mobileCard ripple">
 						<Name name={name} />
 						<div className="bottomBar">

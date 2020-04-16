@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem Component renders desktop list item properly 1`] = `
+<li
+  class="DesktopListItem"
+  data-testid="DesktopListItem"
+>
+  <span
+    aria-label="grinning face with smiling eyes"
+    class="Emoticon"
+    role="img"
+  >
+    😄
+  </span>
+  <span
+    class="Name"
+  >
+    grinning face with smiling eyes
+  </span>
+  <span
+    class="Copy"
+    title="Copy the emoticon and paste it where you need it."
+  >
+    <button
+      class="CopyButton undefined"
+      data-clipboard-text="😄"
+      title=""
+      type="button"
+    >
+      Copy
+    </button>
+  </span>
+</li>
+`;
+
+exports[`ListItem Component renders mobile list item properly 1`] = `
+<li
+  class="MobileListItem"
+  data-testid="MobileListItem"
+>
+  <button
+    class="CopyButton mobileCard ripple"
+    data-clipboard-text="😄"
+    title=""
+    type="button"
+  >
+    <span
+      class="Name"
+    >
+      grinning face with smiling eyes
+    </span>
+    <div
+      class="bottomBar"
+    >
+      <span
+        aria-label="grinning face with smiling eyes"
+        class="Emoticon"
+        role="img"
+      >
+        😄
+      </span>
+      <span
+        class="CopyHint"
+      >
+        Tap to Copy
+      </span>
+    </div>
+  </button>
+</li>
+`;
