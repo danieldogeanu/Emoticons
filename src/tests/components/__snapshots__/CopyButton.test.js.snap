@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyButton Component renders copy button properly 1`] = `
+<button
+  class="CopyButton undefined"
+  data-clipboard-text="😄"
+  data-testid="CopyButton"
+  title=""
+  type="button"
+>
+  Copy
+</button>
+`;
+
+exports[`CopyButton Component renders copy button with children properly 1`] = `
+<button
+  class="CopyButton children"
+  data-clipboard-text="😄"
+  data-testid="CopyButton"
+  title=""
+  type="button"
+>
+  <div
+    data-testid="child"
+  >
+    😄
+  </div>
+</button>
+`;

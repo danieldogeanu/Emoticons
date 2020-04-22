@@ -24,6 +24,7 @@ exports[`ListItem Component renders desktop list item properly 1`] = `
     <button
       class="CopyButton undefined"
       data-clipboard-text="😄"
+      data-testid="CopyButton"
       title=""
       type="button"
     >
@@ -41,6 +42,7 @@ exports[`ListItem Component renders mobile list item properly 1`] = `
   <button
     class="CopyButton mobileCard ripple"
     data-clipboard-text="😄"
+    data-testid="CopyButton"
     title=""
     type="button"
   >
