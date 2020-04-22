@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollUp Component renders scroll up button properly 1`] = `
+<button
+  class="ScrollUp"
+  title="Scroll Back Up"
+>
+  <span
+    class="show-for-screen-reader"
+    data-testid="ScreenReaderText"
+  >
+    Scroll Back Up
+  </span>
+  <svg
+    class="icon chevron-up"
+  >
+    <use
+      xlink:href="#chevron-up"
+    />
+  </svg>
+</button>
+`;
