@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent, waitForDomChange, waitForElement} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import ScrollUp from '../../components/ScrollUp';
 
 const scrollText = 'Scroll Back Up';
@@ -90,6 +90,23 @@ describe('ScrollUp Component', () => {
 
 		expect(renderedScrollBtn).toHaveClass('show');
 		expect(renderedScrollBtn).toBeVisible();
+	});
+
+	it('scrolls to top on click', () => {
+		const {getByTitle, getByTestId} = render(compShell(<ScrollUp />));
+		const renderedScrollBtn = getByTitle(scrollText);
+		const renderedList = getByTestId(compClasses.list);
+
+		renderedList.scrollTop = 500;
+		renderedList.scrollTo = jest.fn((x, y) => {
+			renderedList.scrollTop = y;
+		});
+
+		fireEvent.click(renderedScrollBtn);
+
+		// It's 400 and not 0 because requestAnimationFrame fires only once in jest-dom.
+		expect(renderedList.scrollTop).toBe(400);
+		renderedList.scrollTo.mockRestore();
 	});
 
 });
