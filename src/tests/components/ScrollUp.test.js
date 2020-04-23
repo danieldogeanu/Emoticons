@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, fireEvent, waitForDomChange, waitForElement} from '@testing-library/react';
 import ScrollUp from '../../components/ScrollUp';
 
 const scrollText = 'Scroll Back Up';
@@ -44,9 +44,10 @@ const ListContainer = () => {
 
 	return (
 		<div className={[
-			compClasses.list,
-			compClasses.simplebar,
-		].join(' ')}>
+				compClasses.list,
+				compClasses.simplebar,
+			].join(' ')}
+			data-testid={compClasses.list}>
 			{listItems}
 		</div>
 	);
@@ -77,6 +78,18 @@ describe('ScrollUp Component', () => {
 
 		expect(renderedSRText).toHaveTextContent(scrollText);
 		expect(renderedIcon).toHaveClass('icon', 'chevron-up');
+	});
+
+	it('shows button on scroll down', async () => {
+		const {getByTitle, getByTestId} = render(compShell(<ScrollUp />));
+		const renderedScrollBtn = getByTitle(scrollText);
+		const renderedList = getByTestId(compClasses.list);
+
+		renderedList.scrollTop = 500;
+		fireEvent.scroll(renderedList);
+
+		expect(renderedScrollBtn).toHaveClass('show');
+		expect(renderedScrollBtn).toBeVisible();
 	});
 
 });
