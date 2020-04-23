@@ -10,6 +10,7 @@ const compNames = {
 	},
 	screenReaderText: 'ScreenReaderText',
 	scrollUp: 'ScrollUp',
+	listItem: 'ListItem',
 };
 const compClasses = {
 	simplebar: 'simplebar-content-wrapper',
@@ -23,12 +24,33 @@ const SearchBar = () => (
 	</form>
 );
 
-const ListContainer = () => (
-	<div className={[
-		compClasses.list,
-		compClasses.simplebar,
-	].join(' ')}></div>
+const ListItem = ({text}) => (
+	<div className={compNames.listItem}
+		data-testid={compNames.listItem}
+		style={{height: 100}}>
+		{text}
+	</div>
 );
+
+const ListContainer = () => {
+	const listItems = [];
+
+	for (let i=0; i<15; i++) {
+		const id = `#${i+1}`;
+		listItems.push(
+			<ListItem key={id} text={'Item ' + id} />
+		);
+	}
+
+	return (
+		<div className={[
+			compClasses.list,
+			compClasses.simplebar,
+		].join(' ')}>
+			{listItems}
+		</div>
+	);
+};
 
 const compShell = (component) => (
 	<div data-testid="test-parent">
