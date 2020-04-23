@@ -61,6 +61,18 @@ const compShell = (component) => (
 	</div>
 );
 
+const setupScroll = (element, amount) => {
+	element.scrollTop = amount;
+	element.scrollTo = jest.fn((x, y) => {
+		element.scrollTop = y;
+	});
+};
+
+const resetScroll = (element) => {
+	element.scrollTop = 0;
+	element.scrollTo.mockRestore();
+};
+
 describe('ScrollUp Component', () => {
 
 	it('renders scroll up button properly', () => {
@@ -97,16 +109,31 @@ describe('ScrollUp Component', () => {
 		const renderedScrollBtn = getByTitle(scrollText);
 		const renderedList = getByTestId(compClasses.list);
 
-		renderedList.scrollTop = 500;
-		renderedList.scrollTo = jest.fn((x, y) => {
-			renderedList.scrollTop = y;
-		});
+		setupScroll(renderedList, 500);
 
 		fireEvent.click(renderedScrollBtn);
 
 		// It's 400 and not 0 because requestAnimationFrame fires only once in jest-dom.
 		expect(renderedList.scrollTop).toBe(400);
-		renderedList.scrollTo.mockRestore();
+		resetScroll(renderedList);
+	});
+
+	it('scrolls to top on key up', () => {
+		const {getByTestId} = render(compShell(<ScrollUp />));
+		const renderedList = getByTestId(compClasses.list);
+
+		setupScroll(renderedList, 500);
+
+		fireEvent.keyUp(window, {
+			key: 't',
+			code: 'KeyT',
+			keyCode: 84,
+			charCode: 84
+		});
+
+		// It's 400 and not 0 because requestAnimationFrame fires only once in jest-dom.
+		expect(renderedList.scrollTop).toBe(400);
+		resetScroll(renderedList);
 	});
 
 });
