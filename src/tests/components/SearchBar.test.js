@@ -38,4 +38,28 @@ describe('SearchBar Component', () => {
 		expect(renderedInput).not.toHaveClass('focused');
 	});
 
+	it('handles filter text change', () => {
+		const searchBarWithProps = (text, handler) => (
+			<SearchBar filterText={text} onFilterTextChange={handler} />
+		);
+		const testText = 'this is a test';
+		const state = {filterText: ''};
+		const handleFilterTextChange = jest.fn(text => {
+			state.filterText = text;
+			rerender(searchBarWithProps(state.filterText, handleFilterTextChange));
+		});
+
+		const {getByTestId, container, rerender} = render(
+			searchBarWithProps(state.filterText, handleFilterTextChange)
+		);
+		const renderedInput = getByTestId(compNames.input);
+		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
+
+		fireEvent.change(renderedInput, {target: {value: testText}});
+
+		expect(state.filterText).toBe(testText);
+		expect(renderedInput).toHaveValue(testText);
+		expect(renderedClearBtn).toHaveClass('show');
+	});
+
 });
