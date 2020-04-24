@@ -142,4 +142,23 @@ describe('SearchBar Component', () => {
 		expect(handleFilterTextClear).toHaveBeenCalled();
 	});
 
+	it('clears input on submit', () => {
+		const {getByTestId, container, rerender} = render(searchBarWithProps(
+			filterText, handleFilterTextChange, handleFilterTextClear
+		));
+		const renderedInput = getByTestId(compNames.input);
+		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
+
+		currRenderer = rerender;
+
+		fireEvent.change(renderedInput, {target: {value: testText}});
+		fireEvent.submit(renderedInput);
+
+		expect(filterText).toBe('');
+		expect(filterText).not.toBe(testText);
+		expect(renderedInput).not.toHaveValue();
+		expect(renderedClearBtn).not.toHaveClass('show');
+		expect(handleFilterTextClear).toHaveBeenCalled();
+	});
+
 });
