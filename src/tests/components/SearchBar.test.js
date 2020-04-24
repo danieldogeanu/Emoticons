@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import SearchBar from '../../components/SearchBar';
 
 const compNames = {
@@ -25,6 +25,17 @@ describe('SearchBar Component', () => {
 		expect(renderedInput).toHaveAttribute('placeholder', 'Search Emoticons...');
 		expect(renderedInput).toHaveAttribute('type', 'text');
 		expect(renderedInput).not.toHaveValue();
+	});
+
+	it('handles focus and blur events', () => {
+		const {getByTestId} = render(<SearchBar />);
+		const renderedInput = getByTestId(compNames.input);
+
+		fireEvent.focus(renderedInput);
+		expect(renderedInput).toHaveClass('focused');
+
+		fireEvent.blur(renderedInput);
+		expect(renderedInput).not.toHaveClass('focused');
 	});
 
 });
