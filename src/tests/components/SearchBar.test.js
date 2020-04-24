@@ -9,7 +9,40 @@ const compNames = {
 	input: 'SearchInput',
 };
 
+let currRenderer = null;
+let filterText = '';
+
+const handleFilterTextChange = jest.fn(text => {
+	filterText = text;
+	rerenderSearchBar(currRenderer);
+});
+const handleFilterTextClear = jest.fn(() => {
+	filterText = '';
+	rerenderSearchBar(currRenderer);
+});
+
+const searchBarWithProps = (text, changeHandler, clearHandler) => (
+	<SearchBar filterText={text}
+		onFilterTextChange={changeHandler}
+		onFilterTextClear={clearHandler} />
+);
+
+const rerenderSearchBar = (rerender) => {
+	rerender(searchBarWithProps(
+		filterText,
+		handleFilterTextChange,
+		handleFilterTextClear
+	));
+};
+
 describe('SearchBar Component', () => {
+
+	afterEach(() => {
+		currRenderer = null;
+		filterText = '';
+		handleFilterTextChange.mockClear();
+		handleFilterTextClear.mockClear();
+	});
 
 	it('renders search bar properly', () => {
 		const {getByTestId, container} = render(<SearchBar />);
@@ -33,10 +66,8 @@ describe('SearchBar Component', () => {
 		const renderedInput = getByTestId(compNames.input);
 
 		fireEvent.keyUp(window, {
-			key: 's',
-			code: 'KeyS',
-			keyCode: 83,
-			charCode: 83
+			key: 's', code: 'KeyS',
+			keyCode: 83, charCode: 83
 		});
 
 		expect(renderedInput).toHaveClass('focused');
@@ -54,64 +85,36 @@ describe('SearchBar Component', () => {
 	});
 
 	it('handles filter text change', () => {
-		const searchBarWithProps = (text, handler) => (
-			<SearchBar filterText={text} onFilterTextChange={handler} />
-		);
-		const state = {filterText: ''};
-		const handleFilterTextChange = jest.fn(text => {
-			state.filterText = text;
-			rerender(searchBarWithProps(state.filterText, handleFilterTextChange));
-		});
-
-		const {getByTestId, container, rerender} = render(
-			searchBarWithProps(state.filterText, handleFilterTextChange)
-		);
+		const {getByTestId, container, rerender} = render(searchBarWithProps(
+			filterText, handleFilterTextChange, handleFilterTextClear
+		));
 		const renderedInput = getByTestId(compNames.input);
 		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
 
+		currRenderer = rerender;
+
 		fireEvent.change(renderedInput, {target: {value: testText}});
 
-		expect(state.filterText).toBe(testText);
+		expect(filterText).toBe(testText);
 		expect(renderedInput).toHaveValue(testText);
 		expect(renderedClearBtn).toHaveClass('show');
 		expect(handleFilterTextChange).toHaveBeenCalled();
 	});
 
 	it('clears input on button click', () => {
-		const searchBarWithProps = (text, changeHandler, clearHandler) => (
-			<SearchBar filterText={text}
-				onFilterTextChange={changeHandler}
-				onFilterTextClear={clearHandler} />
-		);
-		const rerenderSearchBar = () => {
-			rerender(searchBarWithProps(
-				state.filterText,
-				handleFilterTextChange,
-				handleFilterTextClear
-			));
-		};
-
-		const state = {filterText: ''};
-		const handleFilterTextChange = jest.fn(text => {
-			state.filterText = text;
-			rerenderSearchBar();
-		});
-		const handleFilterTextClear = jest.fn(() => {
-			state.filterText = '';
-			rerenderSearchBar();
-		});
-
 		const {getByTestId, container, rerender} = render(searchBarWithProps(
-			state.filterText, handleFilterTextChange, handleFilterTextClear
+			filterText, handleFilterTextChange, handleFilterTextClear
 		));
 		const renderedInput = getByTestId(compNames.input);
 		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
 
+		currRenderer = rerender;
+
 		fireEvent.change(renderedInput, {target: {value: testText}});
 		fireEvent.click(renderedClearBtn);
 
-		expect(state.filterText).toBe('');
-		expect(state.filterText).not.toBe(testText);
+		expect(filterText).toBe('');
+		expect(filterText).not.toBe(testText);
 		expect(renderedInput).not.toHaveValue();
 		expect(renderedClearBtn).not.toHaveClass('show');
 		expect(handleFilterTextClear).toHaveBeenCalled();
