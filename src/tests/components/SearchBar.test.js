@@ -2,6 +2,7 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import SearchBar from '../../components/SearchBar';
 
+const testText = 'this is a search input test';
 const compNames = {
 	clear: 'ClearButton',
 	search: 'SearchBar',
@@ -56,7 +57,6 @@ describe('SearchBar Component', () => {
 		const searchBarWithProps = (text, handler) => (
 			<SearchBar filterText={text} onFilterTextChange={handler} />
 		);
-		const testText = 'this is a test';
 		const state = {filterText: ''};
 		const handleFilterTextChange = jest.fn(text => {
 			state.filterText = text;
@@ -74,6 +74,47 @@ describe('SearchBar Component', () => {
 		expect(state.filterText).toBe(testText);
 		expect(renderedInput).toHaveValue(testText);
 		expect(renderedClearBtn).toHaveClass('show');
+		expect(handleFilterTextChange).toHaveBeenCalled();
+	});
+
+	it('clears input on button click', () => {
+		const searchBarWithProps = (text, changeHandler, clearHandler) => (
+			<SearchBar filterText={text}
+				onFilterTextChange={changeHandler}
+				onFilterTextClear={clearHandler} />
+		);
+		const rerenderSearchBar = () => {
+			rerender(searchBarWithProps(
+				state.filterText,
+				handleFilterTextChange,
+				handleFilterTextClear
+			));
+		};
+
+		const state = {filterText: ''};
+		const handleFilterTextChange = jest.fn(text => {
+			state.filterText = text;
+			rerenderSearchBar();
+		});
+		const handleFilterTextClear = jest.fn(() => {
+			state.filterText = '';
+			rerenderSearchBar();
+		});
+
+		const {getByTestId, container, rerender} = render(searchBarWithProps(
+			state.filterText, handleFilterTextChange, handleFilterTextClear
+		));
+		const renderedInput = getByTestId(compNames.input);
+		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
+
+		fireEvent.change(renderedInput, {target: {value: testText}});
+		fireEvent.click(renderedClearBtn);
+
+		expect(state.filterText).toBe('');
+		expect(state.filterText).not.toBe(testText);
+		expect(renderedInput).not.toHaveValue();
+		expect(renderedClearBtn).not.toHaveClass('show');
+		expect(handleFilterTextClear).toHaveBeenCalled();
 	});
 
 });
