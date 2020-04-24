@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar Component renders search bar properly 1`] = `
+<form
+  class="SearchBar"
+  data-testid="SearchBar"
+>
+  <input
+    data-testid="SearchInput"
+    placeholder="Search Emoticons..."
+    type="text"
+    value=""
+  />
+  <button
+    class="ClearButton"
+    title="Clear Input"
+  >
+    <span
+      class="show-for-screen-reader"
+      data-testid="ScreenReaderText"
+    >
+      Clear Input
+    </span>
+    <svg
+      class="icon close"
+    >
+      <use
+        xlink:href="#close"
+      />
+    </svg>
+  </button>
+</form>
+`;
