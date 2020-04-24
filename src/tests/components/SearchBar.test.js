@@ -35,6 +35,27 @@ const rerenderSearchBar = (rerender) => {
 	));
 };
 
+const clearInputTest = (cbEvent, cbElement, cbOptions = {}) => {
+	const {getByTestId, container, rerender} = render(searchBarWithProps(
+		filterText, handleFilterTextChange, handleFilterTextClear
+	));
+	const rendered = {
+		searchInput: getByTestId(compNames.input),
+		clearBtn: container.querySelector(`.${compNames.clear}`),
+	};
+
+	currRenderer = rerender;
+
+	fireEvent.change(rendered.searchInput, {target: {value: testText}});
+	cbEvent(rendered[cbElement], cbOptions);
+
+	expect(filterText).toBe('');
+	expect(filterText).not.toBe(testText);
+	expect(rendered.searchInput).not.toHaveValue();
+	expect(rendered.clearBtn).not.toHaveClass('show');
+	expect(handleFilterTextClear).toHaveBeenCalled();
+};
+
 describe('SearchBar Component', () => {
 
 	afterEach(() => {
@@ -102,63 +123,18 @@ describe('SearchBar Component', () => {
 	});
 
 	it('clears input on button click', () => {
-		const {getByTestId, container, rerender} = render(searchBarWithProps(
-			filterText, handleFilterTextChange, handleFilterTextClear
-		));
-		const renderedInput = getByTestId(compNames.input);
-		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
-
-		currRenderer = rerender;
-
-		fireEvent.change(renderedInput, {target: {value: testText}});
-		fireEvent.click(renderedClearBtn);
-
-		expect(filterText).toBe('');
-		expect(filterText).not.toBe(testText);
-		expect(renderedInput).not.toHaveValue();
-		expect(renderedClearBtn).not.toHaveClass('show');
-		expect(handleFilterTextClear).toHaveBeenCalled();
+		clearInputTest(fireEvent.click, 'clearBtn');
 	});
 
 	it('clears input on \'esc\' key up', () => {
-		const {getByTestId, container, rerender} = render(searchBarWithProps(
-			filterText, handleFilterTextChange, handleFilterTextClear
-		));
-		const renderedInput = getByTestId(compNames.input);
-		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
-
-		currRenderer = rerender;
-
-		fireEvent.change(renderedInput, {target: {value: testText}});
-		fireEvent.keyUp(renderedInput, {
+		clearInputTest(fireEvent.keyUp, 'searchInput', {
 			key: 'Escape', code: 'Escape',
 			keyCode: 27, charCode: 27
 		});
-
-		expect(filterText).toBe('');
-		expect(filterText).not.toBe(testText);
-		expect(renderedInput).not.toHaveValue();
-		expect(renderedClearBtn).not.toHaveClass('show');
-		expect(handleFilterTextClear).toHaveBeenCalled();
 	});
 
 	it('clears input on submit', () => {
-		const {getByTestId, container, rerender} = render(searchBarWithProps(
-			filterText, handleFilterTextChange, handleFilterTextClear
-		));
-		const renderedInput = getByTestId(compNames.input);
-		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
-
-		currRenderer = rerender;
-
-		fireEvent.change(renderedInput, {target: {value: testText}});
-		fireEvent.submit(renderedInput);
-
-		expect(filterText).toBe('');
-		expect(filterText).not.toBe(testText);
-		expect(renderedInput).not.toHaveValue();
-		expect(renderedClearBtn).not.toHaveClass('show');
-		expect(handleFilterTextClear).toHaveBeenCalled();
+		clearInputTest(fireEvent.submit, 'searchInput');
 	});
 
 });
