@@ -27,6 +27,20 @@ describe('SearchBar Component', () => {
 		expect(renderedInput).not.toHaveValue();
 	});
 
+	it('selects search input on \'s\' key up', () => {
+		const {getByTestId} = render(<SearchBar />);
+		const renderedInput = getByTestId(compNames.input);
+
+		fireEvent.keyUp(window, {
+			key: 's',
+			code: 'KeyS',
+			keyCode: 83,
+			charCode: 83
+		});
+
+		expect(renderedInput).toHaveClass('focused');
+	});
+
 	it('handles focus and blur events', () => {
 		const {getByTestId} = render(<SearchBar />);
 		const renderedInput = getByTestId(compNames.input);
