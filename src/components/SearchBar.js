@@ -9,7 +9,7 @@ class SearchBar extends Component {
 	}
 
 	selectSearchInput = (e) => {
-		if (e.keyCode === 83) {
+		if (e.keyCode === 83) { // S
 			this.searchInput.current.focus();
 		}
 	}
@@ -28,7 +28,7 @@ class SearchBar extends Component {
 	}
 
 	handleKeyUp = (e) => {
-		if (e.keyCode === 27) {
+		if (e.keyCode === 27) { // ESC
 			this.handleClearInput(e);
 		}
 	}

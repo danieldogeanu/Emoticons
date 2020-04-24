@@ -120,4 +120,26 @@ describe('SearchBar Component', () => {
 		expect(handleFilterTextClear).toHaveBeenCalled();
 	});
 
+	it('clears input on \'esc\' key up', () => {
+		const {getByTestId, container, rerender} = render(searchBarWithProps(
+			filterText, handleFilterTextChange, handleFilterTextClear
+		));
+		const renderedInput = getByTestId(compNames.input);
+		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
+
+		currRenderer = rerender;
+
+		fireEvent.change(renderedInput, {target: {value: testText}});
+		fireEvent.keyUp(renderedInput, {
+			key: 'Escape', code: 'Escape',
+			keyCode: 27, charCode: 27
+		});
+
+		expect(filterText).toBe('');
+		expect(filterText).not.toBe(testText);
+		expect(renderedInput).not.toHaveValue();
+		expect(renderedClearBtn).not.toHaveClass('show');
+		expect(handleFilterTextClear).toHaveBeenCalled();
+	});
+
 });
