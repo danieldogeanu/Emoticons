@@ -69,13 +69,14 @@ class ListContainer extends Component {
 		}
 
 		return (
-			<div className="ListContainer">
-				<div className="List"
+			<div className="ListContainer"
+				data-testid="ListContainer">
+				<div className="List" data-testid="List"
 					onScroll={this.handleScroll}
 					ref={this.list}>
 					<div className="innerWrapper">
 						<Labels />
-						<ul style={{
+						<ul data-testid="listUl" style={{
 							paddingTop: (startIndex * rowHeight),
 							height: totalHeight,
 						}}>
