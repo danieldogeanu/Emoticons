@@ -73,16 +73,14 @@ let filterText = '';
 
 describe('ListContainer Component', () => {
 
-	it('renders list container and items properly', () => {
-		const {getByTestId, getAllByTestId} = render(
-			<ListContainer data={testEmoticons}
-				filterText={filterText} />
+	it('renders list container properly', () => {
+		const {getByTestId} = render(
+			<ListContainer data={[]} filterText={filterText} />
 		);
 		const rendered = {
 			container: getByTestId(compNames.container),
 			list: getByTestId(compNames.list),
 			ul: getByTestId(classNames.listUl),
-			items: getAllByTestId(compNames.item.desktop),
 			labels: getByTestId(compNames.labels),
 			footer: getByTestId(compNames.footer),
 		};
@@ -91,17 +89,30 @@ describe('ListContainer Component', () => {
 		expect(rendered.container).toHaveClass(compNames.container);
 		expect(rendered.container).toContainElement(rendered.list);
 		expect(rendered.container).toContainElement(rendered.ul);
-		expect(rendered.container).toContainElement(...rendered.items);
 		expect(rendered.container).toContainElement(rendered.labels);
 		expect(rendered.container).toContainElement(rendered.footer);
 		expect(rendered.container).toMatchSnapshot();
 
 		expect(rendered.list).toHaveClass(compNames.list);
 		expect(rendered.list).toHaveAttribute('data-simplebar', 'init');
-		expect(rendered.ul).toHaveAttribute('style', expect.stringContaining('padding-top', 'height'));
+		expect(rendered.ul).toHaveAttribute('style', expect.stringContaining('padding-top'));
+		expect(rendered.ul).toHaveAttribute('style', expect.stringContaining('height'));
+	});
 
+	it('renders list items properly', () => {
+		const {getByTestId, getAllByTestId} = render(
+			<ListContainer data={testEmoticons} filterText={filterText} />
+		);
+		const rendered = {
+			container: getByTestId(compNames.container),
+			items: getAllByTestId(compNames.item.desktop),
+		};
+
+		expect(rendered.container).toMatchSnapshot();
+		expect(rendered.container).toContainElement(...rendered.items);
 		expect(rendered.items.length).toEqual(testEmoticons.length);
 		rendered.items.forEach((item, i) => {
+			expect(item).toBeInTheDocument();
 			expect(item).toHaveTextContent(testEmoticons[i].char);
 			expect(item).toHaveTextContent(testEmoticons[i].name);
 		});
