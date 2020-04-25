@@ -69,13 +69,11 @@ const classNames = {
 	listUl: 'listUl',
 };
 
-let filterText = '';
-
 describe('ListContainer Component', () => {
 
 	it('renders list container properly', () => {
 		const {getByTestId} = render(
-			<ListContainer data={[]} filterText={filterText} />
+			<ListContainer data={[]} filterText={''} />
 		);
 		const rendered = {
 			container: getByTestId(compNames.container),
@@ -101,7 +99,7 @@ describe('ListContainer Component', () => {
 
 	it('renders list items properly', () => {
 		const {getByTestId, getAllByTestId} = render(
-			<ListContainer data={testEmoticons} filterText={filterText} />
+			<ListContainer data={testEmoticons} filterText={''} />
 		);
 		const rendered = {
 			container: getByTestId(compNames.container),
@@ -116,6 +114,21 @@ describe('ListContainer Component', () => {
 			expect(item).toHaveTextContent(testEmoticons[i].char);
 			expect(item).toHaveTextContent(testEmoticons[i].name);
 		});
+	});
+
+	it('shows only filtered items', () => {
+		const {getByTestId, getAllByTestId} = render(
+			<ListContainer data={testEmoticons} filterText={'beaming'} />
+		);
+		const rendered = {
+			container: getByTestId(compNames.container),
+			items: getAllByTestId(compNames.item.desktop),
+		};
+		const filteredItem = (rendered.items.length === 1) ? rendered.items[0] : rendered.items;
+
+		expect(rendered.items.length).toBe(1);
+		expect(rendered.container).toContainElement(filteredItem);
+		expect(filteredItem).toHaveTextContent('beaming');
 	});
 
 });
