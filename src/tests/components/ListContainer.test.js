@@ -1,6 +1,7 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, fireEvent, waitForDomChange} from '@testing-library/react';
 import ListContainer from '../../components/ListContainer';
+import emojiJSON from '../../emoji.json';
 
 const testEmoticons = [{
 	"codes": "1F600",
@@ -129,6 +130,24 @@ describe('ListContainer Component', () => {
 		expect(rendered.items.length).toBe(1);
 		expect(rendered.container).toContainElement(filteredItem);
 		expect(filteredItem).toHaveTextContent('beaming');
+	});
+
+	it('handles scroll event', async () => {
+		const {getByTestId} = render(
+			<ListContainer data={emojiJSON} filterText={'hands'} />
+		);
+		const rendered = {
+			list: getByTestId(compNames.list),
+			ul: getByTestId(classNames.listUl),
+		};
+
+		rendered.list.scrollTop = 4000;
+		fireEvent.scroll(rendered.list);
+
+		await waitForDomChange();
+
+		expect(rendered.ul).toHaveAttribute('style', expect.stringContaining('padding-top'));
+		expect(Number.parseInt(rendered.ul.style.paddingTop)).toBeGreaterThan(0);
 	});
 
 });
