@@ -2,6 +2,7 @@ import React from 'react';
 import {render, fireEvent, waitForDomChange} from '@testing-library/react';
 import ListContainer from '../../components/ListContainer';
 import emojiJSON from '../../emoji.json';
+import {resizeTo} from 'window-resizeto';
 
 const testEmoticons = [{
 	"codes": "1F600",
@@ -148,6 +149,20 @@ describe('ListContainer Component', () => {
 
 		expect(rendered.ul).toHaveAttribute('style', expect.stringContaining('padding-top'));
 		expect(Number.parseInt(rendered.ul.style.paddingTop)).toBeGreaterThan(0);
+	});
+
+	it('handles resize event', async () => {
+		const {getAllByTestId} = render(
+			<ListContainer data={testEmoticons} filterText={''} />
+		);
+		const renderedItems = getAllByTestId(/listitem/i);
+
+		expect(renderedItems[3]).toHaveClass(compNames.item.desktop);
+
+		resizeTo(window, 400, 600);
+		await waitForDomChange();
+
+		expect(renderedItems[3]).toHaveClass(compNames.item.mobile);
 	});
 
 });

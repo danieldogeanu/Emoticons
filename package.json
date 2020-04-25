@@ -67,7 +67,8 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "devDependencies": {
-    "ftp-deploy": "^2.3.6"
+    "ftp-deploy": "^2.3.6",
+    "window-resizeto": "0.0.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
