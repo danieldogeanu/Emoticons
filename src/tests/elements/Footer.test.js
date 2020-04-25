@@ -6,8 +6,8 @@ import Footer from '../../elements/Footer';
 describe('Footer Element', () => {
 
 	it('renders footer element properly', () => {
-		const {container} = render(<Footer />);
-		const renderedFooter = container.querySelector('footer');
+		const {getByTestId} = render(<Footer />);
+		const renderedFooter = getByTestId('Footer');
 
 		expect(renderedFooter).toBeInTheDocument();
 		expect(renderedFooter).toHaveClass('Footer');

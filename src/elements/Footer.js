@@ -4,7 +4,7 @@ import { author, social } from '../details.json';
 import '../styles/components/Footer.scss';
 
 const Footer = () => (
-	<footer className="Footer">
+	<footer className="Footer" data-testid="Footer">
 		<p className="author" data-testid="author">
 			By: <Link data={author} />
 		</p>

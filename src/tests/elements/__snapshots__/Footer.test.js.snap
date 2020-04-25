@@ -3,6 +3,7 @@
 exports[`Footer Element renders footer element properly 1`] = `
 <footer
   class="Footer"
+  data-testid="Footer"
 >
   <p
     class="author"
