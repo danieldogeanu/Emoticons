@@ -15,6 +15,9 @@ const compNames = {
 const classNames = {
 	simplebar: 'simplebar-content-wrapper',
 	list: 'List',
+	icon: 'icon',
+	chevronUp: 'chevron-up',
+	show: 'show',
 };
 
 const SearchBar = () => (
@@ -77,45 +80,50 @@ describe('ScrollUp Component', () => {
 
 	it('renders scroll up button properly', () => {
 		const {getByTitle, getByTestId, container} = render(compShell(<ScrollUp />));
-		const renderedScrollBtn = getByTitle(scrollText);
-		const renderedSRText = getByTestId(compNames.screenReaderText);
-		const renderedIcon = container.querySelector('svg');
+		const rendered = {
+			scrollBtn: getByTitle(scrollText),
+			srText: getByTestId(compNames.screenReaderText),
+			icon: container.querySelector('svg'),
+		};
 
-		expect(renderedScrollBtn).toBeInTheDocument();
-		expect(renderedScrollBtn).toHaveClass(compNames.scrollUp);
-		expect(renderedScrollBtn).toHaveAttribute('title', scrollText);
-		expect(renderedScrollBtn).toContainElement(renderedSRText);
-		expect(renderedScrollBtn).toContainElement(renderedIcon);
-		expect(renderedScrollBtn).toMatchSnapshot();
+		expect(rendered.scrollBtn).toBeInTheDocument();
+		expect(rendered.scrollBtn).toHaveClass(compNames.scrollUp);
+		expect(rendered.scrollBtn).toHaveAttribute('title', scrollText);
+		expect(rendered.scrollBtn).toContainElement(rendered.srText);
+		expect(rendered.scrollBtn).toContainElement(rendered.icon);
+		expect(rendered.scrollBtn).toMatchSnapshot();
 
-		expect(renderedSRText).toHaveTextContent(scrollText);
-		expect(renderedIcon).toHaveClass('icon', 'chevron-up');
+		expect(rendered.srText).toHaveTextContent(scrollText);
+		expect(rendered.icon).toHaveClass(classNames.icon, classNames.chevronUp);
 	});
 
 	it('shows button on scroll down', async () => {
 		const {getByTitle, getByTestId} = render(compShell(<ScrollUp />));
-		const renderedScrollBtn = getByTitle(scrollText);
-		const renderedList = getByTestId(classNames.list);
+		const rendered = {
+			scrollBtn: getByTitle(scrollText),
+			list: getByTestId(classNames.list),
+		};
 
-		renderedList.scrollTop = 500;
-		fireEvent.scroll(renderedList);
+		rendered.list.scrollTop = 500;
+		fireEvent.scroll(rendered.list);
 
-		expect(renderedScrollBtn).toHaveClass('show');
-		expect(renderedScrollBtn).toBeVisible();
+		expect(rendered.scrollBtn).toHaveClass(classNames.show);
+		expect(rendered.scrollBtn).toBeVisible();
 	});
 
 	it('scrolls to top on click', () => {
 		const {getByTitle, getByTestId} = render(compShell(<ScrollUp />));
-		const renderedScrollBtn = getByTitle(scrollText);
-		const renderedList = getByTestId(classNames.list);
+		const rendered = {
+			scrollBtn: getByTitle(scrollText),
+			list: getByTestId(classNames.list),
+		};
 
-		setupScroll(renderedList, 500);
-
-		fireEvent.click(renderedScrollBtn);
+		setupScroll(rendered.list, 500);
+		fireEvent.click(rendered.scrollBtn);
 
 		// It's 400 and not 0 because requestAnimationFrame fires only once in jest-dom.
-		expect(renderedList.scrollTop).toBe(400);
-		resetScroll(renderedList);
+		expect(rendered.list.scrollTop).toBe(400);
+		resetScroll(rendered.list);
 	});
 
 	it('scrolls to top on key up', () => {
@@ -123,12 +131,9 @@ describe('ScrollUp Component', () => {
 		const renderedList = getByTestId(classNames.list);
 
 		setupScroll(renderedList, 500);
-
 		fireEvent.keyUp(window, {
-			key: 't',
-			code: 'KeyT',
-			keyCode: 84,
-			charCode: 84
+			key: 't', code: 'KeyT',
+			keyCode: 84, charCode: 84
 		});
 
 		// It's 400 and not 0 because requestAnimationFrame fires only once in jest-dom.
