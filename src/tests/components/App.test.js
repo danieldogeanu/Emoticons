@@ -111,20 +111,16 @@ describe('App Component', () => {
 
 	it('handles filter text change', async () => {
 		const {getByTestId, getAllByTestId} = render(<App />);
+
+		await userEvent.type(getByTestId(compNames.search.input), testFilterText);
 		const rendered = {
 			searchInput: getByTestId(compNames.search.input),
 			listItems: getAllByTestId(compNames.list.item.desktop),
 		};
 
-		await userEvent.type(rendered.searchInput, testFilterText);
-		const reRendered = {
-			searchInput: getByTestId(compNames.search.input),
-			listItems: getAllByTestId(compNames.list.item.desktop),
-		};
-
-		expect(reRendered.searchInput.value).toBe(testFilterText);
-		expect(reRendered.listItems.length).toBe(1);
-		expect(reRendered.listItems[0]).toHaveTextContent(testFilterText);
+		expect(rendered.searchInput.value).toBe(testFilterText);
+		expect(rendered.listItems.length).toBe(1);
+		expect(rendered.listItems[0]).toHaveTextContent(testFilterText);
 	});
 
 });
