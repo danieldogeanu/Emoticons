@@ -7,7 +7,7 @@ const compNames = {
 	footer: 'Footer',
 }
 
-const compClass = {
+const classNames = {
 	mynets: 'mynets',
 	mynet: 'mynet',
 	folw: 'folw',
@@ -28,11 +28,11 @@ describe('Footer Element', () => {
 
 	it('contains author section', () => {
 		const {getByTestId} = render(<Footer />);
-		const renderedAuthor = getByTestId(compClass.author);
+		const renderedAuthor = getByTestId(classNames.author);
 		const renderedLink = renderedAuthor.querySelector('a');
 
 		expect(renderedAuthor).toBeInTheDocument();
-		expect(renderedAuthor).toHaveClass(compClass.author);
+		expect(renderedAuthor).toHaveClass(classNames.author);
 		expect(renderedAuthor).toHaveTextContent('By: ' + author.name);
 		expect(renderedAuthor).toContainElement(renderedLink);
 		expect(renderedLink).toHaveAttribute('href', author.url);
@@ -41,27 +41,27 @@ describe('Footer Element', () => {
 	it('contains social section', () => {
 		const {getByTestId, getByText, getAllByTestId} = render(<Footer />);
 		const rendered = {
-			nets: getByTestId(compClass.mynets),
+			nets: getByTestId(classNames.mynets),
 			follow: getByText(/follow me/i),
-			wrapper: getByTestId(compClass.wrapper),
-			links: getAllByTestId(compClass.mynet),
+			wrapper: getByTestId(classNames.wrapper),
+			links: getAllByTestId(classNames.mynet),
 		};
 
 		expect(rendered.nets).toBeInTheDocument();
-		expect(rendered.nets).toHaveClass(compClass.mynets);
+		expect(rendered.nets).toHaveClass(classNames.mynets);
 		expect(rendered.nets).toContainElement(rendered.follow);
 		expect(rendered.nets).toContainElement(rendered.wrapper);
 
-		expect(rendered.follow).toHaveClass(compClass.folw);
+		expect(rendered.follow).toHaveClass(classNames.folw);
 		expect(rendered.follow).toHaveTextContent('Follow Me:');
 
-		expect(rendered.wrapper).toHaveClass(compClass.wrapper);
+		expect(rendered.wrapper).toHaveClass(classNames.wrapper);
 		expect(rendered.links.length).toBe(4);
 	});
 
 	it('contains all social networks', () => {
 		const {getAllByTestId} = render(<Footer />);
-		const renderedNets = getAllByTestId(compClass.mynet);
+		const renderedNets = getAllByTestId(classNames.mynet);
 
 		renderedNets.forEach((net, i) => {
 			expect(net).toHaveTextContent(social[i].name);

@@ -18,7 +18,7 @@ const compNames = {
 	copyBtn: 'CopyButton',
 	screen: 'SelectedScreen',
 };
-const compClass = {
+const classNames = {
 	undefined: 'undefined',
 	children: 'children',
 	copied: 'copied',
@@ -32,7 +32,7 @@ describe('CopyButton Component', () => {
 		const renderedCopyBtn = getByTestId(compNames.copyBtn);
 
 		expect(renderedCopyBtn).toBeInTheDocument();
-		expect(renderedCopyBtn).toHaveClass(compNames.copyBtn, compClass.undefined);
+		expect(renderedCopyBtn).toHaveClass(compNames.copyBtn, classNames.undefined);
 		expect(renderedCopyBtn).toHaveAttribute('data-clipboard-text', char);
 		expect(renderedCopyBtn).toHaveAttribute('type', 'button');
 		expect(renderedCopyBtn).toHaveTextContent('Copy');
@@ -41,7 +41,7 @@ describe('CopyButton Component', () => {
 
 	it('renders copy button with children properly', () => {
 		const {getByTestId} = render(
-			<CopyButton data={char} className={compClass.children}>
+			<CopyButton data={char} className={classNames.children}>
 				<div data-testid="child">{char}</div>
 			</CopyButton>
 		);
@@ -51,7 +51,7 @@ describe('CopyButton Component', () => {
 		};
 
 		expect(rendered.copyBtn).toBeInTheDocument();
-		expect(rendered.copyBtn).toHaveClass(compNames.copyBtn, compClass.children);
+		expect(rendered.copyBtn).toHaveClass(compNames.copyBtn, classNames.children);
 		expect(rendered.copyBtn).toHaveAttribute('data-clipboard-text', char);
 		expect(rendered.copyBtn).toHaveAttribute('type', 'button');
 		expect(rendered.copyBtn).toContainElement(rendered.child);
@@ -78,17 +78,17 @@ describe('CopyButton Component', () => {
 		);
 
 		// After Click Event
-		expect(rendered.copyBtn).toHaveClass(compClass.copied);
+		expect(rendered.copyBtn).toHaveClass(classNames.copied);
 		expect(rendered.copyBtn).toContainElement(rendered.icon);
-		expect(rendered.screen).toHaveClass(compClass.show);
+		expect(rendered.screen).toHaveClass(classNames.show);
 		expect(rendered.screen).toHaveTextContent(char);
 
 		await waitForDomChange({container: rendered.copyBtn});
 
 		// After Timers Run Out
-		expect(rendered.copyBtn).not.toHaveClass(compClass.copied);
+		expect(rendered.copyBtn).not.toHaveClass(classNames.copied);
 		expect(rendered.copyBtn).not.toContainElement(rendered.icon);
-		expect(rendered.screen).not.toHaveClass(compClass.show);
+		expect(rendered.screen).not.toHaveClass(classNames.show);
 		expect(rendered.icon).not.toBeInTheDocument();
 	});
 

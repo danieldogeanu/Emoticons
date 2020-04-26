@@ -12,7 +12,7 @@ const compNames = {
 	scrollUp: 'ScrollUp',
 	listItem: 'ListItem',
 };
-const compClasses = {
+const classNames = {
 	simplebar: 'simplebar-content-wrapper',
 	list: 'List',
 };
@@ -44,10 +44,10 @@ const ListContainer = () => {
 
 	return (
 		<div className={[
-				compClasses.list,
-				compClasses.simplebar,
+				classNames.list,
+				classNames.simplebar,
 			].join(' ')}
-			data-testid={compClasses.list}>
+			data-testid={classNames.list}>
 			{listItems}
 		</div>
 	);
@@ -95,7 +95,7 @@ describe('ScrollUp Component', () => {
 	it('shows button on scroll down', async () => {
 		const {getByTitle, getByTestId} = render(compShell(<ScrollUp />));
 		const renderedScrollBtn = getByTitle(scrollText);
-		const renderedList = getByTestId(compClasses.list);
+		const renderedList = getByTestId(classNames.list);
 
 		renderedList.scrollTop = 500;
 		fireEvent.scroll(renderedList);
@@ -107,7 +107,7 @@ describe('ScrollUp Component', () => {
 	it('scrolls to top on click', () => {
 		const {getByTitle, getByTestId} = render(compShell(<ScrollUp />));
 		const renderedScrollBtn = getByTitle(scrollText);
-		const renderedList = getByTestId(compClasses.list);
+		const renderedList = getByTestId(classNames.list);
 
 		setupScroll(renderedList, 500);
 
@@ -120,7 +120,7 @@ describe('ScrollUp Component', () => {
 
 	it('scrolls to top on key up', () => {
 		const {getByTestId} = render(compShell(<ScrollUp />));
-		const renderedList = getByTestId(compClasses.list);
+		const renderedList = getByTestId(classNames.list);
 
 		setupScroll(renderedList, 500);
 
