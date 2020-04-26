@@ -17,24 +17,28 @@ describe('ClearButton Element', () => {
 
 	it('has screen reader text', () => {
 		const {getByTitle, getByText} = render(<ClearButton />);
-		const renderedBtn = getByTitle(btnTitle);
-		const renderedSRTxt = getByText(btnTitle);
+		const rendered = {
+			btn: getByTitle(btnTitle),
+			srTxt: getByText(btnTitle),
+		};
 
-		expect(renderedBtn).toContainElement(renderedSRTxt);
+		expect(rendered.btn).toContainElement(rendered.srTxt);
 
-		expect(renderedSRTxt).toBeInTheDocument();
-		expect(renderedSRTxt).toHaveClass('show-for-screen-reader');
+		expect(rendered.srTxt).toBeInTheDocument();
+		expect(rendered.srTxt).toHaveClass('show-for-screen-reader');
 	});
 
 	it('has close svg icon', () => {
 		const {getByTitle, container} = render(<ClearButton />);
-		const renderedBtn = getByTitle(btnTitle);
-		const renderedSVG = container.querySelector('svg');
+		const rendered = {
+			btn: getByTitle(btnTitle),
+			svg: container.querySelector('svg'),
+		};
 
-		expect(renderedBtn).toContainElement(renderedSVG);
+		expect(rendered.btn).toContainElement(rendered.svg);
 
-		expect(renderedSVG).toBeInTheDocument();
-		expect(renderedSVG).toHaveClass('icon', 'close');
+		expect(rendered.svg).toBeInTheDocument();
+		expect(rendered.svg).toHaveClass('icon', 'close');
 	});
 
 });
