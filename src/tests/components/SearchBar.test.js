@@ -8,6 +8,10 @@ const compNames = {
 	search: 'SearchBar',
 	input: 'SearchInput',
 };
+const classNames = {
+	focused: 'focused',
+	show: 'show',
+};
 
 let currRenderer = null;
 let filterText = '';
@@ -45,14 +49,13 @@ const clearInputTest = (cbEvent, cbElement, cbOptions = {}) => {
 	};
 
 	currRenderer = rerender;
-
 	fireEvent.change(rendered.searchInput, {target: {value: testText}});
 	cbEvent(rendered[cbElement], cbOptions);
 
 	expect(filterText).toBe('');
 	expect(filterText).not.toBe(testText);
 	expect(rendered.searchInput).not.toHaveValue();
-	expect(rendered.clearBtn).not.toHaveClass('show');
+	expect(rendered.clearBtn).not.toHaveClass(classNames.show);
 	expect(handleFilterTextClear).toHaveBeenCalled();
 };
 
@@ -67,19 +70,21 @@ describe('SearchBar Component', () => {
 
 	it('renders search bar properly', () => {
 		const {getByTestId, container} = render(<SearchBar />);
-		const renderedSearch = getByTestId(compNames.search);
-		const renderedInput = getByTestId(compNames.input);
-		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
+		const rendered = {
+			search: getByTestId(compNames.search),
+			input: getByTestId(compNames.input),
+			clearBtn: container.querySelector(`.${compNames.clear}`),
+		};
 
-		expect(renderedSearch).toBeInTheDocument();
-		expect(renderedSearch).toHaveClass(compNames.search);
-		expect(renderedSearch).toContainElement(renderedInput);
-		expect(renderedSearch).toContainElement(renderedClearBtn);
-		expect(renderedSearch).toMatchSnapshot();
+		expect(rendered.search).toBeInTheDocument();
+		expect(rendered.search).toHaveClass(compNames.search);
+		expect(rendered.search).toContainElement(rendered.input);
+		expect(rendered.search).toContainElement(rendered.clearBtn);
+		expect(rendered.search).toMatchSnapshot();
 
-		expect(renderedInput).toHaveAttribute('placeholder', 'Search Emoticons...');
-		expect(renderedInput).toHaveAttribute('type', 'text');
-		expect(renderedInput).not.toHaveValue();
+		expect(rendered.input).toHaveAttribute('placeholder', 'Search Emoticons...');
+		expect(rendered.input).toHaveAttribute('type', 'text');
+		expect(rendered.input).not.toHaveValue();
 	});
 
 	it('selects search input on \'s\' key up', () => {
@@ -91,7 +96,7 @@ describe('SearchBar Component', () => {
 			keyCode: 83, charCode: 83
 		});
 
-		expect(renderedInput).toHaveClass('focused');
+		expect(renderedInput).toHaveClass(classNames.focused);
 	});
 
 	it('handles focus and blur events', () => {
@@ -99,26 +104,27 @@ describe('SearchBar Component', () => {
 		const renderedInput = getByTestId(compNames.input);
 
 		fireEvent.focus(renderedInput);
-		expect(renderedInput).toHaveClass('focused');
+		expect(renderedInput).toHaveClass(classNames.focused);
 
 		fireEvent.blur(renderedInput);
-		expect(renderedInput).not.toHaveClass('focused');
+		expect(renderedInput).not.toHaveClass(classNames.focused);
 	});
 
 	it('handles filter text change', () => {
 		const {getByTestId, container, rerender} = render(searchBarWithProps(
 			filterText, handleFilterTextChange, handleFilterTextClear
 		));
-		const renderedInput = getByTestId(compNames.input);
-		const renderedClearBtn = container.querySelector(`.${compNames.clear}`);
+		const rendered = {
+			input: getByTestId(compNames.input),
+			clearBtn: container.querySelector(`.${compNames.clear}`),
+		};
 
 		currRenderer = rerender;
-
-		fireEvent.change(renderedInput, {target: {value: testText}});
+		fireEvent.change(rendered.input, {target: {value: testText}});
 
 		expect(filterText).toBe(testText);
-		expect(renderedInput).toHaveValue(testText);
-		expect(renderedClearBtn).toHaveClass('show');
+		expect(rendered.input).toHaveValue(testText);
+		expect(rendered.clearBtn).toHaveClass(classNames.show);
 		expect(handleFilterTextChange).toHaveBeenCalled();
 	});
 
