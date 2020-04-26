@@ -1,32 +1,41 @@
 import React from 'react';
-import {render, fireEvent, cleanup} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import ShortcutsButton from '../../components/ShortcutsButton';
 
 const btnTitle = 'Keyboard Shortcuts';
 const compNames = {
 	button: 'ShortcutsButton',
 	screen: 'ShortcutsScreen',
+	srText: 'ScreenReaderText',
+};
+const classNames = {
+	icon: 'icon',
+	keyboard: 'keyboard',
+	hide: 'hide',
+	show: 'show',
+	animated: 'animated',
+	fadeIn: 'fadeIn',
 };
 
 describe('ShortcutsButton Component', () => {
 
-	afterEach(cleanup);
-
 	it('renders shortcuts button properly', () => {
 		const {getByTitle, getByTestId, container} = render(<ShortcutsButton />);
-		const renderedBtn = getByTitle(btnTitle);
-		const renderedSRText = getByTestId('ScreenReaderText');
-		const renderedIcon = container.querySelector('svg');
+		const rendered = {
+			btn: getByTitle(btnTitle),
+			srText: getByTestId(compNames.srText),
+			icon: container.querySelector('svg'),
+		};
 
-		expect(renderedBtn).toBeInTheDocument();
-		expect(renderedBtn).toHaveClass(compNames.button);
-		expect(renderedBtn).toHaveAttribute('title', btnTitle);
-		expect(renderedBtn).toContainElement(renderedSRText);
-		expect(renderedBtn).toContainElement(renderedIcon);
-		expect(renderedBtn).toMatchSnapshot();
+		expect(rendered.btn).toBeInTheDocument();
+		expect(rendered.btn).toHaveClass(compNames.button);
+		expect(rendered.btn).toHaveAttribute('title', btnTitle);
+		expect(rendered.btn).toContainElement(rendered.srText);
+		expect(rendered.btn).toContainElement(rendered.icon);
+		expect(rendered.btn).toMatchSnapshot();
 
-		expect(renderedSRText).toHaveTextContent(btnTitle);
-		expect(renderedIcon).toHaveClass('icon', 'keyboard');
+		expect(rendered.srText).toHaveTextContent(btnTitle);
+		expect(rendered.icon).toHaveClass(classNames.icon, classNames.keyboard);
 	});
 
 	it('opens shortcuts screen', () => {
@@ -37,13 +46,16 @@ describe('ShortcutsButton Component', () => {
 					data-testid={compNames.screen} />
 			</div>
 		);
-		const renderedBtn = getByTitle(btnTitle);
-		const renderedScreen = getByTestId(compNames.screen);
+		const rendered = {
+			btn: getByTitle(btnTitle),
+			screen: getByTestId(compNames.screen),
+		};
 
-		fireEvent.click(renderedBtn);
+		fireEvent.click(rendered.btn);
 
-		expect(renderedBtn).toHaveClass(compNames.button, 'hide');
-		expect(renderedScreen).toHaveClass(compNames.screen, 'animated', 'fadeIn', 'show');
+		expect(rendered.btn).toHaveClass(compNames.button, classNames.hide);
+		expect(rendered.screen).toHaveClass(compNames.screen, classNames.animated,
+			classNames.fadeIn, classNames.show);
 	});
 
 });
