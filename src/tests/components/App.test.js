@@ -56,6 +56,7 @@ const compNames = {
 	search: {
 		bar: 'SearchBar',
 		input: 'SearchInput',
+		clear: 'ClearButton',
 	},
 	list: {
 		container: 'ListContainer',
@@ -118,9 +119,23 @@ describe('App Component', () => {
 			listItems: getAllByTestId(compNames.list.item.desktop),
 		};
 
-		expect(rendered.searchInput.value).toBe(testFilterText);
+		expect(rendered.searchInput).toHaveValue(testFilterText);
 		expect(rendered.listItems.length).toBe(1);
 		expect(rendered.listItems[0]).toHaveTextContent(testFilterText);
+	});
+
+	it('handles filter text clear', async () => {
+		const {getByTestId, getAllByTestId, container} = render(<App />);
+
+		await userEvent.type(getByTestId(compNames.search.input), testFilterText);
+		userEvent.click(container.querySelector(`.${compNames.search.clear}`));
+		const rendered = {
+			searchInput: getByTestId(compNames.search.input),
+			listItems: getAllByTestId(compNames.list.item.desktop),
+		};
+
+		expect(rendered.searchInput).not.toHaveValue(testFilterText);
+		expect(rendered.listItems.length).toBeGreaterThan(1);
 	});
 
 });
