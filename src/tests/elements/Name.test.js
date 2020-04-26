@@ -2,10 +2,11 @@ import React from 'react';
 import {render} from '@testing-library/react';
 import Name from '../../elements/Name';
 
+const testName = 'Test Emoticon Name';
+
 describe('Name Element', () => {
 
 	it('renders emoticon name properly', () => {
-		const testName = 'Test Emoticon Name';
 		const {getByText} = render(<Name name={testName} />);
 		const renderedName = getByText(testName);
 
