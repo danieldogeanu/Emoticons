@@ -1,0 +1,547 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component renders app properly 1`] = `
+<div
+  class="App"
+  data-testid="App"
+>
+  <div
+    class="IconsSprite"
+    data-testid="IconsSprite"
+    style="display: none;"
+  >
+    <svg>
+      icons.svg
+    </svg>
+  </div>
+  <div
+    class="TopBar"
+    data-testid="TopBar"
+  >
+    <div
+      class="wrapper"
+    >
+      <form
+        class="SearchBar"
+        data-testid="SearchBar"
+      >
+        <input
+          data-testid="SearchInput"
+          placeholder="Search Emoticons..."
+          type="text"
+          value=""
+        />
+        <button
+          class="ClearButton"
+          title="Clear Input"
+        >
+          <span
+            class="show-for-screen-reader"
+            data-testid="ScreenReaderText"
+          >
+            Clear Input
+          </span>
+          <svg
+            class="icon close"
+          >
+            <use
+              xlink:href="#close"
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    class="ListContainer"
+    data-testid="ListContainer"
+  >
+    <div
+      class="List"
+      data-simplebar="init"
+      data-testid="List"
+    >
+      <div
+        class="simplebar-wrapper"
+      >
+        <div
+          class="simplebar-height-auto-observer-wrapper"
+        >
+          <div
+            class="simplebar-height-auto-observer"
+          />
+        </div>
+        <div
+          class="simplebar-mask"
+        >
+          <div
+            class="simplebar-offset"
+            style="right: 0px; bottom: 0px;"
+          >
+            <div
+              class="simplebar-content-wrapper"
+              style="height: auto; overflow-x: hidden; overflow-y: hidden;"
+            >
+              <div
+                class="simplebar-content"
+              >
+                <div
+                  class="innerWrapper"
+                >
+                  <div
+                    class="Labels"
+                    data-testid="Labels"
+                  >
+                    <span
+                      class="Label face"
+                    >
+                      Face
+                    </span>
+                    <span
+                      class="Label name"
+                    >
+                      Emoticon Name
+                    </span>
+                    <span
+                      class="Label copy"
+                    >
+                      Get
+                    </span>
+                  </div>
+                  <ul
+                    data-testid="listUl"
+                    style="padding-top: 0px; height: 250px;"
+                  >
+                    <li
+                      class="DesktopListItem"
+                      data-testid="DesktopListItem"
+                    >
+                      <span
+                        aria-label="grinning face"
+                        class="Emoticon"
+                        role="img"
+                      >
+                        😀
+                      </span>
+                      <span
+                        class="Name"
+                      >
+                        grinning face
+                      </span>
+                      <span
+                        class="Copy"
+                        title="Copy the emoticon and paste it where you need it."
+                      >
+                        <button
+                          class="CopyButton undefined"
+                          data-clipboard-text="😀"
+                          data-testid="CopyButton"
+                          title=""
+                          type="button"
+                        >
+                          Copy
+                        </button>
+                      </span>
+                    </li>
+                    <li
+                      class="DesktopListItem"
+                      data-testid="DesktopListItem"
+                    >
+                      <span
+                        aria-label="grinning face with big eyes"
+                        class="Emoticon"
+                        role="img"
+                      >
+                        😃
+                      </span>
+                      <span
+                        class="Name"
+                      >
+                        grinning face with big eyes
+                      </span>
+                      <span
+                        class="Copy"
+                        title="Copy the emoticon and paste it where you need it."
+                      >
+                        <button
+                          class="CopyButton undefined"
+                          data-clipboard-text="😃"
+                          data-testid="CopyButton"
+                          title=""
+                          type="button"
+                        >
+                          Copy
+                        </button>
+                      </span>
+                    </li>
+                    <li
+                      class="DesktopListItem"
+                      data-testid="DesktopListItem"
+                    >
+                      <span
+                        aria-label="grinning face with smiling eyes"
+                        class="Emoticon"
+                        role="img"
+                      >
+                        😄
+                      </span>
+                      <span
+                        class="Name"
+                      >
+                        grinning face with smiling eyes
+                      </span>
+                      <span
+                        class="Copy"
+                        title="Copy the emoticon and paste it where you need it."
+                      >
+                        <button
+                          class="CopyButton undefined"
+                          data-clipboard-text="😄"
+                          data-testid="CopyButton"
+                          title=""
+                          type="button"
+                        >
+                          Copy
+                        </button>
+                      </span>
+                    </li>
+                    <li
+                      class="DesktopListItem"
+                      data-testid="DesktopListItem"
+                    >
+                      <span
+                        aria-label="beaming face with smiling eyes"
+                        class="Emoticon"
+                        role="img"
+                      >
+                        😁
+                      </span>
+                      <span
+                        class="Name"
+                      >
+                        beaming face with smiling eyes
+                      </span>
+                      <span
+                        class="Copy"
+                        title="Copy the emoticon and paste it where you need it."
+                      >
+                        <button
+                          class="CopyButton undefined"
+                          data-clipboard-text="😁"
+                          data-testid="CopyButton"
+                          title=""
+                          type="button"
+                        >
+                          Copy
+                        </button>
+                      </span>
+                    </li>
+                    <li
+                      class="DesktopListItem"
+                      data-testid="DesktopListItem"
+                    >
+                      <span
+                        aria-label="grinning squinting face"
+                        class="Emoticon"
+                        role="img"
+                      >
+                        😆
+                      </span>
+                      <span
+                        class="Name"
+                      >
+                        grinning squinting face
+                      </span>
+                      <span
+                        class="Copy"
+                        title="Copy the emoticon and paste it where you need it."
+                      >
+                        <button
+                          class="CopyButton undefined"
+                          data-clipboard-text="😆"
+                          data-testid="CopyButton"
+                          title=""
+                          type="button"
+                        >
+                          Copy
+                        </button>
+                      </span>
+                    </li>
+                  </ul>
+                  <footer
+                    class="Footer"
+                    data-testid="Footer"
+                  >
+                    <p
+                      class="author"
+                      data-testid="author"
+                    >
+                      By: 
+                      <a
+                        data-testid="Link"
+                        href="https://danieldogeanu.com"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Daniel Dogeanu
+                      </a>
+                    </p>
+                    <p
+                      class="mynets"
+                      data-testid="mynets"
+                    >
+                      <span
+                        class="folw"
+                      >
+                        Follow Me: 
+                      </span>
+                      <span
+                        class="wrapper"
+                        data-testid="wrapper"
+                      >
+                        <a
+                          data-testid="Link"
+                          href="https://twitter.com/danieldogeanu"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <span
+                            class="mynet"
+                            data-testid="mynet"
+                          >
+                            <span
+                              class="show-for-screen-reader"
+                              data-testid="ScreenReaderText"
+                            >
+                              Twitter
+                            </span>
+                            <svg
+                              class="icon twitter"
+                            >
+                              <use
+                                xlink:href="#twitter"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                        <a
+                          data-testid="Link"
+                          href="https://github.com/danieldogeanu"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <span
+                            class="mynet"
+                            data-testid="mynet"
+                          >
+                            <span
+                              class="show-for-screen-reader"
+                              data-testid="ScreenReaderText"
+                            >
+                              GitHub
+                            </span>
+                            <svg
+                              class="icon github"
+                            >
+                              <use
+                                xlink:href="#github"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                        <a
+                          data-testid="Link"
+                          href="https://www.linkedin.com/in/danieldogeanu/"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <span
+                            class="mynet"
+                            data-testid="mynet"
+                          >
+                            <span
+                              class="show-for-screen-reader"
+                              data-testid="ScreenReaderText"
+                            >
+                              LinkedIn
+                            </span>
+                            <svg
+                              class="icon linkedin"
+                            >
+                              <use
+                                xlink:href="#linkedin"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                        <a
+                          data-testid="Link"
+                          href="https://behance.net/danieldogeanu"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <span
+                            class="mynet"
+                            data-testid="mynet"
+                          >
+                            <span
+                              class="show-for-screen-reader"
+                              data-testid="ScreenReaderText"
+                            >
+                              Behance
+                            </span>
+                            <svg
+                              class="icon behance"
+                            >
+                              <use
+                                xlink:href="#behance"
+                              />
+                            </svg>
+                          </span>
+                        </a>
+                      </span>
+                    </p>
+                  </footer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="simplebar-placeholder"
+          style="width: 0px; height: 0px;"
+        />
+      </div>
+      <div
+        class="simplebar-track simplebar-horizontal"
+        style="visibility: hidden;"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="width: 0px; display: none;"
+        />
+      </div>
+      <div
+        class="simplebar-track simplebar-vertical"
+        style="visibility: hidden;"
+      >
+        <div
+          class="simplebar-scrollbar"
+          style="height: 0px; display: none;"
+        />
+      </div>
+    </div>
+  </div>
+  <button
+    class="ScrollUp"
+    title="Scroll Back Up"
+  >
+    <span
+      class="show-for-screen-reader"
+      data-testid="ScreenReaderText"
+    >
+      Scroll Back Up
+    </span>
+    <svg
+      class="icon chevron-up"
+    >
+      <use
+        xlink:href="#chevron-up"
+      />
+    </svg>
+  </button>
+  <button
+    class="ShortcutsButton"
+    title="Keyboard Shortcuts"
+  >
+    <span
+      class="show-for-screen-reader"
+      data-testid="ScreenReaderText"
+    >
+      Keyboard Shortcuts
+    </span>
+    <svg
+      class="icon keyboard"
+    >
+      <use
+        xlink:href="#keyboard"
+      />
+    </svg>
+  </button>
+  <div
+    class="ShortcutsScreen"
+    data-testid="ShortcutsScreen"
+  >
+    <div
+      class="shortcutsContainer"
+      data-testid="shortcutsContainer"
+    >
+      <span
+        class="shortcutsTitle"
+        data-testid="shortcutsTitle"
+      >
+        Keyboard Shortcuts
+      </span>
+      <ul
+        class="shortcutsList"
+        data-testid="shortcutsList"
+      >
+        <li
+          data-testid="shortcutsKey"
+        >
+          <kbd>
+            s
+          </kbd>
+          Selects Search Input
+        </li>
+        <li
+          data-testid="shortcutsKey"
+        >
+          <kbd>
+            esc
+          </kbd>
+          Clears Search Input / Exits Menu
+        </li>
+        <li
+          data-testid="shortcutsKey"
+        >
+          <kbd>
+            k
+          </kbd>
+          Opens Keyboard Shortcuts Screen
+        </li>
+        <li
+          data-testid="shortcutsKey"
+        >
+          <kbd>
+            t
+          </kbd>
+          Scrolls Back Up
+        </li>
+      </ul>
+      <button
+        class="ShortcutsClose"
+        title="Close Shortcuts Screen"
+      >
+        <span
+          class="show-for-screen-reader"
+          data-testid="ScreenReaderText"
+        >
+          Close Shortcuts Screen
+        </span>
+        <svg
+          class="icon close"
+        >
+          <use
+            xlink:href="#close"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    class="SelectedScreen"
+    data-testid="SelectedScreen"
+  />
+</div>
+`;
