@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from '../../components/App';
 
 jest.mock('../../emoji.json', () => [{
@@ -46,6 +47,7 @@ const testEmoji = [
 	{	"char": "😁", "name": "beaming face with smiling eyes"},
 	{	"char": "😆", "name": "grinning squinting face"}
 ];
+const testFilterText = 'beaming';
 
 const compNames = {
 	app: 'App',
@@ -105,6 +107,24 @@ describe('App Component', () => {
 			expect(item).toHaveTextContent(testEmoji[i].char);
 			expect(item).toHaveTextContent(testEmoji[i].name);
 		});
+	});
+
+	it('handles filter text change', async () => {
+		const {getByTestId, getAllByTestId} = render(<App />);
+		const rendered = {
+			searchInput: getByTestId(compNames.search.input),
+			listItems: getAllByTestId(compNames.list.item.desktop),
+		};
+
+		await userEvent.type(rendered.searchInput, testFilterText);
+		const reRendered = {
+			searchInput: getByTestId(compNames.search.input),
+			listItems: getAllByTestId(compNames.list.item.desktop),
+		};
+
+		expect(reRendered.searchInput.value).toBe(testFilterText);
+		expect(reRendered.listItems.length).toBe(1);
+		expect(reRendered.listItems[0]).toHaveTextContent(testFilterText);
 	});
 
 });
