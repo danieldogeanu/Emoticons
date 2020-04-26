@@ -14,15 +14,25 @@ const testEmoticon = {
 	"subgroup": "face-smiling"
 };
 const {char} = testEmoticon;
+const compNames = {
+	copyBtn: 'CopyButton',
+	screen: 'SelectedScreen',
+};
+const compClass = {
+	undefined: 'undefined',
+	children: 'children',
+	copied: 'copied',
+	show: 'show',
+};
 
 describe('CopyButton Component', () => {
 
 	it('renders copy button properly', () => {
 		const {getByTestId} = render(<CopyButton data={char} />);
-		const renderedCopyBtn = getByTestId('CopyButton');
+		const renderedCopyBtn = getByTestId(compNames.copyBtn);
 
 		expect(renderedCopyBtn).toBeInTheDocument();
-		expect(renderedCopyBtn).toHaveClass('CopyButton', 'undefined');
+		expect(renderedCopyBtn).toHaveClass(compNames.copyBtn, compClass.undefined);
 		expect(renderedCopyBtn).toHaveAttribute('data-clipboard-text', char);
 		expect(renderedCopyBtn).toHaveAttribute('type', 'button');
 		expect(renderedCopyBtn).toHaveTextContent('Copy');
@@ -31,51 +41,55 @@ describe('CopyButton Component', () => {
 
 	it('renders copy button with children properly', () => {
 		const {getByTestId} = render(
-			<CopyButton data={char} className="children">
+			<CopyButton data={char} className={compClass.children}>
 				<div data-testid="child">{char}</div>
 			</CopyButton>
 		);
-		const renderedCopyBtn = getByTestId('CopyButton');
-		const renderedChild = getByTestId('child');
+		const rendered = {
+			copyBtn: getByTestId(compNames.copyBtn),
+			child: getByTestId('child'),
+		};
 
-		expect(renderedCopyBtn).toBeInTheDocument();
-		expect(renderedCopyBtn).toHaveClass('CopyButton', 'children');
-		expect(renderedCopyBtn).toHaveAttribute('data-clipboard-text', char);
-		expect(renderedCopyBtn).toHaveAttribute('type', 'button');
-		expect(renderedCopyBtn).toContainElement(renderedChild);
-		expect(renderedCopyBtn).toMatchSnapshot();
-		expect(renderedChild).toHaveTextContent(char);
+		expect(rendered.copyBtn).toBeInTheDocument();
+		expect(rendered.copyBtn).toHaveClass(compNames.copyBtn, compClass.children);
+		expect(rendered.copyBtn).toHaveAttribute('data-clipboard-text', char);
+		expect(rendered.copyBtn).toHaveAttribute('type', 'button');
+		expect(rendered.copyBtn).toContainElement(rendered.child);
+		expect(rendered.copyBtn).toMatchSnapshot();
+		expect(rendered.child).toHaveTextContent(char);
 	});
 
 	it('copies data to clipboard', async () => {
 		const {getByTestId, container} = render(
 			<div>
 				<CopyButton data={char} />
-				<div className="SelectedScreen"></div>
+				<div className={compNames.screen}></div>
 			</div>
 		);
-		const renderedCopyBtn = getByTestId('CopyButton');
-		const renderedScreen = container.querySelector('.SelectedScreen');
+		const rendered = {
+			copyBtn: getByTestId(compNames.copyBtn),
+			screen: container.querySelector(`.${compNames.screen}`),
+		};
 
-		fireEvent.click(renderedCopyBtn);
-		const renderedIcon = await waitForElement(
+		fireEvent.click(rendered.copyBtn);
+		rendered.icon = await waitForElement(
 			() => container.querySelector('svg'),
 			{container}
 		);
 
 		// After Click Event
-		expect(renderedCopyBtn).toHaveClass('copied');
-		expect(renderedCopyBtn).toContainElement(renderedIcon);
-		expect(renderedScreen).toHaveClass('show');
-		expect(renderedScreen).toHaveTextContent(char);
+		expect(rendered.copyBtn).toHaveClass(compClass.copied);
+		expect(rendered.copyBtn).toContainElement(rendered.icon);
+		expect(rendered.screen).toHaveClass(compClass.show);
+		expect(rendered.screen).toHaveTextContent(char);
 
-		await waitForDomChange({container: renderedCopyBtn});
+		await waitForDomChange({container: rendered.copyBtn});
 
 		// After Timers Run Out
-		expect(renderedCopyBtn).not.toHaveClass('copied');
-		expect(renderedCopyBtn).not.toContainElement(renderedIcon);
-		expect(renderedScreen).not.toHaveClass('show');
-		expect(renderedIcon).not.toBeInTheDocument();
+		expect(rendered.copyBtn).not.toHaveClass(compClass.copied);
+		expect(rendered.copyBtn).not.toContainElement(rendered.icon);
+		expect(rendered.screen).not.toHaveClass(compClass.show);
+		expect(rendered.icon).not.toBeInTheDocument();
 	});
 
 });
