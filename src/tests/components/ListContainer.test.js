@@ -53,20 +53,6 @@ const compNames = {
 	footer: 'Footer',
 };
 const classNames = {
-	simplebar: {
-		wrapper: 'simplebar-wrapper',
-		observer: 'simplebar-height-auto-observer',
-		observerWrapper: 'simplebar-height-auto-observer-wrapper',
-		mask: 'simplebar-mask',
-		offset: 'simplebar-offset',
-		content: 'simplebar-content',
-		contentWrapper: 'simplebar-content-wrapper',
-		placeholder: 'simplebar-placeholder',
-		track: 'simplebar-track',
-		scrollbar: 'simplebar-scrollbar',
-		horizontal: 'simplebar-horizontal',
-		vertical: 'simplebar-vertical',
-	},
 	innerWrapper: 'innerWrapper',
 	listUl: 'listUl',
 };
