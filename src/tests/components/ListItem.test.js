@@ -10,51 +10,68 @@ const testEmoticon = {
 	"group": "Smileys & Emotion",
 	"subgroup": "face-smiling"
 };
+const compNames = {
+	list: {
+		desktop: 'DesktopListItem',
+		mobile: 'MobileListItem',
+	},
+	emoticon: 'Emoticon',
+	name: 'Name',
+	copyBtn: 'CopyButton',
+};
+const classNames = {
+	card: 'mobileCard',
+	ripple: 'ripple',
+};
 
 describe('ListItem Component', () => {
 
 	it('renders desktop list item properly', () => {
 		const {getByTestId, container} = render(<ListItem type="desktop" data={testEmoticon} />);
-		const renderedItem = getByTestId('DesktopListItem');
-		const renderedEmoticon = container.querySelector('.Emoticon');
-		const renderedName = container.querySelector('.Name');
-		const renderedCopyBtn = container.querySelector('.CopyButton');
+		const rendered = {
+			item: getByTestId(compNames.list.desktop),
+			emoticon: container.querySelector(`.${compNames.emoticon}`),
+			name: container.querySelector(`.${compNames.name}`),
+			copyBtn: container.querySelector(`.${compNames.copyBtn}`),
+		};
 
-		expect(renderedItem).toBeInTheDocument();
-		expect(renderedItem).toHaveClass('DesktopListItem');
-		expect(renderedItem).toContainElement(renderedEmoticon);
-		expect(renderedItem).toContainElement(renderedName);
-		expect(renderedItem).toContainElement(renderedCopyBtn);
-		expect(renderedItem).toMatchSnapshot();
+		expect(rendered.item).toBeInTheDocument();
+		expect(rendered.item).toHaveClass(compNames.list.desktop);
+		expect(rendered.item).toContainElement(rendered.emoticon);
+		expect(rendered.item).toContainElement(rendered.name);
+		expect(rendered.item).toContainElement(rendered.copyBtn);
+		expect(rendered.item).toMatchSnapshot();
 
-		expect(renderedEmoticon).toHaveTextContent(testEmoticon.char);
-		expect(renderedEmoticon).toHaveAttribute('aria-label', testEmoticon.name);
-		expect(renderedName).toHaveTextContent(testEmoticon.name);
-		expect(renderedCopyBtn).toHaveAttribute('data-clipboard-text', testEmoticon.char);
+		expect(rendered.emoticon).toHaveTextContent(testEmoticon.char);
+		expect(rendered.emoticon).toHaveAttribute('aria-label', testEmoticon.name);
+		expect(rendered.name).toHaveTextContent(testEmoticon.name);
+		expect(rendered.copyBtn).toHaveAttribute('data-clipboard-text', testEmoticon.char);
 	});
 
 	it('renders mobile list item properly', () => {
 		const {getByTestId, container} = render(<ListItem type="mobile" data={testEmoticon} />);
-		const renderedItem = getByTestId('MobileListItem');
-		const renderedCopyBtn = container.querySelector('.CopyButton');
-		const renderedName = container.querySelector('.Name');
-		const renderedEmoticon = container.querySelector('.Emoticon');
+		const rendered = {
+			item: getByTestId(compNames.list.mobile),
+			copyBtn: container.querySelector(`.${compNames.copyBtn}`),
+			name: container.querySelector(`.${compNames.name}`),
+			emoticon: container.querySelector(`.${compNames.emoticon}`),
+		};
 
-		expect(renderedItem).toBeInTheDocument();
-		expect(renderedItem).toHaveClass('MobileListItem');
-		expect(renderedItem).toContainElement(renderedCopyBtn);
-		expect(renderedItem).toContainElement(renderedName);
-		expect(renderedItem).toContainElement(renderedEmoticon);
-		expect(renderedItem).toMatchSnapshot();
+		expect(rendered.item).toBeInTheDocument();
+		expect(rendered.item).toHaveClass(compNames.list.mobile);
+		expect(rendered.item).toContainElement(rendered.copyBtn);
+		expect(rendered.item).toContainElement(rendered.name);
+		expect(rendered.item).toContainElement(rendered.emoticon);
+		expect(rendered.item).toMatchSnapshot();
 
-		expect(renderedCopyBtn).toHaveAttribute('data-clipboard-text', testEmoticon.char);
-		expect(renderedCopyBtn).toHaveClass('mobileCard', 'ripple');
-		expect(renderedCopyBtn).toContainElement(renderedName);
-		expect(renderedCopyBtn).toContainElement(renderedEmoticon);
+		expect(rendered.copyBtn).toHaveAttribute('data-clipboard-text', testEmoticon.char);
+		expect(rendered.copyBtn).toHaveClass(classNames.card, classNames.ripple);
+		expect(rendered.copyBtn).toContainElement(rendered.name);
+		expect(rendered.copyBtn).toContainElement(rendered.emoticon);
 
-		expect(renderedName).toHaveTextContent(testEmoticon.name);
-		expect(renderedEmoticon).toHaveTextContent(testEmoticon.char);
-		expect(renderedEmoticon).toHaveAttribute('aria-label', testEmoticon.name);
+		expect(rendered.name).toHaveTextContent(testEmoticon.name);
+		expect(rendered.emoticon).toHaveTextContent(testEmoticon.char);
+		expect(rendered.emoticon).toHaveAttribute('aria-label', testEmoticon.name);
 	});
 
 });
