@@ -9,6 +9,7 @@ const compNames = {
 	close: 'ShortcutsClose',
 	srText: 'ScreenReaderText',
 };
+const classesToRemove = ['show', 'animated', 'fadeIn', 'fadeOut'];
 const classNames = {
 	icon: 'icon',
 	close: 'close',
@@ -41,8 +42,6 @@ describe('ShortcutsClose Component', () => {
 	});
 
 	it('closes shortcuts screen', async () => {
-		const {show, animated, fadeIn, fadeOut} = classNames;
-		const classesToRemove = [show, animated, fadeIn, fadeOut];
 		const {getByTitle, getByTestId} = render(
 			<div data-testid="test-parent">
 				<button className={[compNames.button, classNames.hide].join(' ')}
