@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent, cleanup, waitForDomChange} from '@testing-library/react';
+import {render, fireEvent, waitForDomChange} from '@testing-library/react';
 import ShortcutsScreen from '../../components/ShortcutsScreen';
 import ShortcutsButton from '../../components/ShortcutsButton';
 import {shortcuts} from '../../details.json';
@@ -35,30 +35,30 @@ const compShell = (component) => (
 
 describe('ShortcutsScreen Component', () => {
 
-	afterEach(cleanup);
-
 	it('renders shortcuts screen properly', () => {
 		const {getByTestId, getAllByTestId} = render(compShell(<ShortcutsScreen />));
-		const renderedScreen = getByTestId(compNames.screen);
-		const renderedContainer = getByTestId(screenClasses.container);
-		const renderedTitle = getByTestId(screenClasses.title);
-		const renderedList = getByTestId(screenClasses.list);
-		const renderedKeys = getAllByTestId(screenClasses.key);
+		const rendered = {
+			screen: getByTestId(compNames.screen),
+			container: getByTestId(screenClasses.container),
+			title: getByTestId(screenClasses.title),
+			list: getByTestId(screenClasses.list),
+			keys: getAllByTestId(screenClasses.key),
+		};
 
-		expect(renderedScreen).toBeInTheDocument();
-		expect(renderedScreen).toHaveClass(compNames.screen);
-		expect(renderedScreen).toContainElement(renderedContainer);
-		expect(renderedScreen).toContainElement(renderedTitle);
-		expect(renderedScreen).toContainElement(renderedList);
-		expect(renderedScreen).toContainElement(...renderedKeys);
-		expect(renderedScreen).toMatchSnapshot();
+		expect(rendered.screen).toBeInTheDocument();
+		expect(rendered.screen).toHaveClass(compNames.screen);
+		expect(rendered.screen).toContainElement(rendered.container);
+		expect(rendered.screen).toContainElement(rendered.title);
+		expect(rendered.screen).toContainElement(rendered.list);
+		expect(rendered.screen).toContainElement(...rendered.keys);
+		expect(rendered.screen).toMatchSnapshot();
 
-		expect(renderedContainer).toHaveClass(screenClasses.container);
-		expect(renderedTitle).toHaveClass(screenClasses.title);
-		expect(renderedList).toHaveClass(screenClasses.list);
+		expect(rendered.container).toHaveClass(screenClasses.container);
+		expect(rendered.title).toHaveClass(screenClasses.title);
+		expect(rendered.list).toHaveClass(screenClasses.list);
 
-		expect(renderedTitle).toHaveTextContent(screenTitle);
-		expect(renderedKeys.length).toBe(4);
+		expect(rendered.title).toHaveTextContent(screenTitle);
+		expect(rendered.keys.length).toBe(4);
 	});
 
 	it('renders all shortcut keys properly', () => {
@@ -75,58 +75,61 @@ describe('ShortcutsScreen Component', () => {
 
 	it('opens on button click', () => {
 		const {getByTestId, container} = render(compShell(<ShortcutsScreen />));
-		const shortcutsScreen = getByTestId(compNames.screen);
-		const shortcutsButton = container.querySelector(`.${compNames.button}`);
+		const rendered = {
+			screen: getByTestId(compNames.screen),
+			button: container.querySelector(`.${compNames.button}`),
+		};
 
-		fireEvent.click(shortcutsButton);
+		fireEvent.click(rendered.button);
 
-		expect(shortcutsScreen).toHaveClass(...openClasses);
+		expect(rendered.screen).toHaveClass(...openClasses);
 	});
 
 	it('closes on button click', async () => {
 		const {getByTestId, container} = render(compShell(<ShortcutsScreen />));
-		const shortcutsScreen = getByTestId(compNames.screen);
-		const shortcutsButton = container.querySelector(`.${compNames.button}`);
-		const shortcutsClose = container.querySelector(`.${compNames.close}`);
+		const rendered = {
+			screen: getByTestId(compNames.screen),
+			button: container.querySelector(`.${compNames.button}`),
+			close: container.querySelector(`.${compNames.close}`),
+		};
 
-		fireEvent.click(shortcutsButton);
-		fireEvent.click(shortcutsClose);
-
+		fireEvent.click(rendered.button);
+		fireEvent.click(rendered.close);
 		await waitForDomChange();
 
-		expect(shortcutsScreen).not.toHaveClass('show');
+		expect(rendered.screen).not.toHaveClass('show');
 	});
 
 	it('closes on \'esc\' key press', () => {
 		const {getByTestId, container} = render(compShell(<ShortcutsScreen />));
-		const shortcutsScreen = getByTestId(compNames.screen);
-		const shortcutsButton = container.querySelector(`.${compNames.button}`);
+		const rendered = {
+			screen: getByTestId(compNames.screen),
+			button: container.querySelector(`.${compNames.button}`),
+		};
 
-		fireEvent.click(shortcutsButton);
-		fireEvent.keyUp(shortcutsScreen, {
-			key: 'Escape',
-			code: 'Escape',
-			keyCode: 27,
-			charCode: 27
+		fireEvent.click(rendered.button);
+		fireEvent.keyUp(rendered.screen, {
+			key: 'Escape', code: 'Escape',
+			keyCode: 27, charCode: 27
 		});
 
-		expect(shortcutsScreen).not.toHaveClass('show');
+		expect(rendered.screen).not.toHaveClass('show');
 	});
 
 	it('closes on \'k\' key press', () => {
 		const {getByTestId, container} = render(compShell(<ShortcutsScreen />));
-		const shortcutsScreen = getByTestId(compNames.screen);
-		const shortcutsButton = container.querySelector(`.${compNames.button}`);
+		const rendered = {
+			screen: getByTestId(compNames.screen),
+			button: container.querySelector(`.${compNames.button}`),
+		};
 
-		fireEvent.click(shortcutsButton);
-		fireEvent.keyUp(shortcutsScreen, {
-			key: 'k',
-			code: 'KeyK',
-			keyCode: 75,
-			charCode: 75
+		fireEvent.click(rendered.button);
+		fireEvent.keyUp(rendered.screen, {
+			key: 'k', code: 'KeyK',
+			keyCode: 75, charCode: 75
 		});
 
-		expect(shortcutsScreen).not.toHaveClass('show');
+		expect(rendered.screen).not.toHaveClass('show');
 	});
 
 });
