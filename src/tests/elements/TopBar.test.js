@@ -2,21 +2,24 @@ import React from 'react';
 import {render} from '@testing-library/react';
 import TopBar from '../../elements/TopBar';
 
+const compNames = {topBar: 'TopBar'};
+const childText = 'TopBar Test Child';
+
 describe('TopBar Element', () => {
 
 	it('renders top bar properly', () => {
-		const testId = 'TopBar';
-		const childText = 'TopBar Test Child';
 		const {getByTestId, getByText} = render(<TopBar>{childText}</TopBar>);
-		const renderedTopBar = getByTestId(testId);
-		const renderedWrapper = getByText(childText);
+		const rendered = {
+			topBar: getByTestId(compNames.topBar),
+			wrapper: getByText(childText),
+		};
 
-		expect(renderedTopBar).toBeInTheDocument();
-		expect(renderedTopBar).toHaveClass(testId);
-		expect(renderedTopBar).toContainElement(renderedWrapper);
-		expect(renderedTopBar).toMatchSnapshot();
-		expect(renderedWrapper).toHaveTextContent(childText);
-		expect(renderedWrapper).toHaveClass('wrapper');
+		expect(rendered.topBar).toBeInTheDocument();
+		expect(rendered.topBar).toHaveClass(compNames.topBar);
+		expect(rendered.topBar).toContainElement(rendered.wrapper);
+		expect(rendered.topBar).toMatchSnapshot();
+		expect(rendered.wrapper).toHaveTextContent(childText);
+		expect(rendered.wrapper).toHaveClass('wrapper');
 	});
 
 });
