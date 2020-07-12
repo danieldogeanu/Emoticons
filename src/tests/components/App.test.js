@@ -3,7 +3,7 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../../components/App';
 
-jest.mock('../../emoji.json', () => [{
+jest.mock('emoji.json', () => [{
 	"codes": "1F600",
 	"char": "😀",
 	"name": "grinning face",

@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, fireEvent, waitForDomChange} from '@testing-library/react';
 import ListContainer from '../../components/ListContainer';
-import emojiJSON from '../../emoji.json';
+import emojiJSON from 'emoji.json';
 import {resizeTo} from 'window-resizeto';
 
 const testEmoticons = [{
