@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import emojiJSON from '../emoji.json'; // NOTE: Emoji List Source: https://github.com/amio/emoji.json
+import emojiJSON from 'emoji.json';
 import SearchBar from './SearchBar';
 import ListContainer from './ListContainer.js';
 import ScrollUp from './ScrollUp';
