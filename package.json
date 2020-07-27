@@ -77,7 +77,7 @@
     "test": "node scripts/test.js",
     "coverage": "node scripts/test.js --watchAll=false --coverage",
     "show-coverage": "start ./coverage/lcov-report/index.html",
-    "deploy": "npm run test -- --watchAll=false && npm run build && node scripts/deploy.js",
+    "deploy": "node scripts/test.js --watchAll=false && node scripts/build.js && node scripts/deploy.js",
     "update-emoji": "npm i --save emoji.json"
   },
   "eslintConfig": {
