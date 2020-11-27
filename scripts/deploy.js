@@ -15,5 +15,5 @@ const config = {
 };
 
 ftp.deploy(config)
-	.then(res => console.log('Deployed: ', res))
+	.then(res => console.log('Deployed: ', res.flat()))
 	.catch(err => console.error('Deploy Failed: ', err));
