@@ -1,4 +1,4 @@
-Sitemap: https://emoticons.ddev.ro/sitemap.xml
+Sitemap: https://emoticons.ddsv.eu/sitemap.xml
 
 User-agent: *
 Allow: /
