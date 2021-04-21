@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SimpleBar from 'simplebar';
+import SimpleBar from 'simplebar-react';
 import ListItem from './ListItem';
 import Footer from '../elements/Footer';
 import Labels from '../elements/Labels';
@@ -34,7 +34,6 @@ class ListContainer extends Component {
 			availableHeight: this.list.current.clientHeight,
 			emoticonsNumber: this.props.data.length,
 		});
-		new SimpleBar(this.list.current);
 	}
 
 	componentWillUnmount() {
@@ -71,9 +70,9 @@ class ListContainer extends Component {
 		return (
 			<div className="ListContainer"
 				data-testid="ListContainer">
-				<div className="List" data-testid="List"
+				<SimpleBar className="List" data-testid="List"
 					onScroll={this.handleScroll}
-					ref={this.list}>
+					scrollableNodeProps={{ref: this.list}}>
 					<div className="innerWrapper">
 						<Labels />
 						<ul data-testid="listUl" style={{
@@ -84,7 +83,7 @@ class ListContainer extends Component {
 						</ul>
 						<Footer />
 					</div>
-				</div>
+				</SimpleBar>
 			</div>
 		);
 	}
