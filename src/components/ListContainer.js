@@ -6,6 +6,8 @@ import Labels from '../elements/Labels';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
+// FIXME: Figure out why the full list of emojis is not loaded.
+
 class ListContainer extends Component {
 	constructor(props) {
 		super(props);

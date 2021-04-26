@@ -2,6 +2,9 @@ import React from 'react';
 import {render, fireEvent, waitForDomChange, waitForElement} from '@testing-library/react';
 import CopyButton from '../../components/CopyButton';
 
+// FIXME: Fix failing test for CopyButton.
+// TODO: Replace deprecated methods for Testing Library (waitForDomChange, waitForElement).
+
 // Mock required to trigger onSuccess event on <Clipboard> component.
 document.execCommand = jest.fn(() => true);
 

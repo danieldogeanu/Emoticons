@@ -20,6 +20,10 @@ const browserHandler = {
 	},
 };
 
+// FIXME: Fix how browserHandler is loaded. It should be a component, and not an object. Check WebPack error.
+// TODO: Make sure build command works properly.
+// TODO: Make sure coverage works properly.
+
 ReactDOM.render(
 	<BrowserDetection>{browserHandler}</BrowserDetection>,
 	document.getElementById('root')

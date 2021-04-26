@@ -2,6 +2,8 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import SearchBar from '../../components/SearchBar';
 
+// FIXME: Fix failing test for SearchBar.
+
 const testText = 'this is a search input test';
 const compNames = {
 	clear: 'ClearButton',
