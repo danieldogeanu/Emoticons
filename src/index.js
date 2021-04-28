@@ -5,7 +5,7 @@ import App from './components/App';
 import './styles/index.scss';
 
 const browserHandler = {
-	ie: () => false,
+	ie: () => <span></span>, // Empty Component
 	default: (browser) => <App browser={browser} />,
 };
 
@@ -13,6 +13,6 @@ const browserHandler = {
 // TODO: Make sure coverage works properly.
 
 ReactDOM.render(
-	<BrowserDetection>{browserHandler}</BrowserDetection>,
+	<BrowserDetection children={browserHandler} />,
 	document.getElementById('root')
 );
