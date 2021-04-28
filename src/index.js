@@ -6,21 +6,9 @@ import './styles/index.scss';
 
 const browserHandler = {
 	ie: () => false,
-	default: (browser) => {
-		if (browser !== 'ie') {
-			let html = document.querySelector('html').classList;
-			let browserupgrade = document.querySelector('.browserupgrade');
-			if (html.contains('ie')) {
-				html.remove('ie');
-				html.add(browser);
-				browserupgrade.remove();
-			}
-			return <App />;
-		}
-	},
+	default: (browser) => <App browser={browser} />,
 };
 
-// FIXME: Fix how browserHandler is loaded. It should be a component, and not an object. Check WebPack error.
 // TODO: Make sure build command works properly.
 // TODO: Make sure coverage works properly.
 
