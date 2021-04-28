@@ -6,22 +6,18 @@ import Labels from '../elements/Labels';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
-// FIXME: Figure out why the full list of emojis is not loaded.
-
 class ListContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			isMobile: (window.innerWidth < 481),
-			availableHeight: 0,
-			scrollTop: 0,
 			emoticonsNumber: 0,
 		}
 		this.list = React.createRef();
 	}
 
 	handleScroll = (event) => {
-		this.setState({scrollTop: event.target.scrollTop});
+		event.target.scrollTop();
 	}
 
 	handleResize = () => {
@@ -32,10 +28,7 @@ class ListContainer extends Component {
 
 	componentDidMount() {
 		window.addEventListener('resize', this.handleResize);
-		this.setState({
-			availableHeight: this.list.current.clientHeight,
-			emoticonsNumber: this.props.data.length,
-		});
+		this.setState({emoticonsNumber: this.props.data.length});
 	}
 
 	componentWillUnmount() {
@@ -44,30 +37,20 @@ class ListContainer extends Component {
 
 	render() {
 		const {data, filterText} = this.props;
-		const {isMobile, availableHeight, scrollTop} = this.state;
+		const {isMobile} = this.state;
 
 		const filteredData = data.filter(emoticon => {
 			return (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
 		});
 
-		const numRows = filteredData.length;
-		const rowHeight = isMobile ? 90 : 50;
-		const totalHeight = rowHeight * numRows;
-		const scrollBottom = scrollTop + availableHeight;
-		const startIndex = Math.max(0, Math.floor(scrollTop / rowHeight) - 40);
-		const endIndex = Math.min(numRows, Math.ceil(scrollBottom / rowHeight) + 40);
-
 		const mobileItems = [];
 		const desktopItems = [];
 
-		let index = startIndex;
-		while (index < endIndex) {
-			let emoticon = filteredData[index];
+		filteredData.forEach(emoticon => {
 			let key = emoticon.codes.split(' ').join('');
 			mobileItems.push(<ListItem type="mobile" key={key} data={emoticon} />);
 			desktopItems.push(<ListItem type="desktop" key={key} data={emoticon} />);
-			index++;
-		}
+		});
 
 		return (
 			<div className="ListContainer"
@@ -77,10 +60,7 @@ class ListContainer extends Component {
 					scrollableNodeProps={{ref: this.list}}>
 					<div className="innerWrapper">
 						<Labels />
-						<ul data-testid="listUl" style={{
-							paddingTop: (startIndex * rowHeight),
-							height: totalHeight,
-						}}>
+						<ul data-testid="listUl">
 							{isMobile ? mobileItems : desktopItems}
 						</ul>
 						<Footer />
