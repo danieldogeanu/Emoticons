@@ -1,29 +1,11 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import SimpleBar from 'simplebar-react';
 import { FixedSizeList } from 'react-window';
-import ListItem from './ListItem';
+import { DesktopListItem, MobileListItem } from './ListItem';
 import Footer from '../elements/Footer';
 import Labels from '../elements/Labels';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
-
-class DesktopListRow extends PureComponent {
-	render() {
-		const {index, style, data} = this.props;
-		const emoticon = data[index];
-
-		return <ListItem type="desktop" data={emoticon} style={style} />;
-	}
-}
-
-class MobileListRow extends PureComponent {
-	render() {
-		const {index, style, data} = this.props;
-		const emoticon = data[index];
-
-		return <ListItem type="mobile" data={emoticon} style={style} />;
-	}
-}
 
 class ListContainer extends Component {
 	constructor(props) {
@@ -90,7 +72,7 @@ class ListContainer extends Component {
 							height={totalHeight}
 							width="100%"
 						>
-							{isMobile ? MobileListRow : DesktopListRow}
+							{isMobile ? MobileListItem : DesktopListItem}
 						</FixedSizeList>
 						<Footer />
 					</div>
