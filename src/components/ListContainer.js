@@ -22,10 +22,10 @@ class ListContainer extends Component {
 		this.state = {
 			isMobile: (window.innerWidth < 481),
 			emoticonsNumber: 0,
-			mobileItems: [],
-			desktopItems: [],
 		}
 		this.list = React.createRef();
+		this.mobileItems = [];
+		this.desktopItems = [];
 	}
 
 	handleScroll = (event) => {
@@ -50,19 +50,12 @@ class ListContainer extends Component {
 
 	componentDidMount() {
 		const emoticons = this.props.data;
-		const localMobileItems = [], localDesktopItems = [];
-
 		window.addEventListener('resize', this.handleResize);
+		this.setState({emoticonsNumber: emoticons.length});
 
 		emoticons.forEach(emoticon => {
-			localMobileItems.push(<MobileListItem data={emoticon} />);
-			localDesktopItems.push(<DesktopListItem data={emoticon} />);
-		});
-
-		this.setState({
-			emoticonsNumber: emoticons.length,
-			mobileItems: localMobileItems,
-			desktopItems: localDesktopItems,
+			this.mobileItems.push(<MobileListItem data={emoticon} />);
+			this.desktopItems.push(<DesktopListItem data={emoticon} />);
 		});
 	}
 
@@ -72,10 +65,10 @@ class ListContainer extends Component {
 
 	render() {
 		const {filterText} = this.props;
-		const {isMobile, mobileItems, desktopItems} = this.state;
+		const {isMobile} = this.state;
 
-		const filteredMobileData = this.filterData(mobileItems, filterText);
-		const filteredDesktopData = this.filterData(desktopItems, filterText);
+		const filteredMobileData = this.filterData(this.mobileItems, filterText);
+		const filteredDesktopData = this.filterData(this.desktopItems, filterText);
 		const filteredData = isMobile ? filteredMobileData : filteredDesktopData;
 		const numRows = isMobile ? filteredMobileData.length : filteredDesktopData.length;
 		const rowHeight = isMobile ? 90 : 50;
