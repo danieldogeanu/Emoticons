@@ -6,36 +6,24 @@ import Copy from '../elements/Copy';
 import CopyHint from '../elements/CopyHint';
 import '../styles/components/ListItem.scss';
 
-function ListItem(props) {
-	const {data, type} = props;
-	const {char, name} = data;
+export const DesktopListItem = ({data: {char, name}, style}) => (
+	<li className="DesktopListItem" data-testid="DesktopListItem" style={style}>
+		<Emoticon char={char} name={name} />
+		<Name name={name} />
+		<Copy>
+			<CopyButton data={char} />
+		</Copy>
+	</li>
+);
 
-	switch (type) {
-		case 'desktop':
-			return (
-				<li className="DesktopListItem" data-testid="DesktopListItem">
-					<Emoticon char={char} name={name} />
-					<Name name={name} />
-					<Copy>
-						<CopyButton data={char} />
-					</Copy>
-				</li>
-			);
-		case 'mobile':
-			return (
-				<li className="MobileListItem" data-testid="MobileListItem">
-					<CopyButton data={char} className="mobileCard ripple">
-						<Name name={name} />
-						<div className="bottomBar">
-							<Emoticon char={char} name={name} />
-							<CopyHint text="Tap to Copy" />
-						</div>
-					</CopyButton>
-				</li>
-			);
-		default:
-			return false;
-	}
-}
-
-export default ListItem;
+export const MobileListItem = ({data: {char, name}, style}) => (
+	<li className="MobileListItem" data-testid="MobileListItem" style={style}>
+		<CopyButton data={char} className="mobileCard ripple">
+			<Name name={name} />
+			<div className="bottomBar">
+				<Emoticon char={char} name={name} />
+				<CopyHint text="Tap to Copy" />
+			</div>
+		</CopyButton>
+	</li>
+);

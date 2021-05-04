@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SimpleBar from 'simplebar-react';
-import ListItem from './ListItem';
+import {DesktopListItem, MobileListItem} from './ListItem';
 import Footer from '../elements/Footer';
 import Labels from '../elements/Labels';
 import '../styles/components/ListContainer.scss';
@@ -48,8 +48,8 @@ class ListContainer extends Component {
 
 		filteredData.forEach(emoticon => {
 			let key = emoticon.codes.split(' ').join('');
-			mobileItems.push(<ListItem type="mobile" key={key} data={emoticon} />);
-			desktopItems.push(<ListItem type="desktop" key={key} data={emoticon} />);
+			mobileItems.push(<MobileListItem key={key} data={emoticon} />);
+			desktopItems.push(<DesktopListItem key={key} data={emoticon} />);
 		});
 
 		return (
