@@ -12,6 +12,7 @@ class ListContainer extends Component {
 		this.state = {
 			isMobile: (window.innerWidth < 481),
 			emoticonsNumber: 0,
+			filteredData: [],
 		}
 		this.list = React.createRef();
 	}
@@ -26,9 +27,26 @@ class ListContainer extends Component {
 		}, 200);
 	}
 
+	filterData = (data, filterText) => data.filter(emoticon => {
+		return (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
+	});
+
 	componentDidMount() {
+		const {data, filterText} = this.props;
 		window.addEventListener('resize', this.handleResize);
-		this.setState({emoticonsNumber: this.props.data.length});
+		this.setState({
+			emoticonsNumber: data.length,
+			filteredData: this.filterData(data, filterText)
+		});
+	}
+
+	componentDidUpdate(prevProps) {
+		const prevFilterText = prevProps.filterText;
+		const {data, filterText} = this.props;
+
+		if (filterText !== prevFilterText) {
+			this.setState({filteredData: this.filterData(data, filterText)});
+		}
 	}
 
 	componentWillUnmount() {
@@ -36,12 +54,7 @@ class ListContainer extends Component {
 	}
 
 	render() {
-		const {data, filterText} = this.props;
-		const {isMobile} = this.state;
-
-		const filteredData = data.filter(emoticon => {
-			return (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
-		});
+		const {isMobile, filteredData} = this.state;
 
 		const mobileItems = [];
 		const desktopItems = [];
