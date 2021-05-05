@@ -11,12 +11,28 @@ class ListContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isMobile: (window.innerWidth < 481),
+			isMobile: false,
 			filteredData: [],
 			emoticonsNumber: 0,
 			listWidth: 0,
 		}
 		this.listInnerWrapperRef = React.createRef();
+	}
+
+	getMobileState = () => {
+		return (window.innerWidth < 481);
+	}
+
+	getPadding = () => {
+		let padding;
+		if (window.innerWidth < 301) padding = 20;
+		if (window.innerWidth < 481) padding = 40;
+		if (window.innerWidth >= 481) padding = 0;
+		return padding;
+	}
+
+	getListWidth = () => {
+		return (this.listInnerWrapperRef.current.offsetWidth - this.getPadding());
 	}
 
 	handleScroll = (event) => {
@@ -25,7 +41,10 @@ class ListContainer extends Component {
 
 	handleResize = () => {
 		setTimeout(() => {
-			this.setState({isMobile: (window.innerWidth < 481)});
+			this.setState({
+				isMobile: this.getMobileState(),
+				listWidth: this.getListWidth(),
+			});
 		}, 200);
 	}
 
@@ -47,7 +66,8 @@ class ListContainer extends Component {
 		window.addEventListener('resize', this.handleResize);
 		this.setState({
 			filteredData: this.filterData(data, filterText),
-			listWidth: this.listInnerWrapperRef.current.clientWidth,
+			isMobile: this.getMobileState(),
+			listWidth: this.getListWidth(),
 			emoticonsNumber: data.length,
 		});
 	}
@@ -57,7 +77,11 @@ class ListContainer extends Component {
 		const {data, filterText} = this.props;
 
 		if (filterText !== prevFilterText) {
-			this.setState({filteredData: this.filterData(data, filterText)});
+			this.setState({
+				filteredData: this.filterData(data, filterText),
+				isMobile: this.getMobileState(),
+				listWidth: this.getListWidth(),
+			});
 		}
 	}
 
