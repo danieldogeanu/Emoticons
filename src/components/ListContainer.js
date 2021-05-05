@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SimpleBar from 'simplebar-react';
+import {List} from 'react-virtualized';
 import {DesktopListItem, MobileListItem} from './ListItem';
 import Footer from '../elements/Footer';
 import Labels from '../elements/Labels';
@@ -11,10 +12,11 @@ class ListContainer extends Component {
 		super(props);
 		this.state = {
 			isMobile: (window.innerWidth < 481),
-			emoticonsNumber: 0,
 			filteredData: [],
+			emoticonsNumber: 0,
+			listWidth: 0,
 		}
-		this.list = React.createRef();
+		this.listInnerWrapperRef = React.createRef();
 	}
 
 	handleScroll = (event) => {
@@ -31,12 +33,22 @@ class ListContainer extends Component {
 		return (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
 	});
 
+	rowRenderer = ({index, style}) => {
+		const {isMobile, filteredData} = this.state;
+		const emoticon = filteredData[index];
+		const key = emoticon.codes.split(' ').join('');
+		return (isMobile) ?
+			<MobileListItem key={key} data={emoticon} style={style} /> :
+			<DesktopListItem key={key} data={emoticon} style={style} />;
+	}
+
 	componentDidMount() {
 		const {data, filterText} = this.props;
 		window.addEventListener('resize', this.handleResize);
 		this.setState({
+			filteredData: this.filterData(data, filterText),
+			listWidth: this.listInnerWrapperRef.current.clientWidth,
 			emoticonsNumber: data.length,
-			filteredData: this.filterData(data, filterText)
 		});
 	}
 
@@ -54,28 +66,25 @@ class ListContainer extends Component {
 	}
 
 	render() {
-		const {isMobile, filteredData} = this.state;
+		const {isMobile, filteredData, listWidth} = this.state;
 
-		const mobileItems = [];
-		const desktopItems = [];
-
-		filteredData.forEach(emoticon => {
-			let key = emoticon.codes.split(' ').join('');
-			mobileItems.push(<MobileListItem key={key} data={emoticon} />);
-			desktopItems.push(<DesktopListItem key={key} data={emoticon} />);
-		});
+		const numRows = filteredData.length;
+		const rowHeight = isMobile ? 90 : 50;
+		const totalHeight = rowHeight * numRows;
 
 		return (
-			<div className="ListContainer"
-				data-testid="ListContainer">
-				<SimpleBar className="List" data-testid="List"
-					onScroll={this.handleScroll}
-					scrollableNodeProps={{ref: this.list}}>
-					<div className="innerWrapper">
+			<div className="ListContainer" data-testid="ListContainer">
+				<SimpleBar className="List" data-testid="List" onScroll={this.handleScroll}>
+					<div className="innerWrapper" ref={this.listInnerWrapperRef}>
 						<Labels />
-						<ul data-testid="listUl">
-							{isMobile ? mobileItems : desktopItems}
-						</ul>
+						<List data-testid="listUl"
+							rowRenderer={this.rowRenderer}
+							rowHeight={rowHeight}
+							rowCount={numRows}
+							overscanRowCount={5}
+							width={listWidth}
+							height={totalHeight}
+						/>
 						<Footer />
 					</div>
 				</SimpleBar>
