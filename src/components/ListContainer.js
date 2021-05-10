@@ -7,14 +7,19 @@ import Labels from '../elements/Labels';
 import '../styles/components/ListContainer.scss';
 import 'simplebar/dist/simplebar.min.css';
 
+// FIXME: Fix list width problem on tablet sizes.
+// TODO: Optimize data loading and rendering.
+
 class ListContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isMobile: false,
-			filteredData: [],
 			emoticonsNumber: 0,
+			filteredData: [],
+			filteredRows: 0,
+			isMobile: false,
 			listWidth: 0,
+			rowHeight: 0,
 		}
 		this.listInnerWrapperRef = React.createRef();
 	}
@@ -35,6 +40,10 @@ class ListContainer extends Component {
 		return (this.listInnerWrapperRef.current.offsetWidth - this.getPadding());
 	}
 
+	getRowHeight = () => {
+		return this.state.isMobile ? 90 : 50;
+	}
+
 	handleScroll = (event) => {
 		event.target.scrollTop();
 	}
@@ -44,6 +53,7 @@ class ListContainer extends Component {
 			this.setState({
 				isMobile: this.getMobileState(),
 				listWidth: this.getListWidth(),
+				rowHeight: this.getRowHeight(),
 			});
 		}, 200);
 	}
@@ -64,11 +74,14 @@ class ListContainer extends Component {
 	componentDidMount() {
 		const {data, filterText} = this.props;
 		window.addEventListener('resize', this.handleResize);
+		const currFilteredData = this.filterData(data, filterText);
 		this.setState({
-			filteredData: this.filterData(data, filterText),
+			emoticonsNumber: data.length,
+			filteredData: currFilteredData,
+			filteredRows: currFilteredData.length,
 			isMobile: this.getMobileState(),
 			listWidth: this.getListWidth(),
-			emoticonsNumber: data.length,
+			rowHeight: this.getRowHeight(),
 		});
 	}
 
@@ -77,10 +90,13 @@ class ListContainer extends Component {
 		const {data, filterText} = this.props;
 
 		if (filterText !== prevFilterText) {
+			const currFilteredData = this.filterData(data, filterText);
 			this.setState({
-				filteredData: this.filterData(data, filterText),
+				filteredData: currFilteredData,
+				filteredRows: currFilteredData.length,
 				isMobile: this.getMobileState(),
 				listWidth: this.getListWidth(),
+				rowHeight: this.getRowHeight(),
 			});
 		}
 	}
@@ -90,11 +106,8 @@ class ListContainer extends Component {
 	}
 
 	render() {
-		const {isMobile, filteredData, listWidth} = this.state;
-
-		const numRows = filteredData.length;
-		const rowHeight = isMobile ? 90 : 50;
-		const totalHeight = rowHeight * numRows;
+		const {filteredRows, listWidth, rowHeight} = this.state;
+		const totalHeight = rowHeight * filteredRows;
 
 		return (
 			<div className="ListContainer" data-testid="ListContainer">
@@ -104,7 +117,7 @@ class ListContainer extends Component {
 						<List data-testid="listUl"
 							rowRenderer={this.rowRenderer}
 							rowHeight={rowHeight}
-							rowCount={numRows}
+							rowCount={filteredRows}
 							overscanRowCount={5}
 							width={listWidth}
 							height={totalHeight}
