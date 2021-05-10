@@ -70,7 +70,7 @@ class ListContainer extends Component {
 	}
 
 	filterData = (data, filterText) => data.filter(emoticon => {
-		return (emoticon.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
+		return emoticon.name.toLowerCase().includes(filterText.toLowerCase());
 	});
 
 	rowRenderer = ({index, style}) => {
