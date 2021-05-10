@@ -44,17 +44,28 @@ class ListContainer extends Component {
 		return this.state.isMobile ? 90 : 50;
 	}
 
+	getFilteredData = () => {
+		const {data, filterText} = this.props;
+		const currFilteredData = this.filterData(data, filterText);
+		return {
+			filteredData: currFilteredData,
+			filteredRows: currFilteredData.length,
+		};
+	}
+
+	computeProperties = () => ({
+		isMobile: this.getMobileState(),
+		listWidth: this.getListWidth(),
+		rowHeight: this.getRowHeight(),
+	});
+
 	handleScroll = (event) => {
 		event.target.scrollTop();
 	}
 
 	handleResize = () => {
 		setTimeout(() => {
-			this.setState({
-				isMobile: this.getMobileState(),
-				listWidth: this.getListWidth(),
-				rowHeight: this.getRowHeight(),
-			});
+			this.setState(...this.computeProperties());
 		}, 200);
 	}
 
@@ -72,31 +83,22 @@ class ListContainer extends Component {
 	}
 
 	componentDidMount() {
-		const {data, filterText} = this.props;
 		window.addEventListener('resize', this.handleResize);
-		const currFilteredData = this.filterData(data, filterText);
 		this.setState({
-			emoticonsNumber: data.length,
-			filteredData: currFilteredData,
-			filteredRows: currFilteredData.length,
-			isMobile: this.getMobileState(),
-			listWidth: this.getListWidth(),
-			rowHeight: this.getRowHeight(),
+			emoticonsNumber: this.props.data.length,
+			...this.getFilteredData(),
+			...this.computeProperties(),
 		});
 	}
 
 	componentDidUpdate(prevProps) {
 		const prevFilterText = prevProps.filterText;
-		const {data, filterText} = this.props;
+		const {filterText} = this.props;
 
 		if (filterText !== prevFilterText) {
-			const currFilteredData = this.filterData(data, filterText);
 			this.setState({
-				filteredData: currFilteredData,
-				filteredRows: currFilteredData.length,
-				isMobile: this.getMobileState(),
-				listWidth: this.getListWidth(),
-				rowHeight: this.getRowHeight(),
+				...this.getFilteredData(),
+				...this.computeProperties(),
 			});
 		}
 	}
