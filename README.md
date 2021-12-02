@@ -2,7 +2,7 @@
 
 Demo React App that allows you to search and copy Unicode Emoticons to use them in other places on the Internet or in other apps.
 
-#### Visit Live App Here: [emoticons.ddsv.eu](https://emoticons.ddsv.eu)
+#### Visit Live App Here: [old.ddsv.eu/emoticons](https://old.ddsv.eu/emoticons)
 
 ## Available Scripts
 
