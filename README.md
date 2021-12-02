@@ -1,5 +1,7 @@
 # Emoticons
 
+*NOTE: This repo is archived! You can clone it, but you won't be able to install it, because the dependencies are outdated and deprecated. As this is just a demo, I no longer have time to maintain it.*
+
 Demo React App that allows you to search and copy Unicode Emoticons to use them in other places on the Internet or in other apps.
 
 #### Visit Live App Here: [old.ddsv.eu/emoticons](https://old.ddsv.eu/emoticons)
